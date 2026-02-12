@@ -1,61 +1,75 @@
-import { useEffect, useMemo, useRef, useState } from 'react'
-import { AnimatePresence, animate, motion, useInView } from 'framer-motion'
+import { useEffect } from 'react'
 import './App.css'
 
 const profile = {
   name: 'Amrit Kumar',
-  headline: 'Amrit Kumar',
-  subtitle: '3rd Year CSE (Cyber Security) Student | Web & Security Enthusiast',
-  punchline: 'Building secure and creative web experiences with a hacker mindset.',
-  summary:
-    'Third-year B.Tech CSE (Cyber Security) student at Haldia Institute of Technology. Strong foundations in programming, web technologies, and secure systems, with a growth mindset toward software development and ML basics.',
   location: 'Kolkata, India',
+  role: '3rd Year CSE (Cyber Security) Student',
+  tagline: 'I build simple, secure, and user-friendly web experiences.',
+  degree:
+    'B.Tech in Computer Science and Engineering (Cyber Security), Haldia Institute of Technology (2023-2027)',
+  cgpa: '8.02 / 10',
+  interests: [
+    'Cybersecurity',
+    'Secure systems',
+    'Web development',
+    'Programming',
+    'Machine learning basics',
+    'Data science basics',
+  ],
   email: 'amritkum1209@gmail.com',
   phone: '+91 9508043572',
-  resume: 'https://drive.google.com/file/d/1pgDYTm0XBWvT9vqV-atukpNN6yg7A0-i/view?usp=sharing',
   linkedin: 'https://linkedin.com/in/amrit-kumar',
   github: 'https://github.com/amritkum1209',
+  resume: 'https://drive.google.com/file/d/1pgDYTm0XBWvT9vqV-atukpNN6yg7A0-i/view?usp=sharing',
 }
 
-const roles = [
-  'Cybersecurity Learner',
-  'Web Security Enthusiast',
-  'Machine Learning Explorer',
+const projects = [
+  {
+    title: 'Weather Detecting Website',
+    description:
+      'Real-time weather dashboard with WeatherAPI.com integration and geolocation support.',
+    stack: ['HTML', 'CSS', 'JavaScript'],
+    highlights: [
+      'Async/await Fetch API with error handling',
+      'Location-based detection via Geolocation',
+      'Temperature in Celsius + AQI display',
+    ],
+    github: '#',
+  },
+  {
+    title: 'CipherX - Password Encrypter/Decrypter',
+    description:
+      'CLI tool with encryption/decryption modes that reinforces cybersecurity fundamentals.',
+    stack: ['Python'],
+    highlights: [
+      'Input validation with safe prompts',
+      'String transformations for encryption/decryption',
+      'Focus on data protection concepts',
+    ],
+    github: '#',
+  },
+  {
+    title: 'ML-based Prediction Model',
+    description:
+      'Supervised learning pipeline with preprocessing, evaluation, and baseline analysis.',
+    stack: ['Python', 'Pandas', 'Scikit-learn'],
+    highlights: [
+      'Train-test split with evaluation metrics',
+      'Feature engineering and baseline modeling',
+      'Explainability notes for model decisions',
+    ],
+    github: '#',
+  },
 ]
 
-const quickStats = [
-  { label: 'CGPA', value: 8, suffix: '.02/10' },
-  { label: 'Leadership Roles', value: 3, suffix: '' },
-  { label: 'Security Projects', value: 4, suffix: '+' },
-  { label: 'Certifications', value: 4, suffix: '' },
-]
-
-const skillHighlights = [
+const skills = [
   {
-    label: 'Security Foundations',
-    value: 78,
-  },
-  {
-    label: 'Web Development',
-    value: 80,
-  },
-  {
-    label: 'Machine Learning Basics',
-    value: 72,
-  },
-  {
-    label: 'Problem Solving',
-    value: 82,
-  },
-]
-
-const skillGroups = [
-  {
-    title: 'Programming Languages',
+    title: 'Programming',
     items: ['C', 'Python', 'Java', 'JavaScript'],
   },
   {
-    title: 'Web Technologies',
+    title: 'Web',
     items: ['HTML5', 'CSS3'],
   },
   {
@@ -63,22 +77,22 @@ const skillGroups = [
     items: ['React.js'],
   },
   {
-    title: 'ML Algorithms',
+    title: 'Machine Learning (Basics)',
     items: [
       'Linear Regression',
       'Logistic Regression',
       'Decision Trees',
       'Random Forest',
       'KNN',
-      'Content-Based Recommendation',
+      'Content-Based Recommendation Systems',
     ],
   },
   {
-    title: 'Data Science Tools',
+    title: 'Data Tools',
     items: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-learn'],
   },
   {
-    title: 'Tools and Technologies',
+    title: 'Tools and Platforms',
     items: ['Git', 'GitHub', 'Database Management'],
   },
   {
@@ -87,848 +101,317 @@ const skillGroups = [
   },
 ]
 
-const projects = [
-  {
-    title: 'Weather Detection Website',
-    description:
-      'Real-time weather dashboard with location-aware insights and resilient API handling.',
-    highlights: [
-      'WeatherAPI.com integration using async/await Fetch API',
-      'Geolocation-based weather detection',
-      'Temperature (Celsius) + AQI visualization with error handling',
-    ],
-    stack: ['HTML', 'CSS', 'JavaScript'],
-    category: 'Web',
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'CipherX - Password Encrypter/Decrypter',
-    description:
-      'CLI tool that reinforces cybersecurity fundamentals through simple cryptographic transformations.',
-    highlights: [
-      'Encryption and decryption modes with input validation',
-      'Interactive prompts built for usability and safe handling',
-      'Focus on data protection concepts and secure habits',
-    ],
-    stack: ['Python', 'Crypto'],
-    category: 'Security',
-    github: '#',
-    demo: '#',
-  },
-  {
-    title: 'ML-based Prediction Model',
-    description:
-      'Supervised learning pipeline with feature engineering, evaluation metrics, and model review.',
-    highlights: [
-      'Data preprocessing and train-test evaluation',
-      'Metrics tracking and confusion matrix review',
-      'Focused on explainability and reliable baselines',
-    ],
-    stack: ['Python', 'Scikit-learn', 'Pandas'],
-    category: 'ML',
-    github: '#',
-    demo: '#',
-  },
-]
-
-const education = {
-  title: 'Haldia Institute of Technology',
-  subtitle: 'B.Tech in Computer Science and Engineering (Cyber Security)',
-  timeline: '2023 - 2027',
-  coursework: [
-    'Data Structures and Algorithms',
-    'Operating Systems',
-    'Object-Oriented Programming',
-    'Computer Networks',
-    'Database Management Systems',
-    'Cybersecurity Fundamentals',
-  ],
-}
-
 const experience = [
   {
-    title: 'Class Representative - CSE (Cyber Security)',
+    role: 'Class Representative - CSE (Cyber Security)',
     time: '2023 - 2027',
-    detail:
-      'Represented students, coordinated academic activities, and served as a liaison with faculty.',
+    points: [
+      'Represented students and acted as a liaison between faculty and students.',
+      'Helped coordinate academic and departmental activities.',
+    ],
   },
   {
-    title: 'TARUGUARDIANS - Public Relations Team Member',
+    role: 'TARUGUARDIANS - Public Relations Team Member',
     time: '2024 - Present',
-    detail:
-      'Managed communication and outreach, promoted events, and handled public interactions.',
+    points: [
+      'Managed communication and outreach.',
+      'Helped promote events and handle public interactions.',
+    ],
   },
   {
-    title: 'House Captain - Arawali House (JNV)',
+    role: 'House Captain - Arawali House (JNV)',
     time: '2020 - 2022',
-    detail: 'Led house activities, coordinated inter-house events, and built team leadership.',
+    points: [
+      'Led house activities and inter-house events.',
+      'Built leadership, teamwork, and organization skills.',
+    ],
   },
-]
-
-const leadershipHighlights = [
-  'Student-faculty liaison for academic coordination and issue resolution.',
-  'Led outreach initiatives and event promotion with TARUGUARDIANS.',
-  'Organized inter-house activities and built team leadership at JNV.',
 ]
 
 const certificates = [
   'Deloitte Australia Cyber Program (Forage)',
-  'Access Denied Workshop - Data Science Academy and ISTE',
-  'Hacktoberfest 2024 Level 4 badge',
-  'GirlScript Summer of Code 2025 - Project: GrowCraft',
+  'Access Denied Workshop (Data Science Academy and ISTE)',
+  'Hacktoberfest 2024 - Level 4 Badge',
+  'Contributor - GirlScript Summer of Code 2025 (Project: GrowCraft)',
 ]
 
-const floatingSnippets = [
-  'sudo nmap -sV target',
-  'def secure_login():',
-  'SELECT * FROM audit_logs;',
-  'cipher = encrypt(secret)',
-  'const token = jwt.sign()',
-  'git commit -m "secure"',
+const coursework = [
+  'Data Structures and Algorithms',
+  'Operating Systems',
+  'Object-Oriented Programming',
+  'Computer Networks',
+  'Database Management Systems',
+  'Cybersecurity Fundamentals',
 ]
-
-const filters = ['All', 'Web', 'Security', 'ML']
-
-const navItems = [
-  { id: 'hero', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'education', label: 'Education' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'certificates', label: 'Certificates' },
-  { id: 'contact', label: 'Contact' },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-}
-
-const useTypewriter = (words, speed = 110, pause = 1400) => {
-  const [text, setText] = useState('')
-  const [wordIndex, setWordIndex] = useState(0)
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  useEffect(() => {
-    const current = words[wordIndex % words.length]
-    const shouldDelete = isDeleting
-    const nextText = shouldDelete
-      ? current.substring(0, text.length - 1)
-      : current.substring(0, text.length + 1)
-
-    const timeout = setTimeout(
-      () => {
-        setText(nextText)
-        if (!shouldDelete && nextText === current) {
-          setIsDeleting(true)
-        } else if (shouldDelete && nextText === '') {
-          setIsDeleting(false)
-          setWordIndex((prev) => prev + 1)
-        }
-      },
-      shouldDelete ? speed / 2 : speed,
-    )
-
-    if (!shouldDelete && nextText === current) {
-      clearTimeout(timeout)
-      const pauseTimeout = setTimeout(() => {
-        setIsDeleting(true)
-      }, pause)
-      return () => clearTimeout(pauseTimeout)
-    }
-
-    return () => clearTimeout(timeout)
-  }, [isDeleting, pause, speed, text, wordIndex, words])
-
-  return text
-}
-
-const Counter = ({ value, suffix }) => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-80px' })
-  const [display, setDisplay] = useState(0)
-
-  useEffect(() => {
-    if (!isInView) return
-    const controls = animate(0, value, {
-      duration: 1.6,
-      ease: 'easeOut',
-      onUpdate: (latest) => {
-        setDisplay(Math.round(latest))
-      },
-    })
-    return () => controls.stop()
-  }, [isInView, value])
-
-  return (
-    <span ref={ref}>
-      {display}
-      {suffix}
-    </span>
-  )
-}
-
-const ProjectCard = ({ project }) => {
-  const cardRef = useRef(null)
-
-  const handleMove = (event) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    const x = event.clientX - rect.left
-    const y = event.clientY - rect.top
-    const rotateX = ((y / rect.height) - 0.5) * -12
-    const rotateY = ((x / rect.width) - 0.5) * 12
-    cardRef.current.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-  }
-
-  const handleLeave = () => {
-    if (!cardRef.current) return
-    cardRef.current.style.transform = 'rotateX(0deg) rotateY(0deg)'
-  }
-
-  return (
-    <motion.article
-      ref={cardRef}
-      className="project-card"
-      onMouseMove={handleMove}
-      onMouseLeave={handleLeave}
-      variants={fadeUp}
-      initial="hidden"
-      animate="visible"
-      exit={{ opacity: 0, y: 20 }}
-      layout
-    >
-      <div className="project-header">
-        <h3>{project.title}</h3>
-        <span className="project-tag">{project.category}</span>
-      </div>
-      <p className="project-description">{project.description}</p>
-      <ul className="project-highlights">
-        {project.highlights.map((item) => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-      <div className="project-stack">
-        {project.stack.map((item) => (
-          <span key={item} className="chip">{item}</span>
-        ))}
-      </div>
-      <div className="project-links">
-        <a className="link" href={project.github}>
-          View on GitHub
-        </a>
-        <a className="link" href={project.demo}>
-          Live Demo
-        </a>
-      </div>
-    </motion.article>
-  )
-}
 
 function App() {
-  const typedText = useTypewriter(roles)
-  const [filter, setFilter] = useState('All')
-  const [showLoader, setShowLoader] = useState(true)
-  const [cursor, setCursor] = useState({ x: 0, y: 0 })
-  const [cursorActive, setCursorActive] = useState(false)
-  const [eggActive, setEggActive] = useState(false)
-  const [ambientOn, setAmbientOn] = useState(false)
-  const oscillatorRef = useRef(null)
-  const audioContextRef = useRef(null)
-
   useEffect(() => {
-    const timer = setTimeout(() => setShowLoader(false), 1700)
-    return () => clearTimeout(timer)
+    const elements = document.querySelectorAll('.reveal')
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+            observer.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.2 },
+    )
+
+    elements.forEach((element) => observer.observe(element))
+
+    return () => observer.disconnect()
   }, [])
-
-  useEffect(() => {
-    const handleMove = (event) => {
-      setCursor({ x: event.clientX, y: event.clientY })
-    }
-
-    const handleEnter = () => setCursorActive(true)
-    const handleLeave = () => setCursorActive(false)
-
-    window.addEventListener('mousemove', handleMove)
-    window.addEventListener('mouseenter', handleEnter)
-    window.addEventListener('mouseleave', handleLeave)
-
-    return () => {
-      window.removeEventListener('mousemove', handleMove)
-      window.removeEventListener('mouseenter', handleEnter)
-      window.removeEventListener('mouseleave', handleLeave)
-    }
-  }, [])
-
-  useEffect(() => {
-    let raf = 0
-    const handleScroll = () => {
-      if (raf) return
-      raf = window.requestAnimationFrame(() => {
-        document.documentElement.style.setProperty('--scroll-y', `${window.scrollY}`)
-        raf = 0
-      })
-    }
-    window.addEventListener('scroll', handleScroll, { passive: true })
-    handleScroll()
-    return () => {
-      window.removeEventListener('scroll', handleScroll)
-      if (raf) window.cancelAnimationFrame(raf)
-    }
-  }, [])
-
-  const filteredProjects = useMemo(() => {
-    if (filter === 'All') return projects
-    return projects.filter((project) => project.category === filter)
-  }, [filter])
-
-  const toggleAmbient = () => {
-    if (ambientOn) {
-      if (oscillatorRef.current) {
-        oscillatorRef.current.stop()
-        oscillatorRef.current.disconnect()
-        oscillatorRef.current = null
-      }
-      setAmbientOn(false)
-      return
-    }
-
-    if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)()
-    }
-
-    const context = audioContextRef.current
-    if (context.state === 'suspended') {
-      context.resume()
-    }
-    const oscillator = context.createOscillator()
-    const gain = context.createGain()
-    oscillator.type = 'sine'
-    oscillator.frequency.value = 180
-    gain.gain.value = 0.015
-    oscillator.connect(gain)
-    gain.connect(context.destination)
-    oscillator.start()
-    oscillatorRef.current = oscillator
-    setAmbientOn(true)
-  }
-
-  const triggerEgg = () => {
-    setEggActive(true)
-    setTimeout(() => setEggActive(false), 1200)
-  }
 
   return (
     <div className="app">
-      <AnimatePresence>
-        {showLoader && (
-          <motion.div
-            className="loader"
-            initial={{ opacity: 1 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <motion.div
-              className="loader-name"
-              initial={{ y: 20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.8 }}
-            >
-              {profile.name}
-            </motion.div>
-            <motion.div
-              className="loader-bar"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ duration: 1.2, ease: 'easeInOut' }}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      <div
-        className={`custom-cursor ${cursorActive ? 'active' : ''}`}
-        style={{ '--x': `${cursor.x}px`, '--y': `${cursor.y}px` }}
-      />
-      <div
-        className="custom-cursor-dot"
-        style={{ '--x': `${cursor.x}px`, '--y': `${cursor.y}px` }}
-      />
-
-      <div className="background-layer">
-        <div className="gradient-mesh" />
-        <div className="particles">
-          {Array.from({ length: 18 }).map((_, index) => (
-            <span key={index} className="particle" />
-          ))}
-        </div>
-        <div className="floating-code">
-          {floatingSnippets.map((snippet, index) => (
-            <span key={snippet} style={{ animationDelay: `${index * 1.4}s` }}>
-              {snippet}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      <header className="nav">
-        <button
-          className={`logo ${eggActive ? 'egg' : ''}`}
-          type="button"
-          onClick={triggerEgg}
-          aria-label="Trigger logo animation"
-        >
-          <span>AK</span>
-        </button>
-        <nav className="nav-links">
-          {navItems.map((item) => (
-            <a key={item.id} href={`#${item.id}`}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-        <div className="nav-actions">
-          <button className="btn ghost" type="button" onClick={toggleAmbient}>
-            {ambientOn ? 'Ambient On' : 'Ambient Off'}
-          </button>
-          <a className="btn primary" href={profile.resume}>
-            Download Resume
+      <header className="header">
+        <div className="container header-content">
+          <div className="brand">{profile.name}</div>
+          <nav className="nav">
+            <a href="#about">About</a>
+            <a href="#education">Education</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#certificates">Certificates</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <a className="btn outline" href={profile.resume}>
+            View Resume
           </a>
         </div>
       </header>
 
       <main>
-        <section id="hero" className="hero">
-          <motion.div
-            className="hero-content"
-            initial="hidden"
-            animate="visible"
-            variants={fadeUp}
-            transition={{ duration: 0.8 }}
-          >
-            <p className="eyebrow">3rd-year CSE (Cyber Security) student</p>
-            <h1>{profile.headline}</h1>
-            <p className="hero-subtitle">{profile.subtitle}</p>
-            <p className="typewriter">
-              <span>{typedText}</span>
-              <span className="type-cursor">|</span>
-            </p>
-            <p className="hero-punch">{profile.punchline}</p>
-            <p className="hero-summary">{profile.summary}</p>
-            <div className="hero-actions">
-              <a className="btn ghost" href={profile.resume}>
-                View Resume
-              </a>
-              <a className="btn primary" href="#projects">
-                View Projects
-              </a>
-              <a className="btn ghost" href="#contact">
-                Contact Me
-              </a>
+        <section className="hero">
+          <div className="container hero-grid">
+            <div className="hero-text reveal">
+              <p className="eyebrow">{profile.role}</p>
+              <h1>{profile.name}</h1>
+              <p className="hero-tagline">{profile.tagline}</p>
+              <p className="hero-summary">{profile.degree}</p>
+              <div className="hero-actions">
+                <a className="btn" href="#projects">
+                  View Projects
+                </a>
+                <a className="btn outline" href="#contact">
+                  Contact Me
+                </a>
+              </div>
             </div>
-            <div className="hero-stats">
-              {quickStats.map((stat) => (
-                <div key={stat.label} className="stat-card">
-                  <p className="stat-value">
-                    <Counter value={stat.value} suffix={stat.suffix} />
-                  </p>
-                  <p className="stat-label">{stat.label}</p>
+            <div className="hero-card reveal">
+              <div className="hero-card-inner">
+                <p className="hero-card-title">Quick Facts</p>
+                <div className="fact-row">
+                  <span>Location</span>
+                  <span>{profile.location}</span>
                 </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="hero-panel"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2, duration: 0.8 }}
-          >
-            <div className="glass-card">
-              <p className="panel-title">Focus Areas</p>
-              <div className="chip-row">
-                {['Cybersecurity', 'Secure Web', 'Software Development', 'ML Basics'].map(
-                  (item) => (
-                    <span key={item} className="chip solid">{item}</span>
-                  ),
-                )}
-              </div>
-              <p className="panel-note">
-                Learning fast. Shipping secure. Ready for internships in cyber or web.
-              </p>
-            </div>
-            <div className="glass-card parallax-card">
-              <p className="panel-title">Tech Stack Signal</p>
-              <p className="panel-note">
-                Python, React, secure APIs, and core cybersecurity fundamentals.
-              </p>
-              <div className="signal-bar">
-                <span />
+                <div className="fact-row">
+                  <span>Specialization</span>
+                  <span>Cyber Security</span>
+                </div>
+                <div className="fact-row">
+                  <span>CGPA</span>
+                  <span>{profile.cgpa}</span>
+                </div>
+                <div className="chip-row">
+                  {profile.interests.map((interest) => (
+                    <span key={interest} className="chip">{interest}</span>
+                  ))}
+                </div>
               </div>
             </div>
-          </motion.div>
-        </section>
-
-        <section id="education" className="section alt">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Education</p>
-            <h2>{education.title}</h2>
-            <p className="section-subtitle">
-              {education.subtitle} | {education.timeline}
-            </p>
-          </motion.div>
-          <motion.div
-            className="glass-card"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <h3>Relevant Coursework</h3>
-            <ul className="course-list">
-              {education.coursework.map((course) => (
-                <li key={course}>{course}</li>
-              ))}
-            </ul>
-          </motion.div>
+          </div>
+          <div className="hero-shape" aria-hidden="true" />
         </section>
 
         <section id="about" className="section">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">About</p>
-            <h2>Curiosity, rigor, and a security-first mindset</h2>
-            <p className="section-subtitle">
-              Third-year B.Tech CSE (Cyber Security) student focused on secure systems, web technologies,
-              and hands-on projects that blend creativity with safety.
-            </p>
-          </motion.div>
-          <div className="about-grid">
-            <motion.div
-              className="glass-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>My Journey</h3>
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>About Me</h2>
               <p>
-                Currently pursuing B.Tech in Computer Science and Engineering (Cyber Security) at Haldia
-                Institute of Technology. I enjoy building secure software, learning how systems fail, and
-                applying defenses that keep users safe.
+                I am a third-year B.Tech CSE (Cyber Security) student at Haldia Institute of Technology
+                with a CGPA of 8.02/10. I enjoy building secure web experiences, exploring secure systems,
+                and strengthening my foundations in programming, ML, and data science.
               </p>
-              <p>
-                I am excited about secure web development, practical cybersecurity, and ML basics that
-                support smarter decision-making.
-              </p>
-              <div className="timeline">
-                <div className="timeline-item">
-                  <span>2023</span>
-                  <p>Started the CSE Cyber Security program and built web fundamentals.</p>
-                </div>
-                <div className="timeline-item">
-                  <span>2024</span>
-                  <p>Expanded into secure development and workshop-based learning.</p>
-                </div>
-                <div className="timeline-item">
-                  <span>2025</span>
-                  <p>Focused on security workflows and deeper systems thinking.</p>
-                </div>
+            </div>
+            <div className="stat-card">
+              <p>CGPA</p>
+              <span>{profile.cgpa}</span>
+            </div>
+            <div className="facts-row">
+              <div>
+                <strong>Location:</strong> {profile.location}
               </div>
-            </motion.div>
-            <motion.div
-              className="glass-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>Growth Mindset</h3>
-              <div className="progress-list">
-                {[
-                  { label: 'DSA and Problem Solving', value: 82 },
-                  { label: 'Cybersecurity Fundamentals', value: 76 },
-                  { label: 'Web Technologies', value: 80 },
-                  { label: 'Machine Learning Basics', value: 70 },
-                ].map((item) => (
-                  <div key={item.label} className="progress-item">
-                    <div className="progress-header">
-                      <span>{item.label}</span>
-                      <span>{item.value}%</span>
-                    </div>
-                    <div className="progress-bar">
-                      <span style={{ width: `${item.value}%` }} />
-                    </div>
-                  </div>
-                ))}
+              <div>
+                <strong>Specialization:</strong> Cyber Security
               </div>
-              <div className="stat-spotlight">
-                <p>CGPA</p>
-                <span>8.02/10</span>
+              <div>
+                <strong>CGPA:</strong> {profile.cgpa}
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
-        <section id="skills" className="section alt">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Skills</p>
-            <h2>Security-ready skills across coding, web, and ML basics</h2>
-            <p className="section-subtitle">
-              A blend of core CS, cybersecurity fundamentals, and practical tools for building reliable
-              software.
-            </p>
-          </motion.div>
-          <div className="skills-grid">
-            <motion.div
-              className="skill-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>Skill Highlights</h3>
-              {skillHighlights.map((item) => (
-                <div key={item.label} className="skill-bar">
-                  <div className="skill-bar-header">
-                    <span>{item.label}</span>
-                    <span>{item.value}%</span>
-                  </div>
-                  <div className="skill-bar-track">
-                    <span style={{ width: `${item.value}%` }} />
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-            {skillGroups.map((group) => (
-              <motion.div
-                key={group.title}
-                className="skill-card"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-              >
-                <h3>{group.title}</h3>
-                <div className="chip-row">
-                  {group.items.map((item) => (
-                    <span key={item} className="chip solid">{item}</span>
-                  ))}
-                </div>
-              </motion.div>
-            ))}
+        <section id="education" className="section light">
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Education</h2>
+              <p>Haldia Institute of Technology</p>
+            </div>
+            <div className="card">
+              <h3>B.Tech - Computer Science and Engineering (Cyber Security)</h3>
+              <p>2023 - 2027</p>
+              <p>CGPA: {profile.cgpa}</p>
+              <p className="label">Relevant Coursework:</p>
+              <div className="chip-row">
+                {coursework.map((item) => (
+                  <span key={item} className="chip">{item}</span>
+                ))}
+              </div>
+            </div>
           </div>
         </section>
 
         <section id="projects" className="section">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Projects</p>
-            <h2>Interactive builds with real-world impact</h2>
-            <p className="section-subtitle">
-              Hover to explore. Filter by focus area to discover the tech stories behind each build.
-            </p>
-          </motion.div>
-          <div className="filter-row">
-            {filters.map((item) => (
-              <button
-                key={item}
-                className={`btn filter ${filter === item ? 'active' : ''}`}
-                type="button"
-                onClick={() => setFilter(item)}
-              >
-                {item}
-              </button>
-            ))}
-          </div>
-          <motion.div
-            className="project-grid"
-            layout
-            transition={{ duration: 0.4 }}
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredProjects.map((project) => (
-                <ProjectCard key={project.title} project={project} />
-              ))}
-            </AnimatePresence>
-          </motion.div>
-        </section>
-
-        <section id="experience" className="section alt">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Experience and Leadership</p>
-            <h2>Leadership roles with real-world impact</h2>
-          </motion.div>
-          <div className="experience-grid">
-            <motion.div
-              className="glass-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>Experience Timeline</h3>
-              <div className="timeline vertical">
-                {experience.map((item) => (
-                  <div key={item.title} className="timeline-item">
-                    <span>{item.time}</span>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p>{item.detail}</p>
-                    </div>
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Projects</h2>
+              <p>Focused builds that show secure, reliable development habits.</p>
+            </div>
+            <div className="grid">
+              {projects.map((project) => (
+                <article key={project.title} className="card hover-card">
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <ul>
+                    {project.highlights.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                  <div className="chip-row">
+                    {project.stack.map((item) => (
+                      <span key={item} className="chip">{item}</span>
+                    ))}
                   </div>
-                ))}
-              </div>
-            </motion.div>
-            <motion.div
-              className="glass-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>Leadership Highlights</h3>
-              <ul className="achievement-list">
-                {leadershipHighlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <div className="stat-banner">
-                <p>Available for internships in security + web.</p>
-                <span className="glow-pill">Open to Roles</span>
-              </div>
-            </motion.div>
+                  <a className="btn small" href={project.github}>
+                    View on GitHub
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
 
-        <section id="certificates" className="section">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Certificates and Achievements</p>
-            <h2>Proof of learning, consistency, and community impact</h2>
-          </motion.div>
-          <div className="badge-grid">
-            {certificates.map((item) => (
-              <motion.div
-                key={item}
-                className="badge-card"
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true, margin: '-80px' }}
-              >
-                <span>{item}</span>
-              </motion.div>
-            ))}
+        <section id="skills" className="section light">
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Skills</h2>
+              <p>Clear, organized expertise across programming, web, and cybersecurity basics.</p>
+            </div>
+            <div className="grid">
+              {skills.map((group) => (
+                <div key={group.title} className="card">
+                  <h3>{group.title}</h3>
+                  <div className="chip-row">
+                    {group.items.map((item) => (
+                      <span key={item} className="chip">{item}</span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="experience" className="section">
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Experience and Leadership</h2>
+              <p>Roles that built communication, responsibility, and team leadership.</p>
+            </div>
+            <div className="timeline">
+              {experience.map((item) => (
+                <div key={item.role} className="timeline-item">
+                  <div>
+                    <h3>{item.role}</h3>
+                    <p className="muted">{item.time}</p>
+                  </div>
+                  <ul>
+                    {item.points.map((point) => (
+                      <li key={point}>{point}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="certificates" className="section light">
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Certificates and Achievements</h2>
+              <p>Professional learning milestones and community contributions.</p>
+            </div>
+            <div className="grid badges">
+              {certificates.map((item) => (
+                <div key={item} className="badge">
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 
         <section id="contact" className="section">
-          <motion.div
-            className="section-header"
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-80px' }}
-          >
-            <p className="section-eyebrow">Contact</p>
-            <h2>Let us build something bold</h2>
-            <p className="section-subtitle">
-              Reach out for internships, collaborations, or anything data and ML related.
-            </p>
-          </motion.div>
-          <div className="contact-grid">
-            <motion.form
-              className="contact-form"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-              onSubmit={(event) => event.preventDefault()}
-            >
-              <div className="input-row">
-                <input type="text" name="name" placeholder="Your name" required />
-                <input type="email" name="email" placeholder="Email" required />
+          <div className="container reveal">
+            <div className="section-header">
+              <h2>Contact</h2>
+              <p>Reach out for internships, collaborations, or cybersecurity conversations.</p>
+            </div>
+            <div className="contact-grid">
+              <div className="card">
+                <p>
+                  <strong>Email:</strong>{' '}
+                  <a href={`mailto:${profile.email}`}>{profile.email}</a>
+                </p>
+                <p>
+                  <strong>Phone:</strong> {profile.phone}
+                </p>
+                <div className="socials">
+                  <a href={profile.linkedin}>LinkedIn</a>
+                  <a href={profile.github}>GitHub</a>
+                </div>
               </div>
-              <input type="text" name="subject" placeholder="Subject" />
-              <textarea name="message" rows="5" placeholder="Tell me about your idea" />
-              <button className="btn primary" type="submit">
-                Send Message
-              </button>
-            </motion.form>
-            <motion.div
-              className="glass-card"
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: '-80px' }}
-            >
-              <h3>Connect</h3>
-              <p>{profile.location}</p>
-              <p>{profile.email}</p>
-              <p>{profile.phone}</p>
-              <div className="social-links">
-                <a className="icon-link" href={profile.linkedin}>
-                  <span>in</span>
-                  LinkedIn
-                </a>
-                <a className="icon-link" href={profile.github}>
-                  <span>gh</span>
-                  GitHub
-                </a>
-                <a className="icon-link" href={`mailto:${profile.email}`}>
-                  <span>@</span>
+              <form className="card contact-form" onSubmit={(event) => event.preventDefault()}>
+                <label>
+                  Name
+                  <input type="text" name="name" placeholder="Your name" required />
+                </label>
+                <label>
                   Email
-                </a>
-              </div>
-              <div className="mini-cta">
-                <p>Looking for a security-minded CS intern?</p>
-                <a className="btn ghost" href={profile.resume}>
-                  View Resume
-                </a>
-              </div>
-            </motion.div>
+                  <input type="email" name="email" placeholder="you@email.com" required />
+                </label>
+                <label>
+                  Message
+                  <textarea name="message" rows="4" placeholder="How can I help?" required />
+                </label>
+                <button type="submit" className="btn">
+                  Send Message
+                </button>
+              </form>
+            </div>
           </div>
         </section>
       </main>
 
       <footer className="footer">
-        <p>Designed and built by {profile.name}. All rights reserved.</p>
+        <div className="container">
+          <p>Designed by {profile.name}. All rights reserved.</p>
+        </div>
       </footer>
     </div>
   )
