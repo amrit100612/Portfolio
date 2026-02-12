@@ -4,61 +4,86 @@ import './App.css'
 
 const profile = {
   name: 'Amrit Kumar',
-  headline: "Hi, I'm Amrit - Turning Data into Decisions.",
+  headline: 'Amrit Kumar',
+  subtitle: '3rd Year CSE (Cyber Security) Student | Web & Security Enthusiast',
+  punchline: 'Building secure and creative web experiences with a hacker mindset.',
   summary:
-    'Third-year Computer Science student driven by data, curious about ML systems, and serious about secure, scalable software. I blend statistics with engineering to build products that are smart, reliable, and human-centered.',
+    'Third-year B.Tech CSE (Cyber Security) student at Haldia Institute of Technology. Strong foundations in programming, web technologies, and secure systems, with a growth mindset toward software development and ML basics.',
   location: 'Kolkata, India',
   email: 'amritkum1209@gmail.com',
+  phone: '+91 9508043572',
   resume: 'https://drive.google.com/file/d/1pgDYTm0XBWvT9vqV-atukpNN6yg7A0-i/view?usp=sharing',
-  linkedin: 'https://www.linkedin.com/',
-  github: 'https://github.com/',
+  linkedin: 'https://linkedin.com/in/amrit-kumar',
+  github: 'https://github.com/amritkum1209',
 }
 
 const roles = [
-  'Data Science Enthusiast',
+  'Cybersecurity Learner',
+  'Web Security Enthusiast',
   'Machine Learning Explorer',
-  'Problem Solver',
 ]
 
 const quickStats = [
-  { label: 'Projects Completed', value: 12, suffix: '+' },
-  { label: 'Certifications', value: 6, suffix: '' },
-  { label: 'Hackathons', value: 4, suffix: '' },
-  { label: 'CGPA', value: 8, suffix: '.0' },
+  { label: 'CGPA', value: 8, suffix: '.02/10' },
+  { label: 'Leadership Roles', value: 3, suffix: '' },
+  { label: 'Security Projects', value: 4, suffix: '+' },
+  { label: 'Certifications', value: 4, suffix: '' },
 ]
 
-const skills = [
+const skillHighlights = [
   {
-    title: 'Programming',
+    label: 'Security Foundations',
+    value: 78,
+  },
+  {
+    label: 'Web Development',
+    value: 80,
+  },
+  {
+    label: 'Machine Learning Basics',
+    value: 72,
+  },
+  {
+    label: 'Problem Solving',
+    value: 82,
+  },
+]
+
+const skillGroups = [
+  {
+    title: 'Programming Languages',
+    items: ['C', 'Python', 'Java', 'JavaScript'],
+  },
+  {
+    title: 'Web Technologies',
+    items: ['HTML5', 'CSS3'],
+  },
+  {
+    title: 'Frameworks and Libraries',
+    items: ['React.js'],
+  },
+  {
+    title: 'ML Algorithms',
     items: [
-      { label: 'Python', level: 90 },
-      { label: 'JavaScript', level: 84 },
-      { label: 'C++', level: 78 },
+      'Linear Regression',
+      'Logistic Regression',
+      'Decision Trees',
+      'Random Forest',
+      'KNN',
+      'Content-Based Recommendation',
     ],
   },
   {
-    title: 'Data and ML',
-    items: [
-      { label: 'Pandas', level: 86 },
-      { label: 'NumPy', level: 82 },
-      { label: 'Scikit-learn', level: 80 },
-    ],
+    title: 'Data Science Tools',
+    items: ['Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Scikit-learn'],
   },
   {
-    title: 'Web',
-    items: [
-      { label: 'React', level: 83 },
-      { label: 'Node.js', level: 70 },
-      { label: 'REST APIs', level: 76 },
-    ],
+    title: 'Tools and Technologies',
+    items: ['Git', 'GitHub', 'Database Management'],
   },
   {
-    title: 'Tools',
-    items: [
-      { label: 'Git', level: 84 },
-      { label: 'SQL', level: 74 },
-      { label: 'Linux', level: 72 },
-    ],
+    title: 'Core Concepts',
+    items: ['OOP', 'Operating Systems', 'Computer Networks', 'Cyber Security Fundamentals'],
   },
 ]
 
@@ -66,16 +91,26 @@ const projects = [
   {
     title: 'Weather Detection Website',
     description:
-      'Real-time weather intelligence with city search, forecast visualizations, and graceful error handling.',
-    stack: ['React', 'API', 'CSS'],
+      'Real-time weather dashboard with location-aware insights and resilient API handling.',
+    highlights: [
+      'WeatherAPI.com integration using async/await Fetch API',
+      'Geolocation-based weather detection',
+      'Temperature (Celsius) + AQI visualization with error handling',
+    ],
+    stack: ['HTML', 'CSS', 'JavaScript'],
     category: 'Web',
     github: '#',
     demo: '#',
   },
   {
-    title: 'Password Encrypter/Decrypter',
+    title: 'CipherX - Password Encrypter/Decrypter',
     description:
-      'CLI tool that protects secrets with reversible encryption and strict input validation.',
+      'CLI tool that reinforces cybersecurity fundamentals through simple cryptographic transformations.',
+    highlights: [
+      'Encryption and decryption modes with input validation',
+      'Interactive prompts built for usability and safe handling',
+      'Focus on data protection concepts and secure habits',
+    ],
     stack: ['Python', 'Crypto'],
     category: 'Security',
     github: '#',
@@ -84,64 +119,85 @@ const projects = [
   {
     title: 'ML-based Prediction Model',
     description:
-      'Supervised learning model with feature engineering, evaluation metrics, and explainability notes.',
+      'Supervised learning pipeline with feature engineering, evaluation metrics, and model review.',
+    highlights: [
+      'Data preprocessing and train-test evaluation',
+      'Metrics tracking and confusion matrix review',
+      'Focused on explainability and reliable baselines',
+    ],
     stack: ['Python', 'Scikit-learn', 'Pandas'],
     category: 'ML',
     github: '#',
     demo: '#',
   },
-  {
-    title: 'Customer Segmentation Insight Lab',
-    description:
-      'Clustering-driven analysis that highlights behavioral segments and data-backed recommendations.',
-    stack: ['Python', 'Pandas', 'KMeans'],
-    category: 'Data',
-    github: '#',
-    demo: '#',
-  },
 ]
+
+const education = {
+  title: 'Haldia Institute of Technology',
+  subtitle: 'B.Tech in Computer Science and Engineering (Cyber Security)',
+  timeline: '2023 - 2027',
+  coursework: [
+    'Data Structures and Algorithms',
+    'Operating Systems',
+    'Object-Oriented Programming',
+    'Computer Networks',
+    'Database Management Systems',
+    'Cybersecurity Fundamentals',
+  ],
+}
 
 const experience = [
   {
-    title: 'Data Science Workshop - ISTE',
-    time: '2024',
-    detail: 'Hands-on ML pipelines, model evaluation, and data storytelling assignments.',
+    title: 'Class Representative - CSE (Cyber Security)',
+    time: '2023 - 2027',
+    detail:
+      'Represented students, coordinated academic activities, and served as a liaison with faculty.',
   },
   {
-    title: 'Cybersecurity Training Program',
-    time: '2024',
-    detail: 'Focused on secure development, threat modeling, and incident triage basics.',
+    title: 'TARUGUARDIANS - Public Relations Team Member',
+    time: '2024 - Present',
+    detail:
+      'Managed communication and outreach, promoted events, and handled public interactions.',
   },
   {
-    title: 'Class Representative',
-    time: '2023 - Present',
-    detail: 'Bridging student-faculty collaboration and coordinating peer-led tech initiatives.',
+    title: 'House Captain - Arawali House (JNV)',
+    time: '2020 - 2022',
+    detail: 'Led house activities, coordinated inter-house events, and built team leadership.',
   },
 ]
 
-const achievements = [
-  'Deloitte Australia Cyber Program (Forage) completed',
-  'Hacktoberfest 2024 Level 4 badge recipient',
-  'GirlScript Summer of Code 2025 contributor',
+const leadershipHighlights = [
+  'Student-faculty liaison for academic coordination and issue resolution.',
+  'Led outreach initiatives and event promotion with TARUGUARDIANS.',
+  'Organized inter-house activities and built team leadership at JNV.',
+]
+
+const certificates = [
+  'Deloitte Australia Cyber Program (Forage)',
+  'Access Denied Workshop - Data Science Academy and ISTE',
+  'Hacktoberfest 2024 Level 4 badge',
+  'GirlScript Summer of Code 2025 - Project: GrowCraft',
 ]
 
 const floatingSnippets = [
-  'train_test_split()',
-  'from sklearn import metrics',
-  'def secure_api():',
-  'SELECT * FROM insights;',
-  'model.fit(X, y)',
-  'git commit -m "ship"',
+  'sudo nmap -sV target',
+  'def secure_login():',
+  'SELECT * FROM audit_logs;',
+  'cipher = encrypt(secret)',
+  'const token = jwt.sign()',
+  'git commit -m "secure"',
 ]
 
-const filters = ['All', 'ML', 'Web', 'Data', 'Security']
+const filters = ['All', 'Web', 'Security', 'ML']
 
 const navItems = [
   { id: 'hero', label: 'Home' },
   { id: 'about', label: 'About' },
+  { id: 'education', label: 'Education' },
   { id: 'skills', label: 'Skills' },
   { id: 'projects', label: 'Projects' },
   { id: 'experience', label: 'Experience' },
+  { id: 'certificates', label: 'Certificates' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -249,6 +305,11 @@ const ProjectCard = ({ project }) => {
         <span className="project-tag">{project.category}</span>
       </div>
       <p className="project-description">{project.description}</p>
+      <ul className="project-highlights">
+        {project.highlights.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
       <div className="project-stack">
         {project.stack.map((item) => (
           <span key={item} className="chip">{item}</span>
@@ -256,7 +317,7 @@ const ProjectCard = ({ project }) => {
       </div>
       <div className="project-links">
         <a className="link" href={project.github}>
-          GitHub
+          View on GitHub
         </a>
         <a className="link" href={project.demo}>
           Live Demo
@@ -447,19 +508,24 @@ function App() {
             variants={fadeUp}
             transition={{ duration: 0.8 }}
           >
-            <p className="eyebrow">Motivated 3rd-year CS student</p>
+            <p className="eyebrow">3rd-year CSE (Cyber Security) student</p>
             <h1>{profile.headline}</h1>
+            <p className="hero-subtitle">{profile.subtitle}</p>
             <p className="typewriter">
               <span>{typedText}</span>
               <span className="type-cursor">|</span>
             </p>
+            <p className="hero-punch">{profile.punchline}</p>
             <p className="hero-summary">{profile.summary}</p>
             <div className="hero-actions">
+              <a className="btn ghost" href={profile.resume}>
+                View Resume
+              </a>
               <a className="btn primary" href="#projects">
                 View Projects
               </a>
-              <a className="btn ghost" href={profile.resume}>
-                Download Resume
+              <a className="btn ghost" href="#contact">
+                Contact Me
               </a>
             </div>
             <div className="hero-stats">
@@ -483,25 +549,55 @@ function App() {
             <div className="glass-card">
               <p className="panel-title">Focus Areas</p>
               <div className="chip-row">
-                {['Data Science', 'Machine Learning', 'Cybersecurity', 'Software Development'].map(
+                {['Cybersecurity', 'Secure Web', 'Software Development', 'ML Basics'].map(
                   (item) => (
                     <span key={item} className="chip solid">{item}</span>
                   ),
                 )}
               </div>
               <p className="panel-note">
-                Learning fast. Shipping faster. Ready for internships in data, ML, or software.
+                Learning fast. Shipping secure. Ready for internships in cyber or web.
               </p>
             </div>
             <div className="glass-card parallax-card">
               <p className="panel-title">Tech Stack Signal</p>
               <p className="panel-note">
-                Python + ML pipelines, React front-ends, API integrations, and secure deployment habits.
+                Python, React, secure APIs, and core cybersecurity fundamentals.
               </p>
               <div className="signal-bar">
                 <span />
               </div>
             </div>
+          </motion.div>
+        </section>
+
+        <section id="education" className="section alt">
+          <motion.div
+            className="section-header"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <p className="section-eyebrow">Education</p>
+            <h2>{education.title}</h2>
+            <p className="section-subtitle">
+              {education.subtitle} | {education.timeline}
+            </p>
+          </motion.div>
+          <motion.div
+            className="glass-card"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <h3>Relevant Coursework</h3>
+            <ul className="course-list">
+              {education.coursework.map((course) => (
+                <li key={course}>{course}</li>
+              ))}
+            </ul>
           </motion.div>
         </section>
 
@@ -514,10 +610,10 @@ function App() {
             viewport={{ once: true, margin: '-80px' }}
           >
             <p className="section-eyebrow">About</p>
-            <h2>Curiosity, rigor, and a growth mindset</h2>
+            <h2>Curiosity, rigor, and a security-first mindset</h2>
             <p className="section-subtitle">
-              I started with coding challenges, then fell in love with data-driven decisions. Now I build
-              ML prototypes, analyze patterns, and keep security in mind from day one.
+              Third-year B.Tech CSE (Cyber Security) student focused on secure systems, web technologies,
+              and hands-on projects that blend creativity with safety.
             </p>
           </motion.div>
           <div className="about-grid">
@@ -530,26 +626,26 @@ function App() {
             >
               <h3>My Journey</h3>
               <p>
-                Third-year CS student with strong fundamentals in DSA, statistics, and machine learning.
-                I enjoy tackling messy datasets, crafting clean APIs, and building interfaces that feel
-                alive.
+                Currently pursuing B.Tech in Computer Science and Engineering (Cyber Security) at Haldia
+                Institute of Technology. I enjoy building secure software, learning how systems fail, and
+                applying defenses that keep users safe.
               </p>
               <p>
-                My goal is to become an ML engineer who ships reliable models, monitors performance, and
-                builds secure, user-first products.
+                I am excited about secure web development, practical cybersecurity, and ML basics that
+                support smarter decision-making.
               </p>
               <div className="timeline">
                 <div className="timeline-item">
                   <span>2023</span>
-                  <p>Started CS degree and built my first data visualization project.</p>
+                  <p>Started the CSE Cyber Security program and built web fundamentals.</p>
                 </div>
                 <div className="timeline-item">
                   <span>2024</span>
-                  <p>Deepened ML learning with workshops and full-stack mini apps.</p>
+                  <p>Expanded into secure development and workshop-based learning.</p>
                 </div>
                 <div className="timeline-item">
                   <span>2025</span>
-                  <p>Focused on ML deployment, security, and systems thinking.</p>
+                  <p>Focused on security workflows and deeper systems thinking.</p>
                 </div>
               </div>
             </motion.div>
@@ -564,9 +660,9 @@ function App() {
               <div className="progress-list">
                 {[
                   { label: 'DSA and Problem Solving', value: 82 },
-                  { label: 'ML Foundations', value: 78 },
-                  { label: 'Statistics', value: 74 },
-                  { label: 'Secure Development', value: 70 },
+                  { label: 'Cybersecurity Fundamentals', value: 76 },
+                  { label: 'Web Technologies', value: 80 },
+                  { label: 'Machine Learning Basics', value: 70 },
                 ].map((item) => (
                   <div key={item.label} className="progress-item">
                     <div className="progress-header">
@@ -579,9 +675,10 @@ function App() {
                   </div>
                 ))}
               </div>
-              <button className="btn primary" type="button">
-                Open to Internship Roles
-              </button>
+              <div className="stat-spotlight">
+                <p>CGPA</p>
+                <span>8.02/10</span>
+              </div>
             </motion.div>
           </div>
         </section>
@@ -595,14 +692,34 @@ function App() {
             viewport={{ once: true, margin: '-80px' }}
           >
             <p className="section-eyebrow">Skills</p>
-            <h2>Modern stack with data-first thinking</h2>
+            <h2>Security-ready skills across coding, web, and ML basics</h2>
             <p className="section-subtitle">
-              I combine data tooling, ML workflows, and modern web engineering to craft intelligent
-              experiences.
+              A blend of core CS, cybersecurity fundamentals, and practical tools for building reliable
+              software.
             </p>
           </motion.div>
           <div className="skills-grid">
-            {skills.map((group) => (
+            <motion.div
+              className="skill-card"
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-80px' }}
+            >
+              <h3>Skill Highlights</h3>
+              {skillHighlights.map((item) => (
+                <div key={item.label} className="skill-bar">
+                  <div className="skill-bar-header">
+                    <span>{item.label}</span>
+                    <span>{item.value}%</span>
+                  </div>
+                  <div className="skill-bar-track">
+                    <span style={{ width: `${item.value}%` }} />
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+            {skillGroups.map((group) => (
               <motion.div
                 key={group.title}
                 className="skill-card"
@@ -612,17 +729,11 @@ function App() {
                 viewport={{ once: true, margin: '-80px' }}
               >
                 <h3>{group.title}</h3>
-                {group.items.map((item) => (
-                  <div key={item.label} className="skill-bar">
-                    <div className="skill-bar-header">
-                      <span>{item.label}</span>
-                      <span>{item.level}%</span>
-                    </div>
-                    <div className="skill-bar-track">
-                      <span style={{ width: `${item.level}%` }} />
-                    </div>
-                  </div>
-                ))}
+                <div className="chip-row">
+                  {group.items.map((item) => (
+                    <span key={item} className="chip solid">{item}</span>
+                  ))}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -675,8 +786,8 @@ function App() {
             whileInView="visible"
             viewport={{ once: true, margin: '-80px' }}
           >
-            <p className="section-eyebrow">Experience and Achievements</p>
-            <h2>Momentum across learning, leadership, and impact</h2>
+            <p className="section-eyebrow">Experience and Leadership</p>
+            <h2>Leadership roles with real-world impact</h2>
           </motion.div>
           <div className="experience-grid">
             <motion.div
@@ -706,17 +817,44 @@ function App() {
               whileInView="visible"
               viewport={{ once: true, margin: '-80px' }}
             >
-              <h3>Achievements</h3>
+              <h3>Leadership Highlights</h3>
               <ul className="achievement-list">
-                {achievements.map((item) => (
+                {leadershipHighlights.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
               <div className="stat-banner">
-                <p>Always learning, always building.</p>
-                <span className="glow-pill">Internship Ready</span>
+                <p>Available for internships in security + web.</p>
+                <span className="glow-pill">Open to Roles</span>
               </div>
             </motion.div>
+          </div>
+        </section>
+
+        <section id="certificates" className="section">
+          <motion.div
+            className="section-header"
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <p className="section-eyebrow">Certificates and Achievements</p>
+            <h2>Proof of learning, consistency, and community impact</h2>
+          </motion.div>
+          <div className="badge-grid">
+            {certificates.map((item) => (
+              <motion.div
+                key={item}
+                className="badge-card"
+                variants={fadeUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: '-80px' }}
+              >
+                <span>{item}</span>
+              </motion.div>
+            ))}
           </div>
         </section>
 
@@ -763,19 +901,23 @@ function App() {
               <h3>Connect</h3>
               <p>{profile.location}</p>
               <p>{profile.email}</p>
+              <p>{profile.phone}</p>
               <div className="social-links">
-                <a className="link" href={profile.linkedin}>
+                <a className="icon-link" href={profile.linkedin}>
+                  <span>in</span>
                   LinkedIn
                 </a>
-                <a className="link" href={profile.github}>
+                <a className="icon-link" href={profile.github}>
+                  <span>gh</span>
                   GitHub
                 </a>
-                <a className="link" href={`mailto:${profile.email}`}>
+                <a className="icon-link" href={`mailto:${profile.email}`}>
+                  <span>@</span>
                   Email
                 </a>
               </div>
               <div className="mini-cta">
-                <p>Looking for a driven data + ML intern?</p>
+                <p>Looking for a security-minded CS intern?</p>
                 <a className="btn ghost" href={profile.resume}>
                   View Resume
                 </a>
