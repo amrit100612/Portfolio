@@ -1,46 +1,69 @@
-# Amrit Kumar - Data Science and ML Portfolio
+# Amrit Kumar | Software Engineer Portfolio
 
-This React + Vite project showcases a modern portfolio for Amrit Kumar, highlighting machine learning projects, skills, education, and contact details with dark and light themes.
+Production-ready portfolio built with React, TailwindCSS, and Framer Motion to showcase software engineering depth for internship and entry-level SDE roles.
 
-## Features
+## Why this portfolio exists
 
-- Dark and light mode toggle
-- Interactive skills matrix
-- Project case studies with metrics
-- Roadmap, testimonials, and blog preview
-- Responsive layout and performance-focused design
+This portfolio is designed to pass a 10-second recruiter scan while still providing engineering depth for technical screens:
 
-## Getting Started
+- Strong DSA and problem-solving narrative
+- End-to-end frontend + backend project case studies
+- System design thinking with explicit tradeoffs
+- Security-aware engineering mindset
+- Clear communication for hiring committees
 
-Install dependencies:
+## Tech Stack
 
-```
+- React + Vite
+- TailwindCSS
+- Framer Motion
+- JavaScript (ES Modules)
+
+## Sections included
+
+- Hero + value proposition
+- About (engineering journey)
+- Engineering Project Case Studies
+- DSA / Problem Solving
+- System Design (WhatsApp, Netflix, Rate Limiter)
+- Skills by engineering function
+- Technical blog pipeline
+- Contact CTA
+
+## Local development
+
+```bash
 npm install
-```
-
-Run the development server:
-
-```
 npm run dev
 ```
 
-Build for production:
+## Production build
 
-```
+```bash
 npm run build
-```
-
-Preview the production build locally:
-
-```
 npm run preview
 ```
 
-## Customize Content
+## Content updates
 
-Update the data arrays in src/App.jsx to change projects, skills, testimonials, or contact links.
+Primary content source:
 
-## Notes
+- `src/data/portfolioData.js`
 
-- Replace `/resume.pdf` with the actual resume file in the `public/` directory.
-- Update placeholder links in the Projects section with real URLs.
+UI sections:
+
+- `src/components/*`
+
+## Candidate assets
+
+Additional career assets are available in `docs/`:
+
+- `docs/resume-bullets.md`
+- `docs/linkedin-bio.md`
+- `docs/quick-fill-checklist.md`
+
+## Contact
+
+- Email: amritkum1209@gmail.com
+- LinkedIn: https://linkedin.com/in/amrit-kumar
+- GitHub: https://github.com/amrit100612
