@@ -1,7 +1,7 @@
 export const profile = {
   name: 'Amrit Kumar',
   title: '3rd Year B.Tech CSE (Cybersecurity) | Internship Candidate',
-  headline: 'Software Engineer in the Making | Solved 500+ DSA Problems in Java | Building Scalable ML & Web Apps',
+  headline: 'Software Engineer in the Making | Solved 100+ DSA Problems in Java | Building Scalable ML & Web Apps',
   subheading:
     'I am a growth-driven engineer focused on core CS fundamentals, interview-grade problem solving, and shipping real products end-to-end. My goal is to contribute to high-impact teams at FAANG-level engineering standards.',
   location: 'Kolkata, India',
@@ -133,7 +133,7 @@ export const projects = [
 export const dsa = {
   profileUrl: 'https://leetcode.com/u/mNBmOlhBGQ/',
   stats: [
-    { label: 'Problems Solved', value: '500+' },
+    { label: 'Problems Solved', value: '100+' },
     { label: 'Primary Language', value: 'Java' },
     { label: 'Primary Platforms', value: 'LeetCode, CodeChef, HackerRank' },
     { label: 'Current Focus', value: 'Graphs, DP, Greedy, Backtracking' },
@@ -150,7 +150,7 @@ export const dsa = {
     'Stacks, Queues, Heaps',
   ],
   highlights: [
-    'Solved 500+ coding problems with strong focus on clean Java implementations.',
+    'Solved 100+ DSA problems in Java with strong focus on clean implementations.',
     'Regularly participates in coding contests to improve speed and accuracy under pressure (LeetCode Weekly, CodeChef).',
     'Maintains revision notes for patterns, edge cases, and complexity trade-offs.',
     'Practices timed interview sets to improve communication and problem breakdown.',
@@ -264,7 +264,7 @@ export const dailyLearningTracker = {
 
 export const blogIdeas = [
   {
-    title: 'How I Solved 100 DSA Problems in Java',
+    title: 'How I Solved 100+ DSA Problems in Java',
     description: 'A practical system for daily consistency, revision loops, and improving coding interview speed.',
   },
   {
