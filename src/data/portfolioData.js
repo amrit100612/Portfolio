@@ -5,7 +5,7 @@ export const profile = {
   subheading:
     'I am a growth-driven engineer focused on core CS fundamentals, interview-grade problem solving, and shipping real products end-to-end. My goal is to contribute to high-impact teams at FAANG-level engineering standards.',
   location: 'Kolkata, India',
-  email: 'amritkum12009@gmail.com',
+  email: 'amritkum1209@gmail.com',
   github: 'https://github.com/amrit100612',
   linkedin: 'https://www.linkedin.com/in/amrit100612/',
   leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',

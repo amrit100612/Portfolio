@@ -76,6 +76,6 @@ Additional career assets are available in `docs/`:
 
 ## Contact
 
-- Email: amritkum12009@gmail.com
+- Email: amritkum1209@gmail.com
 - LinkedIn: https://www.linkedin.com/in/amrit100612/
 - GitHub: https://github.com/amrit100612
