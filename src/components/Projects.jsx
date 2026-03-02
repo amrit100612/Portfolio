@@ -30,10 +30,21 @@ export default function Projects() {
 
             <div className="grid gap-4 text-sm leading-6 text-slate-300 md:grid-cols-2">
               <p><strong className="text-white">Problem:</strong> {project.problem}</p>
+              <p><strong className="text-white">Why It Matters:</strong> {project.whyItMatters}</p>
               <p><strong className="text-white">Solution:</strong> {project.solution}</p>
+              <p><strong className="text-white">Approach:</strong> {project.approach}</p>
               <p className="md:col-span-2">
                 <strong className="text-white">Tech Stack:</strong> {project.stack.join(' • ')}
               </p>
+            </div>
+
+            <div className="mt-4">
+              <h4 className="mb-2 font-semibold text-cyan-200">Challenges</h4>
+              <ul className="space-y-1 text-sm text-slate-300">
+                {project.challenges.map((item) => (
+                  <li key={item}>• {item}</li>
+                ))}
+              </ul>
             </div>
 
             <div className="mt-4 grid gap-4 text-sm md:grid-cols-2">

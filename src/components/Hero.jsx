@@ -79,6 +79,12 @@ export default function Hero() {
               LinkedIn
             </a>
             <a
+              href={`mailto:${profile.email}`}
+              className="rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
+            >
+              Email
+            </a>
+            <a
               href={profile.leetcode}
               target="_blank"
               rel="noreferrer"
@@ -86,6 +92,15 @@ export default function Hero() {
             >
               LeetCode
             </a>
+          </motion.div>
+
+          <motion.div variants={item} className="mt-6 rounded-xl border border-white/10 bg-slate-900/60 p-4">
+            <h3 className="text-xs font-semibold uppercase tracking-[0.16em] text-cyan-200">Alternate Hero Taglines</h3>
+            <ul className="mt-3 space-y-2 text-sm text-slate-300">
+              {profile.heroAlternates.map((tagline) => (
+                <li key={tagline}>• {tagline}</li>
+              ))}
+            </ul>
           </motion.div>
         </div>
 

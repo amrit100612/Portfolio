@@ -11,7 +11,7 @@ export default function ExperienceJourneySection() {
         description="As a fresher, I focus on proving execution through consistent project delivery, collaborative building, and transparent public learning."
       />
 
-      <div className="grid gap-4 md:grid-cols-3">
+      <div className="relative space-y-4 before:absolute before:bottom-2 before:left-[11px] before:top-2 before:w-px before:bg-cyan-300/30 sm:before:left-3">
         {experienceJourney.map((item, index) => (
           <motion.article
             key={item.title}
@@ -19,8 +19,9 @@ export default function ExperienceJourneySection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.3, delay: index * 0.06 }}
-            className="rounded-xl border border-white/10 bg-slate-900/60 p-4"
+            className="relative ml-7 rounded-xl border border-white/10 bg-slate-900/60 p-4 sm:ml-9"
           >
+            <span className="absolute -left-7 top-5 h-3 w-3 rounded-full border border-cyan-200/70 bg-cyan-300/80 shadow-[0_0_14px_rgba(34,211,238,0.6)] sm:-left-9" />
             <p className="text-xs uppercase tracking-[0.16em] text-cyan-200">{item.period}</p>
             <h3 className="mt-2 text-base font-semibold text-white">{item.title}</h3>
             <ul className="mt-3 space-y-2 text-sm text-slate-300">

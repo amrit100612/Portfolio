@@ -57,6 +57,15 @@ export default function DsaSection() {
       </div>
 
       <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/60 p-5">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">Academic Achievements</h3>
+        <ul className="mt-3 space-y-2 text-sm text-slate-300">
+          {dsa.academic.map((item) => (
+            <li key={item}>• {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/60 p-5">
         <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">Optimized Example</h3>
         <pre className="mt-3 overflow-x-auto rounded-lg border border-white/10 bg-slate-950 p-4 text-xs text-cyan-100 sm:text-sm">
           <code>{dsa.snippet}</code>
