@@ -38,7 +38,7 @@ export default function Navbar() {
             href={profile.resume}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg border border-cyan-300/40 bg-cyan-300/10 px-3 py-2 text-xs font-medium text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/20 sm:text-sm"
+            className="rounded-lg bg-cyan-400 px-3 py-2 text-xs font-medium text-slate-950 transition hover:bg-cyan-300 sm:text-sm"
           >
             Resume
           </a>
@@ -75,7 +75,7 @@ export default function Navbar() {
             target="_blank"
             rel="noreferrer"
             onClick={handleLinkClick}
-            className="mt-3 inline-flex rounded-lg border border-cyan-300/40 bg-cyan-300/10 px-3 py-2 text-xs font-medium text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/20"
+            className="mt-3 inline-flex rounded-lg bg-cyan-400 px-3 py-2 text-xs font-medium text-slate-950 transition hover:bg-cyan-300"
           >
             Resume
           </a>

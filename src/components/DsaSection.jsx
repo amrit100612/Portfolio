@@ -75,7 +75,7 @@ export default function DsaSection() {
           href={dsa.profileUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-4 inline-flex rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/20"
+          className="mt-4 inline-flex rounded-lg bg-cyan-400 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-950 transition hover:bg-cyan-300"
         >
           View LeetCode Profile
         </a>

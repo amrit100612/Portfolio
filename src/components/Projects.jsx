@@ -66,7 +66,7 @@ export default function Projects() {
                     href={project.repoUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-lg border border-white/20 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition hover:border-white/35 hover:bg-white/10"
+                    className="rounded-lg bg-cyan-400 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-950 transition hover:bg-cyan-300"
                   >
                     GitHub Repo
                   </a>
@@ -76,7 +76,7 @@ export default function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="rounded-lg border border-cyan-300/35 bg-cyan-300/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-cyan-100 transition hover:border-cyan-200/60 hover:bg-cyan-300/20"
+                    className="rounded-lg bg-cyan-400 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-950 transition hover:bg-cyan-300"
                   >
                     Live Demo
                   </a>
