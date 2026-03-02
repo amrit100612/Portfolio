@@ -7,8 +7,7 @@ Production-ready portfolio built with React, TailwindCSS, and Framer Motion to s
 This portfolio is designed to pass a 10-second recruiter scan while still providing engineering depth for technical screens:
 
 - Strong DSA and problem-solving narrative
-- End-to-end frontend + backend project case studies
-- System design thinking with explicit tradeoffs
+- End-to-end frontend + applied ML project case studies
 - Security-aware engineering mindset
 - Clear communication for hiring committees
 
@@ -29,8 +28,6 @@ This portfolio is designed to pass a 10-second recruiter scan while still provid
 - Experience / Learning Journey
 - Daily Learning Tracker
 - Technical blog pipeline
-- FAANG interview preparation roadmap
-- Resume tips
 - Contact CTA
 
 ## Local development
@@ -79,6 +76,6 @@ Additional career assets are available in `docs/`:
 
 ## Contact
 
-- Email: amritkum1209@gmail.com
-- LinkedIn: https://linkedin.com/in/amrit-kumar
+- Email: amritkum12009@gmail.com
+- LinkedIn: https://www.linkedin.com/in/amrit100612/
 - GitHub: https://github.com/amrit100612

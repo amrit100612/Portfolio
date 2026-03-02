@@ -7,8 +7,6 @@ import SkillsSection from './components/SkillsSection'
 import ExperienceJourneySection from './components/ExperienceJourneySection'
 import LearningTrackerSection from './components/LearningTrackerSection'
 import BlogSection from './components/BlogSection'
-import InterviewRoadmapSection from './components/InterviewRoadmapSection'
-import ResumeTipsSection from './components/ResumeTipsSection'
 import ContactSection from './components/ContactSection'
 
 function App() {
@@ -25,8 +23,6 @@ function App() {
         <ExperienceJourneySection />
         <LearningTrackerSection />
         <BlogSection />
-        <InterviewRoadmapSection />
-        <ResumeTipsSection />
         <ContactSection />
       </main>
     </div>

@@ -5,9 +5,9 @@ export const profile = {
   subheading:
     'I am a growth-driven engineer focused on core CS fundamentals, interview-grade problem solving, and shipping real products end-to-end. My goal is to contribute to high-impact teams at FAANG-level engineering standards.',
   location: 'Kolkata, India',
-  email: 'amritkum1209@gmail.com',
+  email: 'amritkum12009@gmail.com',
   github: 'https://github.com/amrit100612',
-  linkedin: 'https://linkedin.com/in/amrit-kumar',
+  linkedin: 'https://www.linkedin.com/in/amrit100612/',
   leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',
   resume: 'https://drive.google.com/file/d/1pgDYTm0XBWvT9vqV-atukpNN6yg7A0-i/view?usp=sharing',
   stack: ['Java', 'Python', 'React', 'Node.js', 'Tailwind CSS', 'scikit-learn', 'Git', 'Linux'],
@@ -275,36 +275,6 @@ export const blogIdeas = [
     title: 'Building My First ML App with Streamlit',
     description: 'The journey from model training to deployment, with lessons on usability and reliability.',
   },
-]
-
-export const interviewRoadmap = [
-  {
-    phase: 'Phase 1: Fundamentals (Weeks 1-4)',
-    focus: 'DSA patterns + CS core revision',
-    action: 'Solve curated problem sets and write concise notes on OS, DBMS, OOP, and CN.',
-  },
-  {
-    phase: 'Phase 2: Project Depth (Weeks 5-8)',
-    focus: 'Project storytelling + measurable impact',
-    action: 'Prepare Problem → Solution → Tradeoff → Impact narrative for each major project.',
-  },
-  {
-    phase: 'Phase 3: Interview Simulation (Weeks 9-12)',
-    focus: 'Mock interviews + behavioral rounds',
-    action: 'Practice timed coding rounds and STAR-based behavioral responses weekly.',
-  },
-  {
-    phase: 'Phase 4: Applications (Ongoing)',
-    focus: 'Targeted FAANG and high-growth product companies',
-    action: 'Tailor resume bullets by role and track applications with feedback loops.',
-  },
-]
-
-export const resumeTips = [
-  'Start each bullet with an action verb and quantify outcomes where possible.',
-  'Highlight impact over implementation details in the top 3 project bullets.',
-  'Keep resume to one page with role-relevant skills for each application.',
-  'Prepare one deep-dive project story that clearly explains trade-offs and lessons learned.',
 ]
 
 export const contact = {

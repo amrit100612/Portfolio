@@ -9,8 +9,6 @@ const navLinks = [
   { id: 'journey', label: 'Journey' },
   { id: 'tracker', label: 'Tracker' },
   { id: 'blog', label: 'Blog' },
-  { id: 'roadmap', label: 'Roadmap' },
-  { id: 'resume-tips', label: 'Resume Tips' },
   { id: 'contact', label: 'Contact' },
 ]
 
