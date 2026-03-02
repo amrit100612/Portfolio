@@ -3,10 +3,10 @@ import SectionHeader from './SectionHeader'
 import { about } from '../data/portfolioData'
 
 const points = [
-  'Started with Python automation and quickly adopted software engineering best practices.',
-  'Evolved from ML prototypes to full-stack solutions with API reliability and maintainable UI design.',
-  'Applies cybersecurity principles to improve trust, integrity, and secure-by-default implementation.',
-  'Focused on scalable systems, measurable outcomes, and continuous technical growth.',
+  '3rd-year CSE (Cybersecurity) student with a strong growth mindset and disciplined execution.',
+  'Practices DSA in Java daily to build interview-level problem solving and communication clarity.',
+  'Builds deployed ML and web projects to turn ideas into measurable outcomes.',
+  'Dreams of joining a FAANG engineering team and learning from world-class builders.',
 ]
 
 export default function About() {
@@ -14,7 +14,7 @@ export default function About() {
     <section id="about" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
         eyebrow="About"
-        title="Building from first principles with product and systems ownership"
+        title="A learner’s journey toward world-class software engineering"
         description={about.paragraph1}
       />
 

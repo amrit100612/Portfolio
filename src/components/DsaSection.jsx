@@ -6,9 +6,9 @@ export default function DsaSection() {
   return (
     <section id="dsa" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
-        eyebrow="Problem Solving"
-        title="Data Structures & Algorithms"
-        description="Consistent DSA preparation to optimize correctness under constraints, identify patterns quickly, and communicate time-space tradeoffs clearly during interviews."
+        eyebrow="DSA & Achievements"
+        title="Problem solving in Java with interview-focused consistency"
+        description="Structured preparation across platforms, contest-style timing, and deliberate revision to build strong correctness and communication under pressure."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -38,13 +38,22 @@ export default function DsaSection() {
         </div>
 
         <div className="rounded-xl border border-white/10 bg-slate-900/60 p-5">
-          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">200+ Roadmap</h3>
+          <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">Recruiter Highlights</h3>
           <ul className="mt-3 space-y-2 text-sm text-slate-300">
-            {dsa.roadmap.map((item) => (
+            {dsa.highlights.map((item) => (
               <li key={item}>• {item}</li>
             ))}
           </ul>
         </div>
+      </div>
+
+      <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/60 p-5">
+        <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-cyan-200">Certifications & Milestones</h3>
+        <ul className="mt-3 space-y-2 text-sm text-slate-300">
+          {dsa.certifications.map((item) => (
+            <li key={item}>• {item}</li>
+          ))}
+        </ul>
       </div>
 
       <div className="mt-6 rounded-xl border border-white/10 bg-slate-900/60 p-5">

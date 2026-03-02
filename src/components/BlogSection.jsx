@@ -6,9 +6,9 @@ export default function BlogSection() {
   return (
     <section id="blog" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
-        eyebrow="Technical Writing"
-        title="Blog pipeline for engineering communication"
-        description="Planned technical articles that demonstrate architecture depth, debugging process, and clear written communication expected in high-performance engineering teams."
+        eyebrow="Tech Blog"
+        title="Engineering write-ups that show thinking, clarity, and growth"
+        description="A focused set of technical blogs that highlight learning systems, practical engineering tradeoffs, and communication quality expected in top product teams."
       />
       <div className="grid gap-4 md:grid-cols-2">
         {blogIdeas.map((post, index) => (

@@ -3,9 +3,12 @@ import Hero from './components/Hero'
 import About from './components/About'
 import Projects from './components/Projects'
 import DsaSection from './components/DsaSection'
-import SystemDesignSection from './components/SystemDesignSection'
 import SkillsSection from './components/SkillsSection'
+import ExperienceJourneySection from './components/ExperienceJourneySection'
+import LearningTrackerSection from './components/LearningTrackerSection'
 import BlogSection from './components/BlogSection'
+import InterviewRoadmapSection from './components/InterviewRoadmapSection'
+import ResumeTipsSection from './components/ResumeTipsSection'
 import ContactSection from './components/ContactSection'
 
 function App() {
@@ -18,9 +21,12 @@ function App() {
         <About />
         <Projects />
         <DsaSection />
-        <SystemDesignSection />
         <SkillsSection />
+        <ExperienceJourneySection />
+        <LearningTrackerSection />
         <BlogSection />
+        <InterviewRoadmapSection />
+        <ResumeTipsSection />
         <ContactSection />
       </main>
     </div>

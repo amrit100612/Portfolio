@@ -25,9 +25,12 @@ This portfolio is designed to pass a 10-second recruiter scan while still provid
 - About (engineering journey)
 - Engineering Project Case Studies
 - DSA / Problem Solving
-- System Design (WhatsApp, Netflix, Rate Limiter)
 - Skills by engineering function
+- Experience / Learning Journey
+- Daily Learning Tracker
 - Technical blog pipeline
+- FAANG interview preparation roadmap
+- Resume tips
 - Contact CTA
 
 ## Local development
@@ -43,6 +46,18 @@ npm run dev
 npm run build
 npm run preview
 ```
+
+## Deploy on Vercel
+
+1. Push the project to GitHub.
+2. Go to Vercel and click **Add New Project**.
+3. Import the GitHub repository.
+4. Keep defaults:
+	- Framework: `Vite`
+	- Build command: `npm run build`
+	- Output directory: `dist`
+5. Click **Deploy**.
+6. Add custom domain + update canonical URL in `index.html` if needed.
 
 ## Content updates
 

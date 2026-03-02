@@ -14,7 +14,7 @@ export default function ContactSection() {
         className="flex flex-wrap gap-3"
       >
         <a href={`mailto:${profile.email}`} className="rounded-lg bg-cyan-400 px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300">
-          Email Me
+          Email for Opportunities
         </a>
         <a
           href={profile.linkedin}
@@ -30,7 +30,7 @@ export default function ContactSection() {
           rel="noreferrer"
           className="rounded-lg border border-white/20 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
         >
-          Explore GitHub
+          View GitHub Projects
         </a>
       </motion.div>
     </section>

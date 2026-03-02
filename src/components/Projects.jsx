@@ -7,8 +7,8 @@ export default function Projects() {
     <section id="projects" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
         eyebrow="Engineering Projects"
-        title="Case studies built with product, architecture, and operational thinking"
-        description="Each project is documented using engineering-review structure: problem framing, architecture decisions, implementation constraints, optimization work, and measurable outcomes."
+        title="Real projects with deployment, measurable outcomes, and clear engineering thinking"
+        description="Each project is presented recruiter-style: Problem → Solution → Tech Stack → Results, followed by repository and live links where available."
       />
 
       <div className="space-y-6">
@@ -29,31 +29,11 @@ export default function Projects() {
             </div>
 
             <div className="grid gap-4 text-sm leading-6 text-slate-300 md:grid-cols-2">
-              <p><strong className="text-white">Problem Statement:</strong> {project.problem}</p>
-              <p><strong className="text-white">Real-world Context:</strong> {project.context}</p>
-              <p className="md:col-span-2"><strong className="text-white">Architecture:</strong> {project.architecture}</p>
+              <p><strong className="text-white">Problem:</strong> {project.problem}</p>
+              <p><strong className="text-white">Solution:</strong> {project.solution}</p>
               <p className="md:col-span-2">
                 <strong className="text-white">Tech Stack:</strong> {project.stack.join(' • ')}
               </p>
-            </div>
-
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
-              <div>
-                <h4 className="mb-2 text-sm font-semibold text-cyan-200">Challenges</h4>
-                <ul className="space-y-1 text-sm text-slate-300">
-                  {project.challenges.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
-              <div>
-                <h4 className="mb-2 text-sm font-semibold text-cyan-200">Optimizations</h4>
-                <ul className="space-y-1 text-sm text-slate-300">
-                  {project.optimizations.map((item) => (
-                    <li key={item}>• {item}</li>
-                  ))}
-                </ul>
-              </div>
             </div>
 
             <div className="mt-4 grid gap-4 text-sm md:grid-cols-2">
@@ -65,10 +45,7 @@ export default function Projects() {
                   ))}
                 </ul>
               </div>
-              <div className="space-y-2 text-slate-300">
-                <p><strong className="text-white">Deployment:</strong> {project.deployment}</p>
-                <p><strong className="text-white">Future Improvements:</strong> {project.future}</p>
-              </div>
+              <p className="text-slate-300"><strong className="text-white">Deployment:</strong> {project.deployment}</p>
             </div>
 
             {(project.repoUrl || project.liveUrl) && (
