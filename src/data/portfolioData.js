@@ -9,7 +9,7 @@ export const profile = {
   github: 'https://github.com/amrit100612',
   linkedin: 'https://www.linkedin.com/in/amrit100612/',
   leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',
-  resume: 'https://drive.google.com/file/d/1pgDYTm0XBWvT9vqV-atukpNN6yg7A0-i/view?usp=sharing',
+  resume: '/Amrit_CV_Main.pdf',
   stack: ['Java', 'Python', 'React', 'Node.js', 'Tailwind CSS', 'scikit-learn', 'Git', 'Linux'],
   typingRoles: [
     'Software Engineer in the Making | DSA in Java | Scalable ML & Web Apps',
