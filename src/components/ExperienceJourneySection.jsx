@@ -7,8 +7,8 @@ export default function ExperienceJourneySection() {
     <section id="journey" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
         eyebrow="Experience"
-        title="Learning journey through internships, hackathons, and open collaboration"
-        description="As a fresher, I focus on proving execution through consistent project delivery, collaborative building, and transparent public learning."
+        title="Leadership, outreach, and technical growth across campus and open-source"
+        description="Experience highlights focus on student leadership, public relations execution, and continuous technical development through open collaboration."
       />
 
       <div className="relative space-y-4 before:absolute before:bottom-2 before:left-[11px] before:top-2 before:w-px before:bg-cyan-300/30 sm:before:left-3">

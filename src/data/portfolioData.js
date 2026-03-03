@@ -1,168 +1,146 @@
 export const profile = {
   name: 'Amrit Kumar',
-  title: '3rd Year B.Tech CSE (Cybersecurity) | Internship Candidate',
-  headline: 'Software Engineer in the Making | Solved 100+ DSA Problems in Java | Building Scalable ML & Web Apps',
+  title: 'Software Engineering • Machine Learning',
+  headline: 'B.Tech CSE (Cyber Security) student building practical ML and web applications',
   subheading:
-    'I am a growth-driven engineer focused on core CS fundamentals, interview-grade problem solving, and shipping real products end-to-end. My goal is to contribute to high-impact teams at FAANG-level engineering standards.',
-  location: 'Kolkata, India',
+    'I focus on strong CS fundamentals, hands-on implementation, and clear technical communication under pressure. Currently pursuing B.Tech CSE (Cyber Security) at Haldia Institute of Technology (CGPA: 8.02/10).',
+  location: 'West Bengal, India',
+  phone: '+91 9508043572',
+  website: 'https://amritkumar.me',
   email: 'amritkum1209@gmail.com',
   github: 'https://github.com/amrit100612',
   linkedin: 'https://www.linkedin.com/in/amrit100612/',
   leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',
   resume: '/Amrit_CV_Main.pdf',
-  stack: ['Java', 'Python', 'React', 'Node.js', 'Tailwind CSS', 'scikit-learn', 'Git', 'Linux'],
+  stack: ['Java', 'Python', 'React.js', 'REST APIs', 'scikit-learn', 'Pandas', 'Git', 'Linux'],
   typingRoles: [
-    'Software Engineer in the Making | DSA in Java | Scalable ML & Web Apps',
-    'Cybersecurity-focused CSE student building reliable software systems',
-    'Consistent learner solving coding problems daily and shipping real projects',
+    'Software Engineering • Machine Learning',
+    'B.Tech CSE (Cyber Security) | Haldia Institute of Technology',
+    'Building ML and Web projects with strong CS fundamentals',
   ],
   heroAlternates: [
-    'Software Engineer in the Making | DSA in Java | Building Scalable ML & Web Apps',
-    '3rd Year CSE (Cybersecurity) | Problem Solver in Java | Product-Focused Builder',
-    'Future MAANG Engineer | Strong CS Fundamentals | Deployed ML + Web Projects',
+    'Software Engineering & ML focused student with implementation-first mindset',
+    'Java + Python developer with practical ML and frontend project experience',
+    'Strong in DSA, OOP, DBMS, OS, and communication under timed problem solving',
   ],
 }
 
 export const about = {
   paragraph1:
-    'I am Amrit Kumar, a 3rd-year Computer Science student specializing in Cybersecurity. I began coding with curiosity, but stayed for the challenge of solving hard problems and building systems that people can rely on.',
+    'I am Amrit Kumar, a Computer Science and Engineering student (Cyber Security) at Haldia Institute of Technology (Aug 2023 – May 2027) with a CGPA of 8.02/10.',
   paragraph2:
-    'Problem solving became my daily discipline. I practice Data Structures and Algorithms in Java with a long-term mindset, because I believe strong fundamentals are the foundation of great engineering.',
+    'My core focus is implementation depth across Java, Python, and JavaScript, backed by fundamentals in DSA, OOP, DBMS, and Operating Systems.',
   paragraph3:
-    'Alongside DSA, I build and deploy projects like Loan Approval Prediction and Iris Predictor to turn theory into real outcomes. My dream is to grow into a software engineer at a FAANG company where I can learn fast, build at scale, and create meaningful impact.',
+    'I build practical projects in machine learning and web development, contribute in leadership roles, and continuously improve communication through technical problem solving and write-ups.',
 }
 
 export const projects = [
   {
-    title: 'Loan Approval Intelligence Platform',
-    type: 'Machine Learning + FinTech',
+    title: 'IRIS Predict — ML Classification Web App',
+    type: 'Machine Learning + Web App',
     problem:
-      'Manual loan verification is slow, inconsistent, and difficult to scale for financial teams.',
+      'Classroom ML examples often stop at notebooks and do not provide an interactive experience for users to test models in real time.',
     whyItMatters:
-      'Faster and fair credit decision support improves customer experience while reducing operational load on banking teams.',
+      'Deployable ML apps demonstrate practical engineering ability beyond theory and help communicate model behavior clearly.',
     solution:
-      'Built a supervised ML pipeline that predicts loan approval probability with explainable signals and consistent preprocessing.',
+      'Built a Streamlit-based classification app on the Iris dataset with an end-to-end workflow from preprocessing to live inference.',
     approach:
-      'Performed data cleaning, feature engineering, train/validation split, model benchmarking, and threshold tuning for precision-recall tradeoffs.',
-    stack: ['Python', 'Pandas', 'scikit-learn', 'NumPy', 'Hugging Face Spaces'],
+      'Implemented feature scaling and train/test validation, then benchmarked KNN, SVM, and Decision Tree models to select robust performance.',
+    stack: ['Python', 'scikit-learn', 'Pandas', 'NumPy', 'Streamlit'],
     challenges: [
-      'Class imbalance reduced default-class recall in initial models.',
-      'Needed explainable outputs instead of black-box probabilities for non-technical users.',
+      'Comparing models consistently required stable preprocessing and controlled evaluation steps.',
+      'Balancing clarity of outputs with simplicity in the interface.',
     ],
     metrics: [
-      'Achieved 89% validation accuracy with calibrated prediction confidence.',
-      'Reduced manual screening effort by an estimated 40% in simulated workflow tests.',
+      'Achieved 96% classification accuracy on evaluation runs.',
+      'Enabled real-time inference through an interactive web interface.',
     ],
-    deployment: 'Deployed on Hugging Face Spaces for recruiter-friendly live demonstrations.',
-    repoUrl: 'https://github.com/amrit100612/Loan_Predictions',
-    liveUrl: 'https://huggingface.co/spaces',
-  },
-  {
-    title: 'Iris Model Benchmark Dashboard',
-    type: 'Machine Learning + Visualization',
-    problem:
-      'Most beginner ML demos lack comparability and clear model behavior insights.',
-    whyItMatters:
-      'Transparent model comparison helps learners and interviewers quickly understand tradeoffs between algorithms.',
-    solution:
-      'Created a Streamlit app that benchmarks multiple classifiers with interactive feature input and visual model output.',
-    approach:
-      'Designed a modular pipeline to standardize preprocessing, run models, and render metrics/charts in a responsive UI.',
-    stack: ['Python', 'Pandas', 'scikit-learn', 'Streamlit', 'Matplotlib'],
-    challenges: [
-      'Maintaining deterministic runs for fair comparisons across models.',
-      'Balancing interactivity with low latency while recomputing metrics.',
-    ],
-    metrics: [
-      'Reached up to 97% accuracy on tuned classification runs.',
-      'Reduced recompute latency by 35% using caching and modularized preprocessing.',
-    ],
-    deployment: 'Deployed as a public Streamlit application for easy recruiter testing.',
+    deployment: 'Deployed as a Streamlit app for easy live testing.',
     repoUrl: 'https://github.com/amrit100612/IRIS_Predict',
     liveUrl: 'https://iris-predict.streamlit.app/',
   },
   {
-    title: 'Weather Website',
+    title: 'Weather Detecting Web Application',
     type: 'Frontend + API Integration',
     problem:
-      'Users need fast, accurate weather updates with clean UI across devices.',
+      'Users need fast and reliable city-based weather updates with clear visibility of essential environmental signals.',
     whyItMatters:
-      'Reliable real-time weather visibility helps users plan travel and daily activity decisions confidently.',
+      'Real-time weather visibility helps users plan daily activities with better context.',
     solution:
-      'Built a responsive weather app that fetches real-time data by city and handles API/loading edge cases gracefully.',
+      'Built a responsive weather dashboard powered by WeatherAPI.com with live updates and location-aware experience.',
     approach:
-      'Integrated REST weather APIs, added loading/error states, and optimized rendering for smooth mobile/desktop experience.',
-    stack: ['React', 'JavaScript', 'REST API', 'CSS', 'Vite'],
+      'Integrated REST APIs with asynchronous JavaScript (async/await), added geolocation-based detection, and designed responsive UI cards.',
+    stack: ['JavaScript', 'REST API', 'HTML5', 'CSS3'],
     challenges: [
-      'Gracefully handling API failures and rate limits in the UI.',
-      'Ensuring responsiveness and clean layout on smaller screens.',
+      'Handling API latency and errors while keeping the interface responsive.',
+      'Presenting multiple metrics (temperature, AQI, humidity, conditions) without clutter.',
     ],
     metrics: [
-      'Improved first meaningful paint by ~28% through lean component rendering.',
-      'Handled 100% of API error states with user-friendly fallback UI in QA tests.',
+      'Implemented non-blocking API flow for smoother user interactions.',
+      'Delivered geolocation-based auto-detection and richer weather insights including AQI and humidity.',
     ],
-    deployment: 'Deployed as a production static site with environment-managed API keys.',
+    deployment: 'Built as a deployable frontend web application with live API integration.',
     repoUrl: 'https://github.com/amrit100612/Weather',
-    liveUrl: 'https://weather-app.example.com',
   },
   {
-    title: 'FAANG-Focused Portfolio Website',
-    type: 'Frontend + Personal Branding',
+    title: 'CipherX — Encryption/Decryption CLI Tool',
+    type: 'Python + Cryptography',
     problem:
-      'Recruiters decide quickly, so the portfolio needed to communicate technical depth and impact in seconds.',
+      'Basic secure text transformation tools are often either opaque for learners or too rigid for experimentation.',
     whyItMatters:
-      'A high-signal portfolio increases recruiter response rate and provides stronger conversation anchors during interviews.',
+      'Hands-on secure coding projects strengthen practical cybersecurity understanding.',
     solution:
-      'Designed and built a performance-first React portfolio with narrative storytelling, measurable project outcomes, and recruiter-friendly structure.',
+      'Designed a modular CLI tool for encryption and decryption workflows with reliable command-line execution.',
     approach:
-      'Built reusable component architecture, motion-backed UI, and SEO-focused metadata for fast scanability and polished presentation.',
-    stack: ['React', 'Tailwind CSS', 'Framer Motion', 'Vite'],
+      'Implemented custom cryptographic transformation logic, input validation, and error handling for bidirectional operations.',
+    stack: ['Python', 'Cryptography'],
     challenges: [
-      'Balancing rich animations with performance and accessibility.',
-      'Structuring content to be concise for recruiters but deep for engineers.',
+      'Designing command-line interactions that remain simple while handling invalid input safely.',
+      'Structuring encryption/decryption logic in reusable modular units.',
     ],
     metrics: [
-      'Achieved Lighthouse-friendly, lightweight architecture for fast recruiter scans.',
-      'Improved profile clarity with structured sections for DSA, projects, skills, and roadmap.',
+      'Implemented robust input validation and error-safe workflow handling.',
+      'Strengthened applied cybersecurity foundations through practical implementation.',
     ],
-    deployment: 'Deployed on Vercel with continuous deployment from GitHub.',
-    repoUrl: 'https://github.com/amrit100612/Portfolio',
+    deployment: 'CLI-based project focused on local secure workflow execution.',
+    repoUrl: 'https://github.com/amrit100612/CipherX',
   },
 ]
 
 export const dsa = {
   profileUrl: 'https://leetcode.com/u/mNBmOlhBGQ/',
   stats: [
-    { label: 'Problems Solved', value: '100+' },
+    { label: 'Practice Focus', value: 'Consistency & Correctness' },
     { label: 'Primary Language', value: 'Java' },
     { label: 'Primary Platforms', value: 'LeetCode, CodeChef, HackerRank' },
-    { label: 'Current Focus', value: 'Graphs, DP, Greedy, Backtracking' },
+    { label: 'Current Focus', value: 'Arrays, Strings, Binary Search' },
   ],
   categories: [
-    'Arrays & Hashing',
-    'Trees & Binary Search Trees',
-    'Graphs (BFS/DFS, Shortest Path)',
-    'Dynamic Programming',
-    'Greedy Algorithms',
-    'Backtracking',
-    'Two Pointers',
+    'Arrays',
+    'Strings',
     'Binary Search',
-    'Stacks, Queues, Heaps',
+    'Two Pointers',
+    'Hashing',
+    'Recursion',
+    'Trees',
+    'Graphs',
+    'Dynamic Programming',
   ],
   highlights: [
-    'Solved 100+ DSA problems in Java with strong focus on clean implementations.',
-    'Regularly participates in coding contests to improve speed and accuracy under pressure (LeetCode Weekly, CodeChef).',
-    'Maintains revision notes for patterns, edge cases, and complexity trade-offs.',
-    'Practices timed interview sets to improve communication and problem breakdown.',
+    'Consistent DSA practice on LeetCode with strong emphasis on Arrays, Strings, and Binary Search.',
+    'Uses timed problem solving and revision cycles to improve accuracy and communication.',
+    'Builds clear, implementation-first Java solutions with edge-case awareness.',
+    'Strengthens interview readiness through regular platform-based practice.',
   ],
   academic: [
-    'Maintains strong academic focus in core Computer Science and Cybersecurity coursework.',
-    'Consistently applies classroom concepts in practical project implementations.',
+    'B.Tech CSE (Cyber Security), Haldia Institute of Technology (Aug 2023 – May 2027).',
+    'CGPA: 8.02 / 10.',
+    'Relevant coursework: Data Structures & Algorithms, Operating Systems, DBMS, OOP, Machine Learning.',
   ],
   certifications: [
-    'NPTEL / Coursera coursework in Data Structures and Algorithms',
-    'Cybersecurity and secure coding learning certifications (in progress)',
-    'Machine Learning project certifications and practical implementations',
+    'Deloitte Australia Cyber Security Program (Forage, 2024) — completed virtual industry simulation.',
+    'Hacktoberfest 2024 — earned Level 4 badge through open-source contributions.',
+    'GirlScript Summer of Code 2025 — active contributor on project GrowCraft.',
   ],
   snippet: `public int longestConsecutive(int[] nums) {
     Set<Integer> set = new HashSet<>();
@@ -188,99 +166,95 @@ export const dsa = {
 
 export const skills = [
   {
-    category: 'Programming',
-    detail: 'Java (Primary), Python, C Basics — Build clean implementations for algorithms, scripting, and project logic.',
-  },
-  {
-    category: 'DSA',
-    detail: 'Arrays, Linked Lists, Recursion, Trees, Graphs, DP — Daily Java practice with complexity-first thinking.',
+    category: 'Languages',
+    detail: 'Java, Python, C, JavaScript',
   },
   {
     category: 'CS Fundamentals',
-    detail: 'OS, DBMS, OOP, Computer Networks — Strong conceptual clarity to design robust systems and reason about trade-offs.',
+    detail: 'Data Structures & Algorithms, OOP, DBMS, Operating Systems',
   },
   {
-    category: 'Web Development',
-    detail: 'React, Node.js, HTML, CSS, Tailwind, REST APIs — Build responsive full-stack-ready apps with clean UI.',
+    category: 'Web',
+    detail: 'React.js, HTML5, CSS3, REST APIs',
   },
   {
-    category: 'ML / Data Science',
-    detail: 'Pandas, NumPy, scikit-learn, Streamlit — Train, evaluate, and deploy practical ML predictors.',
+    category: 'Machine Learning',
+    detail: 'scikit-learn, Pandas, NumPy, Matplotlib, Seaborn',
   },
   {
     category: 'Tools',
-    detail: 'Git, GitHub, Linux, VS Code, Postman — Use structured workflows for versioning, testing, and API debugging.',
+    detail: 'Git, GitHub, Linux, VS Code, Streamlit Cloud',
   },
 ]
 
 export const skillChart = [
-  { label: 'Programming (Java/Python)', value: 90 },
-  { label: 'Data Structures & Algorithms', value: 88 },
+  { label: 'Java / Python / JavaScript', value: 88 },
+  { label: 'Data Structures & Algorithms', value: 86 },
   { label: 'CS Fundamentals', value: 84 },
-  { label: 'Web Development', value: 86 },
-  { label: 'Machine Learning', value: 82 },
-  { label: 'Developer Tools', value: 87 },
+  { label: 'React + Web Fundamentals', value: 83 },
+  { label: 'Machine Learning Tooling', value: 82 },
+  { label: 'Developer Tools', value: 85 },
 ]
 
 export const experienceJourney = [
   {
-    title: 'Internship Preparation & Project Depth',
-    period: '2025 - Present',
+    title: 'Class Representative — CSE (Cyber Security)',
+    period: 'Aug 2023 - Present',
     points: [
-      'Actively applying for SDE internship roles and building interview-ready project depth.',
-      'Preparing production-style documentation and demo-first project walkthroughs for recruiters.',
-      'Learned to communicate engineering decisions clearly through project case-study storytelling.',
+      'Representing 60+ students as the primary liaison between faculty and administration.',
+      'Organized academic workshops, technical events, and departmental initiatives.',
+      'Improved communication and coordination across student and faculty stakeholders.',
     ],
   },
   {
-    title: 'Hackathons & Collaborative Builds',
-    period: '2024 - Present',
+    title: 'Public Relations Team Member — TaruGuardians',
+    period: 'Jan 2024 - Present',
     points: [
-      'Built team-based prototypes under time constraints and learned rapid prioritization.',
-      'Improved communication across development, debugging, and feature handoffs.',
-      'Learned to deliver workable MVPs while maintaining code clarity under deadline pressure.',
+      'Managed outreach campaigns to increase environmental awareness and student engagement.',
+      'Coordinated event promotions, social media drives, and participation initiatives.',
+      'Built execution discipline for communication-first campaign delivery.',
     ],
   },
   {
-    title: 'Open Source & Public Code',
+    title: 'Open Source & Technical Growth',
     period: '2024 - Present',
     points: [
-      'Maintains public repositories with clear READMEs and structured commits.',
-      'Learned the value of consistency, code readability, and iteration through feedback.',
-      'Built a self-learning roadmap with weekly goals across DSA, CS fundamentals, and project shipping.',
+      'Completed Deloitte Australia Cyber Security Program (Forage, 2024).',
+      'Earned Hacktoberfest 2024 Level 4 badge through open-source contributions.',
+      'Contributed in GirlScript Summer of Code 2025 on GrowCraft while maintaining regular DSA practice.',
     ],
   },
 ]
 
 export const dailyLearningTracker = {
-  streak: '180+ day consistency streak mindset',
+  streak: 'Consistent DSA + project practice mindset',
   blocks: [
-    { label: 'DSA in Java', detail: '1-2 problems daily with complexity review and alternate approaches.' },
-    { label: 'CS Core Revision', detail: 'OS / DBMS / OOP / CN revision with short written notes.' },
-    { label: 'Project Building', detail: 'Daily incremental improvements in ML or web projects.' },
-    { label: 'Interview Prep', detail: 'Behavioral stories, resume refinement, and mock problem explanation.' },
+    { label: 'DSA in Java', detail: 'Regular LeetCode practice with focus on Arrays, Strings, and Binary Search.' },
+    { label: 'Core CS Revision', detail: 'Structured revision of OS, DBMS, OOP, and problem-solving patterns.' },
+    { label: 'Project Execution', detail: 'Iterative improvements across ML and web applications with deployment mindset.' },
+    { label: 'Communication', detail: 'Refining technical explanation quality for interviews and collaboration.' },
   ],
 }
 
 export const blogIdeas = [
   {
-    title: 'How I Solved 100+ DSA Problems in Java',
-    description: 'A practical system for daily consistency, revision loops, and improving coding interview speed.',
+    title: 'Designing a Practical DSA Learning System',
+    description: 'How structured practice, timed solving, and revision loops improve correctness and communication.',
   },
   {
-    title: 'Understanding Dynamic Programming Intuitively',
-    description: 'Simple mental models and pattern-based explanations that made DP easier to apply under pressure.',
+    title: 'Engineering Tradeoffs in ML Mini-Projects',
+    description: 'Lessons from model selection, preprocessing, and interface decisions in beginner-to-intermediate ML apps.',
   },
   {
-    title: 'Building My First ML App with Streamlit',
-    description: 'The journey from model training to deployment, with lessons on usability and reliability.',
+    title: 'Writing Clearly as a Student Engineer',
+    description: 'How technical writing improves collaboration, interview clarity, and product-team readiness.',
   },
 ]
 
 export const contact = {
-  title: 'Let us build meaningful products at scale.',
+  title: 'Let’s connect for software engineering opportunities.',
   message:
-    'I am actively seeking Software Engineering internship opportunities where I can contribute with strong fundamentals, ownership mindset, and consistent execution. If your team values problem solving, learning agility, and reliable delivery, I would love to connect.',
+    'I am open to software engineering and machine learning opportunities where I can contribute through strong fundamentals, practical implementation, and clear communication. I would be glad to connect.',
 }
 
 export const contactForm = {

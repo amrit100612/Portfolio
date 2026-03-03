@@ -112,10 +112,10 @@ export default function Hero() {
         >
           <h2 className="text-sm font-semibold uppercase tracking-widest text-cyan-200">Recruiter Snapshot</h2>
           <ul className="mt-4 space-y-3 text-sm text-slate-200">
-            <li><strong className="text-white">Education:</strong> 3rd Year B.Tech CSE (Cybersecurity)</li>
-            <li><strong className="text-white">Target:</strong> FAANG-level SDE Internship</li>
+            <li><strong className="text-white">Education:</strong> B.Tech CSE (Cyber Security), HIT (2023–2027)</li>
+            <li><strong className="text-white">CGPA:</strong> 8.02 / 10</li>
             <li><strong className="text-white">Location:</strong> {profile.location}</li>
-            <li><strong className="text-white">Strengths:</strong> DSA in Java, CS fundamentals, ML + Web engineering</li>
+            <li><strong className="text-white">Strengths:</strong> DSA in Java, CS fundamentals, ML + web implementation</li>
           </ul>
         </motion.aside>
       </motion.div>

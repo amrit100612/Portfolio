@@ -8,7 +8,7 @@ export default function LearningTrackerSection() {
       <SectionHeader
         eyebrow="Daily Tracker"
         title="Daily learning tracker for consistent engineering growth"
-        description="I treat consistency as a compounding advantage. This tracker reflects my day-to-day execution system for interviews and real project building."
+        description="This tracker reflects a steady routine across DSA, CS fundamentals, project implementation, and technical communication practice."
       />
 
       <div className="rounded-xl border border-cyan-300/35 bg-cyan-300/10 p-4 text-sm text-cyan-100">

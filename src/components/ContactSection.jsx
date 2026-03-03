@@ -63,8 +63,19 @@ export default function ContactSection() {
           viewport={{ once: true, amount: 0.2 }}
           className="space-y-3"
         >
+          <a href={`tel:${profile.phone}`} className="block rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10">
+            Phone: {profile.phone}
+          </a>
           <a href={`mailto:${profile.email}`} className="block rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10">
             Email: {profile.email}
+          </a>
+          <a
+            href={profile.website}
+            target="_blank"
+            rel="noreferrer"
+            className="block rounded-lg border border-white/20 bg-white/5 px-4 py-3 text-sm font-semibold text-white transition hover:border-white/35 hover:bg-white/10"
+          >
+            Website: amritkumar.me
           </a>
           <a
             href={profile.linkedin}
