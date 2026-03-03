@@ -2,25 +2,44 @@
 
 ## Portfolio Summary Bullets
 
-- Built and deployed a FAANG-style software engineering portfolio using React, TailwindCSS, and Framer Motion with modular architecture and ATS-friendly technical storytelling.
-- Reframed student projects into engineering case studies with clear problem statements, architecture decisions, optimization strategies, deployment notes, and measurable outcomes.
-- Added system design summaries (WhatsApp, Netflix, Rate Limiter) to demonstrate infrastructure-level thinking around scaling, caching, load balancing, and tradeoffs.
-- Documented DSA progress with category coverage, optimized code samples, and a structured 200+ problem roadmap for interview readiness.
+- Built and deployed a personal software engineering portfolio using React, Tailwind CSS, and Framer Motion with clean recruiter-friendly project storytelling.
+- Structured projects using Problem → Solution → Tech Stack → Results format to improve technical clarity and scanability.
+- Highlighted practical implementation depth across ML and web development with public repositories and deployment links.
+- Showcased continuous DSA practice in Java and strong CS fundamentals (DSA, OOP, DBMS, OS).
 
 ## Project Impact Bullets
 
-### Loan Approval Intelligence Platform
-- Engineered an ML decision-support workflow for loan triage using Python, scikit-learn, and Pandas with calibrated risk scoring and explainability-focused outputs.
-- Improved classification F1 performance by ~18% over baseline through stratified evaluation, class balancing, and reusable preprocessing pipelines.
-- Deployed an interactive scoring interface with reproducible dependency and environment management for consistent demos.
+### IRIS Predict — ML Classification Web App
+- Achieved 96% classification accuracy using supervised ML techniques on the Iris dataset.
+- Engineered preprocessing pipeline with feature scaling and train/test split validation.
+- Benchmarked KNN, SVM, and Decision Tree classifiers to optimize model selection.
+- Built an interactive Streamlit interface for real-time inference and visualization.
 
-### Iris Model Benchmark Dashboard
-- Built a model comparison dashboard to evaluate classifiers under unified preprocessing and metric tracking.
-- Reduced dashboard recompute overhead by ~35% by introducing dataset caching and modular model orchestration.
-- Designed UI components to surface confusion matrices and decision boundaries for non-expert stakeholders.
+### Weather Detecting Web Application
+- Developed a real-time weather dashboard using WeatherAPI.com REST API integration.
+- Implemented asynchronous JavaScript (async/await) for non-blocking API calls.
+- Added geolocation-based auto-detection for personalized weather data.
+- Designed responsive UI displaying temperature, AQI, humidity, and weather conditions.
 
-### Weather Intelligence Web App
-- Developed a resilient weather dashboard with asynchronous API orchestration, geolocation fallback handling, and stateful error boundaries.
-- Improved user reliability under API instability using retry logic, timeout controls, and normalized response adapters.
-- Packaged frontend deployment with environment-specific API configuration and production-ready build pipeline.
+### CipherX — Encryption/Decryption CLI Tool
+- Designed a modular CLI-based encryption system using custom cryptographic transformation logic.
+- Implemented bidirectional encryption/decryption workflow with input validation and error handling.
+- Strengthened applied cybersecurity understanding through secure coding practice.
+
+## Leadership & Experience Bullets
+
+### Class Representative — CSE (Cyber Security)
+- Representing 60+ students as primary liaison between faculty and administration.
+- Organized academic workshops, technical events, and departmental initiatives.
+
+### Public Relations Team Member — TaruGuardians
+- Managed outreach campaigns increasing environmental awareness and student engagement.
+- Coordinated event promotions, social media drives, and student participation initiatives.
+
+## Achievements & Certifications Bullets
+
+- Deloitte Australia Cyber Security Program (Forage, 2024) — completed virtual industry simulation.
+- Hacktoberfest 2024 — earned Level 4 Badge through open source contributions.
+- GirlScript Summer of Code 2025 — active contributor on project GrowCraft.
+- Consistent DSA problem solving on LeetCode with focus on Arrays, Strings, and Binary Search.
 
