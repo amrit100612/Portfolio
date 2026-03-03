@@ -8,7 +8,6 @@ export default function Projects() {
       <SectionHeader
         eyebrow="Engineering Projects"
         title="Real projects with deployment, measurable outcomes, and clear engineering thinking"
-        description="Each project is presented recruiter-style: Problem → Solution → Tech Stack → Results, followed by repository and live links where available."
       />
 
       <div className="space-y-6">
