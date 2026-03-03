@@ -8,7 +8,6 @@ export default function BlogSection() {
       <SectionHeader
         eyebrow="Tech Blog"
         title="Engineering write-ups that show thinking, clarity, and growth"
-        description="A focused set of technical blogs that highlight learning systems, practical engineering tradeoffs, and communication quality expected in top product teams."
       />
       <div className="grid gap-4 md:grid-cols-2">
         {blogIdeas.map((post, index) => (

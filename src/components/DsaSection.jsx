@@ -8,7 +8,6 @@ export default function DsaSection() {
       <SectionHeader
         eyebrow="DSA & Achievements"
         title="Problem solving in Java with interview-focused consistency"
-        description="Structured preparation across platforms, contest-style timing, and deliberate revision to build strong correctness and communication under pressure."
       />
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

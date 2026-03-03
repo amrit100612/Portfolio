@@ -8,7 +8,6 @@ export default function SkillsSection() {
       <SectionHeader
         eyebrow="Skills"
         title="Engineering toolkit with execution depth"
-        description="Skills are grouped by engineering function with practical proficiency context, emphasizing implementation capability over keyword listing."
       />
 
       <div className="grid gap-4 md:grid-cols-2">
