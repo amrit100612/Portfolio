@@ -2,33 +2,304 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Amrit Kumar | Cyber Security Portfolio</title>
+    <title>Amrit Kumar | Software Developer Portfolio</title>
     <meta
       name="description"
-      content="Portfolio of Amrit Kumar, a third-year B.Tech CSE (Cyber Security) student focused on secure systems and web development."
-    />
-    <meta
-      name="keywords"
-      content="Amrit Kumar, software engineer portfolio, DSA Java, FAANG internship, cybersecurity student, machine learning projects, React developer, web developer"
+      content="Professional developer portfolio of Amrit Kumar - Software Developer and Machine Learning Enthusiast building scalable real-world applications."
     />
     <meta name="author" content="Amrit Kumar" />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://amrit-portfolio.vercel.app" />
-    <meta property="og:title" content="Amrit Kumar | Cyber Security Portfolio" />
-    <meta
-      property="og:description"
-      content="Secure web projects, leadership experience, and a clear focus on cybersecurity fundamentals."
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://amrit-portfolio.vercel.app" />
-    <meta property="og:image" content="/vite.svg" />
-    <meta property="og:locale" content="en_IN" />
-    <meta name="twitter:card" content="summary" />
+    <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <header class="navbar" id="home">
+      <div class="container nav-content">
+        <a href="#home" class="brand">Amrit Kumar</a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open Menu" aria-expanded="false">☰</button>
+        <nav class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects" class="active-link">Projects</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section" aria-label="Hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-grid">
+          <div class="hero-content reveal">
+            <p class="eyebrow">B.Tech CSE (Cybersecurity), 3rd Year • India</p>
+            <h1>Hi, I&apos;m Amrit Kumar</h1>
+            <p class="hero-subtitle">Software Developer | Java | Full Stack | Machine Learning</p>
+            <p class="typing-line">I build with <span id="typingText"></span><span class="cursor">|</span></p>
+            <div class="cta-group">
+              <a href="#projects" class="btn btn-primary">View Projects</a>
+              <a href="/Amrit_CV_Main.pdf" class="btn btn-secondary" target="_blank" rel="noopener noreferrer">Download Resume</a>
+            </div>
+          </div>
+          <div class="hero-stats reveal delay-1">
+            <div class="stat-card">
+              <p class="stat-value">10+</p>
+              <p class="stat-label">Technologies</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">4</p>
+              <p class="stat-label">Case-Study Projects</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-value">ML + Full Stack</p>
+              <p class="stat-label">Core Focus</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="container reveal">
+          <h2 class="section-title">About</h2>
+          <p class="section-copy">
+            I am a software developer and machine learning enthusiast who enjoys turning ideas into robust applications.
+            I focus on solving practical problems with clean architecture, strong CS fundamentals, and user-centric design.
+            From building data-driven ML systems to full-stack web applications, I aim to ship reliable products that create real impact.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="container">
+          <h2 class="section-title reveal">Skills</h2>
+          <div class="skills-grid">
+            <article class="skill-card reveal">
+              <h3>Languages</h3>
+              <ul>
+                <li><span>☕</span> Java</li>
+                <li><span>🐍</span> Python</li>
+                <li><span>⚙️</span> C++</li>
+              </ul>
+            </article>
+            <article class="skill-card reveal delay-1">
+              <h3>Frontend</h3>
+              <ul>
+                <li><span>🌐</span> HTML</li>
+                <li><span>🎨</span> CSS</li>
+                <li><span>🧠</span> JavaScript</li>
+                <li><span>⚛️</span> React</li>
+              </ul>
+            </article>
+            <article class="skill-card reveal delay-2">
+              <h3>Backend</h3>
+              <ul>
+                <li><span>🟢</span> Node.js</li>
+                <li><span>🚀</span> Express</li>
+              </ul>
+            </article>
+            <article class="skill-card reveal">
+              <h3>Database</h3>
+              <ul>
+                <li><span>🍃</span> MongoDB</li>
+                <li><span>🗄️</span> MySQL</li>
+              </ul>
+            </article>
+            <article class="skill-card reveal delay-1">
+              <h3>Machine Learning</h3>
+              <ul>
+                <li><span>🤖</span> Scikit-learn</li>
+                <li><span>📊</span> Pandas</li>
+                <li><span>📈</span> NumPy</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="skill-bars reveal delay-2" aria-label="Skill proficiency bars">
+            <div class="bar-row"><span>Java</span><div class="bar"><i data-width="92"></i></div></div>
+            <div class="bar-row"><span>JavaScript</span><div class="bar"><i data-width="88"></i></div></div>
+            <div class="bar-row"><span>Machine Learning</span><div class="bar"><i data-width="85"></i></div></div>
+            <div class="bar-row"><span>Full Stack Development</span><div class="bar"><i data-width="84"></i></div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="container">
+          <div class="projects-header reveal">
+            <h2 class="section-title">Projects</h2>
+            <p class="section-copy">Structured project case studies with architecture and implementation flow.</p>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card reveal">
+              <div class="project-top">
+                <h3>Iris Flower Prediction</h3>
+                <p>Machine learning model that predicts iris flower species based on sepal and petal measurements.</p>
+                <p class="stack">Python • Scikit-learn • Pandas • Streamlit</p>
+                <div class="project-links">
+                  <a href="https://github.com/amrit100612/IRIS_Predict" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://iris-predict.streamlit.app/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+              <button class="expand-btn" type="button">View Architecture</button>
+              <div class="project-details">
+                <div class="architecture-flow">
+                  <div class="flow-box">User Input (Sliders)</div>
+                  <span>↓</span>
+                  <div class="flow-box">Streamlit Web Interface</div>
+                  <span>↓</span>
+                  <div class="flow-box">Data Preprocessing</div>
+                  <span>↓</span>
+                  <div class="flow-box">Machine Learning Model</div>
+                  <span>↓</span>
+                  <div class="flow-box">Prediction Output</div>
+                </div>
+                <p class="architecture-copy">
+                  User-selected feature values are validated and prepared in the preprocessing layer. The cleaned data is passed
+                  to the trained model for inference, and prediction output is returned instantly through the Streamlit interface.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-1">
+              <div class="project-top">
+                <h3>Loan Approval Prediction System</h3>
+                <p>Machine learning model that predicts whether a loan should be approved based on applicant information.</p>
+                <p class="stack">Python • Pandas • Scikit-learn • Streamlit</p>
+                <div class="project-links">
+                  <a href="https://github.com/amrit100612" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://amritkumar.me/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+              <button class="expand-btn" type="button">View Architecture</button>
+              <div class="project-details">
+                <div class="architecture-flow">
+                  <div class="flow-box">User Input Form</div>
+                  <span>↓</span>
+                  <div class="flow-box">Data Cleaning &amp; Feature Engineering</div>
+                  <span>↓</span>
+                  <div class="flow-box">ML Model (Logistic Regression / Random Forest)</div>
+                  <span>↓</span>
+                  <div class="flow-box">Prediction Result</div>
+                </div>
+                <p class="architecture-copy">
+                  Applicant inputs are transformed into model-ready features, then passed to trained classifiers to evaluate approval probability.
+                  The prediction result is shown in a simple output layer for quick decision support.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal delay-2">
+              <div class="project-top">
+                <h3>AI Stock Market Fraud Detection</h3>
+                <p>AI system designed to detect suspicious stock market trading patterns.</p>
+                <p class="stack">Python • Machine Learning • Financial Data APIs</p>
+                <div class="project-links">
+                  <a href="https://github.com/amrit100612" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://amritkumar.me/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+              <button class="expand-btn" type="button">View Architecture</button>
+              <div class="project-details">
+                <div class="architecture-flow">
+                  <div class="flow-box">Stock Market Data API</div>
+                  <span>↓</span>
+                  <div class="flow-box">Data Processing Layer</div>
+                  <span>↓</span>
+                  <div class="flow-box">Feature Engineering</div>
+                  <span>↓</span>
+                  <div class="flow-box">ML Detection Model</div>
+                  <span>↓</span>
+                  <div class="flow-box">Fraud Alert Output</div>
+                </div>
+                <p class="architecture-copy">
+                  Real-time market signals are ingested and transformed into behavioral features. Detection models classify anomalies
+                  and trigger fraud alerts for suspicious pattern clusters.
+                </p>
+              </div>
+            </article>
+
+            <article class="project-card reveal">
+              <div class="project-top">
+                <h3>Weather Application</h3>
+                <p>A JavaScript web app that fetches real-time weather data using APIs.</p>
+                <p class="stack">HTML • CSS • JavaScript • Weather API</p>
+                <div class="project-links">
+                  <a href="https://github.com/amrit100612/Weather" target="_blank" rel="noopener noreferrer">GitHub</a>
+                  <a href="https://amritkumar.me/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                </div>
+              </div>
+              <button class="expand-btn" type="button">View Architecture</button>
+              <div class="project-details">
+                <div class="architecture-flow">
+                  <div class="flow-box">User Search City</div>
+                  <span>↓</span>
+                  <div class="flow-box">JavaScript Fetch API</div>
+                  <span>↓</span>
+                  <div class="flow-box">Weather API Request</div>
+                  <span>↓</span>
+                  <div class="flow-box">API Response</div>
+                  <span>↓</span>
+                  <div class="flow-box">Weather Data Display</div>
+                </div>
+                <p class="architecture-copy">
+                  City input triggers a fetch request to the weather service. The response is parsed in JavaScript and mapped to
+                  clear weather cards so users can view real-time conditions instantly.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="github">
+        <div class="container reveal github-panel">
+          <h2 class="section-title">GitHub</h2>
+          <p class="section-copy">Explore repositories, code quality, and implementation depth.</p>
+          <a href="https://github.com/amrit100612" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Visit GitHub Profile</a>
+        </div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="container contact-grid">
+          <div class="contact-info reveal">
+            <h2 class="section-title">Contact</h2>
+            <p class="section-copy">Open to software development and machine learning opportunities.</p>
+            <ul>
+              <li>Email: <a href="mailto:amritkum1209@gmail.com">amritkum1209@gmail.com</a></li>
+              <li>GitHub: <a href="https://github.com/amrit100612" target="_blank" rel="noopener noreferrer">github.com/amrit100612</a></li>
+              <li>LinkedIn: <a href="https://www.linkedin.com/in/amrit100612/" target="_blank" rel="noopener noreferrer">linkedin.com/in/amrit100612</a></li>
+            </ul>
+          </div>
+          <form class="contact-form reveal delay-1">
+            <label for="name">Name</label>
+            <input id="name" type="text" name="name" placeholder="Your name" required />
+
+            <label for="email">Email</label>
+            <input id="email" type="email" name="email" placeholder="your.email@example.com" required />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Write your message" required></textarea>
+
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>© 2026 Amrit Kumar • Software Developer | Machine Learning Enthusiast</p>
+      </div>
+    </footer>
+
+    <script type="module" src="./script.js"></script>
   </body>
 </html>
