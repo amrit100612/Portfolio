@@ -25,7 +25,7 @@ export default function Navbar() {
             <span key={link.id} className="inline-flex items-center">
               <a
                 href={`#${link.id}`}
-                className={`transition hover:text-stone-900 ${link.highlight ? 'font-semibold text-stone-900' : ''}`}
+                className={`nav-link hover:text-stone-900 ${link.highlight ? 'font-semibold text-stone-900' : ''}`}
               >
                 {link.label}
               </a>
@@ -50,7 +50,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-stone-900/10 bg-white px-4 py-3 md:hidden sm:px-6">
+        <div className="reveal-fade border-t border-stone-900/10 bg-white px-4 py-3 md:hidden sm:px-6">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a

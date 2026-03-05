@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 
 export default function ContactSection() {
   return (
-    <section id="contact" className="classic-panel p-6 sm:p-8">
+    <section id="contact" className="classic-panel reveal-up delay-3 p-6 sm:p-8">
       <SectionHeader eyebrow="CONTACT" title={contact.title} description={contact.message} />
 
       <div className="grid gap-5 text-sm leading-7 text-stone-700 sm:grid-cols-2">

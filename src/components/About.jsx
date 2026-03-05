@@ -3,7 +3,7 @@ import SectionHeader from './SectionHeader'
 
 export default function About() {
   return (
-    <section id="about" className="classic-panel p-6 sm:p-8">
+    <section id="about" className="classic-panel reveal-up delay-1 p-6 sm:p-8">
       <SectionHeader eyebrow="About" title={about.heading} />
 
       <div className="space-y-6 text-[15px] leading-7 text-stone-700">

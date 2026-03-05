@@ -13,13 +13,13 @@ export default function Hero() {
   ]
 
   return (
-    <section id="home" className="classic-panel hero-bg p-6 sm:p-8">
+    <section id="home" className="classic-panel hero-bg reveal-up p-6 sm:p-8">
       <div className="grid items-center gap-8 md:grid-cols-[220px,1fr] lg:grid-cols-[260px,1fr]">
         <div className="mx-auto w-full max-w-[260px]">
           <button
             type="button"
             onClick={() => setShowLinks((current) => !current)}
-            className="block w-full text-left"
+            className="block w-full text-left transition-transform duration-300 hover:scale-[1.01]"
             aria-expanded={showLinks}
             aria-label="Toggle profile links"
           >
@@ -32,7 +32,7 @@ export default function Hero() {
           </button>
 
           {showLinks && (
-            <div className="mt-3 border border-stone-900/20 bg-white p-3 text-sm text-stone-800">
+            <div className="reveal-fade mt-3 border border-stone-900/20 bg-white p-3 text-sm text-stone-800">
               <p className="mb-2 text-xs font-semibold uppercase tracking-[0.14em] text-stone-600">Quick Links</p>
               <ul className="space-y-1.5">
                 {quickLinks.map((item) => (
@@ -60,7 +60,7 @@ export default function Hero() {
           )}
         </div>
 
-        <div>
+        <div className="reveal-up delay-1">
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-200">HELLO FOLKS !</p>
           <h1 className="mt-2 max-w-4xl text-2xl font-bold text-white sm:text-4xl">
             My name is Amrit I am a Programmer from Haldia Institute of Technology, India.
