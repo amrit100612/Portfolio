@@ -1,8 +1,10 @@
 export const profile = {
   name: 'Amrit Kumar',
-  title: 'Software Engineering • Machine Learning',
-  headline: 'B.Tech CSE (Cyber Security) student building practical ML and web applications',
-  subheading: 'Focused on implementation depth, strong CS fundamentals, and practical product building.',
+  title: 'Hello Folks!',
+  headline: 'My name is Amrit Kumar. I am a software engineering and machine learning enthusiast from India.',
+  subheading: 'B.Tech CSE (Cyber Security), Haldia Institute of Technology',
+  photo: '/amrit-photo.png',
+  photoAlt: 'Portrait of Amrit Kumar',
   location: 'West Bengal, India',
   phone: '+91 9508043572',
   website: 'https://amritkumar.me',
@@ -14,9 +16,23 @@ export const profile = {
 }
 
 export const about = {
-  paragraph1: 'I am Amrit Kumar, a Computer Science and Engineering student (Cyber Security) with a strong implementation-first mindset.',
-  paragraph2: 'My focus is software engineering and machine learning projects that deliver measurable and user-facing outcomes.',
-  paragraph3: 'I enjoy problem solving, clean architecture, and continuous technical growth through practical work.',
+  heading: 'Some words about me',
+  aboutText:
+    'I am a third-year undergraduate student in the Department of Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
+  aboutStory:
+    "I was fortunate enough to know from a young age that I wanted to be an engineer. The engineering way of thinking came naturally to me. What I did not know was what type of engineer I wanted to be. When push came to shove, I chose Software Engineering.",
+  interestsText:
+    "I like watching movies, playing video games (mostly First/Third Person Shooting Games), Competitive Programming and loads of other stuff. My hobby is playing chess and hitting the gym. When I am not writing code, I am either outsmarting opponents on the chessboard or lifting weights at the gym because a sharp mind needs a strong body.",
+  interestsMusic:
+    'I love music. I am an ardent listener of songs, ranging from Classical and Sufi to Hindi and English. Sometimes I also hit the outdoor field to chase real thrills, taste raw competition, and celebrate wins that no screen can replicate.',
+  skillsText:
+    'On my way, I have learnt a range of programming languages such as C, Python, and Java.',
+  techStack: [
+    'Java, Python, C, JavaScript',
+    'HTML5, CSS3, REST APIs',
+    'scikit-learn, Pandas, NumPy, Streamlit',
+    'Git, GitHub, Linux, VS Code',
+  ],
 }
 
 export const projects = [
@@ -102,6 +118,49 @@ export const projects = [
   },
 ]
 
+export const works = [
+  {
+    title: 'My GitHub Profile',
+    category: 'Programming',
+    url: 'https://github.com/amrit100612',
+  },
+  {
+    title: 'My LeetCode Profile',
+    category: 'Programming',
+    url: 'https://leetcode.com/u/mNBmOlhBGQ/',
+  },
+  {
+    title: 'My LinkedIn Profile',
+    category: 'Programming',
+    url: 'https://www.linkedin.com/in/amrit100612/',
+  },
+  {
+    title: 'IRIS Predict - ML Classification App',
+    category: 'Machine Learning',
+    url: '#',
+  },
+  {
+    title: 'Weather Detecting Web Application',
+    category: 'Web Design',
+    url: '#',
+  },
+  {
+    title: 'Loan Approval Prediction System',
+    category: 'Machine Learning',
+    url: '#',
+  },
+  {
+    title: 'CypherX404 - Encryption/Decryption CLI',
+    category: 'Programming',
+    url: '#',
+  },
+  {
+    title: 'Technical Blogging (Coming Soon)',
+    category: 'My Blogs',
+    url: '#',
+  },
+]
+
 export const dsa = {
   profileUrl: 'https://leetcode.com/u/mNBmOlhBGQ/',
   highlights: [
@@ -113,9 +172,9 @@ export const dsa = {
 export const skills = [
   { category: 'Languages', detail: 'Java, Python, C, JavaScript' },
   { category: 'CS Fundamentals', detail: 'DSA, OOP, DBMS, Operating Systems' },
-  { category: 'Web', detail: 'React.js, HTML5, CSS3, REST APIs' },
-  { category: 'Machine Learning', detail: 'scikit-learn, Pandas, NumPy' },
-  { category: 'Tools', detail: 'Git, GitHub, Linux, VS Code, Streamlit Cloud' },
+  { category: 'Web', detail: 'HTML5, CSS3, REST APIs' },
+  { category: 'Machine Learning', detail: 'scikit-learn, Pandas, NumPy, Streamlit' },
+  { category: 'Tools', detail: 'Git, GitHub, Linux, VS Code' },
 ]
 
 export const experienceJourney = [
@@ -137,6 +196,8 @@ export const blogIdeas = [
 ]
 
 export const contact = {
-  title: 'Let’s connect for software engineering opportunities.',
+  title: 'Contact Me',
   message: 'Open to software engineering and machine learning opportunities with implementation-driven teams.',
+  address:
+    'Department of Computer Science and Engineering (Cyber Security), Haldia Institute of Technology, West Bengal, India',
 }

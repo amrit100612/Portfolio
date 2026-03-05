@@ -2,13 +2,9 @@ import { useState } from 'react'
 import { profile } from '../data/portfolioData'
 
 const navLinks = [
+  { id: 'home', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects', highlight: true },
-  { id: 'dsa', label: 'DSA' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'journey', label: 'Journey' },
-  { id: 'tracker', label: 'Tracker' },
-  { id: 'blog', label: 'Blog' },
+  { id: 'projects', label: 'Portfolio', highlight: true },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -18,24 +14,23 @@ export default function Navbar() {
   const handleLinkClick = () => setMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 bg-slate-950/70 backdrop-blur-xl">
-      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <a href="#home" className="text-sm font-semibold tracking-wide text-white sm:text-base">
+    <header className="sticky top-0 z-40 border-b border-stone-900/15 bg-[#f3eee4]">
+      <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#home" className="text-sm font-semibold uppercase tracking-[0.12em] text-stone-900 sm:text-base">
           {profile.name}
         </a>
-        <nav className="hidden items-center gap-5 md:flex">
-          {navLinks.map((link) => (
-            <a
-              key={link.id}
-              href={`#${link.id}`}
-              className={`text-sm transition ${
-                link.highlight
-                  ? 'rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 font-medium text-cyan-100 hover:bg-cyan-300/20'
-                  : 'text-slate-300 hover:text-cyan-300'
-              }`}
-            >
-              {link.label}
-            </a>
+
+        <nav className="hidden items-center text-sm uppercase tracking-[0.1em] text-stone-700 md:flex">
+          {navLinks.map((link, index) => (
+            <span key={link.id} className="inline-flex items-center">
+              <a
+                href={`#${link.id}`}
+                className={`transition hover:text-stone-900 ${link.highlight ? 'font-semibold text-stone-900' : ''}`}
+              >
+                {link.label}
+              </a>
+              {index < navLinks.length - 1 && <span className="mx-3 text-stone-500">|</span>}
+            </span>
           ))}
         </nav>
 
@@ -44,7 +39,7 @@ export default function Navbar() {
             href={profile.resume}
             target="_blank"
             rel="noreferrer"
-            className="rounded-lg bg-cyan-400 px-3 py-2 text-xs font-medium text-slate-950 transition hover:bg-cyan-300 sm:text-sm"
+            className="border border-stone-900/20 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-stone-800 transition hover:bg-white sm:text-sm"
           >
             Resume
           </a>
@@ -55,24 +50,24 @@ export default function Navbar() {
           onClick={() => setMenuOpen((current) => !current)}
           aria-label="Toggle navigation menu"
           aria-expanded={menuOpen}
-          className="inline-flex items-center justify-center rounded-lg border border-white/20 bg-white/5 px-3 py-2 text-sm font-medium text-white transition hover:border-white/35 hover:bg-white/10 md:hidden"
+          className="inline-flex items-center justify-center border border-stone-900/20 bg-white px-3 py-2 text-sm font-medium text-stone-900 transition hover:border-stone-900/35 md:hidden"
         >
           {menuOpen ? 'Close' : 'Menu'}
         </button>
       </div>
 
       {menuOpen && (
-        <div className="border-t border-white/10 bg-slate-950/90 px-4 py-3 backdrop-blur-xl md:hidden sm:px-6">
+        <div className="border-t border-stone-900/10 bg-[#f3eee4] px-4 py-3 md:hidden sm:px-6">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={handleLinkClick}
-                className={`rounded-lg px-3 py-2 text-sm transition ${
+                className={`px-3 py-2 text-sm uppercase tracking-[0.08em] transition ${
                   link.highlight
-                    ? 'border border-cyan-300/35 bg-cyan-300/10 font-medium text-cyan-100 hover:bg-cyan-300/20'
-                    : 'text-slate-200 hover:bg-white/10 hover:text-cyan-200'
+                    ? 'font-semibold text-stone-900'
+                    : 'text-stone-700 hover:bg-white hover:text-stone-900'
                 }`}
               >
                 {link.label}
@@ -85,7 +80,7 @@ export default function Navbar() {
             target="_blank"
             rel="noreferrer"
             onClick={handleLinkClick}
-            className="mt-3 inline-flex rounded-lg bg-cyan-400 px-3 py-2 text-xs font-medium text-slate-950 transition hover:bg-cyan-300"
+            className="mt-3 inline-flex border border-stone-900/20 bg-white px-3 py-2 text-xs font-medium uppercase tracking-[0.08em] text-stone-900"
           >
             Resume
           </a>
