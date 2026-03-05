@@ -14,7 +14,7 @@
 body {
   min-height: 100vh;
   margin: 0;
-  background: #f3eee4;
+  background: #fde9d9;
   color: #111111;
   line-height: 1.6;
 }
@@ -35,11 +35,33 @@ body {
 .hero-bg {
   border-top: 0;
   background-image:
-    linear-gradient(rgba(15, 23, 42, 0.68), rgba(15, 23, 42, 0.68)),
+    linear-gradient(rgba(18, 16, 12, 0.46), rgba(18, 16, 12, 0.46)),
     url('/bg.png');
   background-position: center;
-  background-size: 110%;
+  background-size: cover;
   background-repeat: no-repeat;
+  min-height: 76vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-mix-eyebrow {
+  color: #ffd89a;
+}
+
+.hero-mix-title {
+  background: linear-gradient(90deg, #ffe9bf 0%, #ffd27a 46%, #ffffff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-mix-link-primary {
+  color: #ffd27a;
+}
+
+.hero-mix-link-secondary {
+  color: #ffffff;
 }
 
 .hero-animate {
