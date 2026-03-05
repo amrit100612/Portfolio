@@ -7,8 +7,8 @@ export default function Projects() {
     <section id="projects" className="glass rounded-2xl p-6 sm:p-8">
       <SectionHeader
         eyebrow="Engineering Projects"
-        title="Real projects with deployment, measurable outcomes, and clear engineering thinking"
-        description="Each project includes architecture, implementation decisions, and outcomes to show end-to-end engineering depth."
+        title="Production-ready projects with measurable impact and strong engineering execution"
+        description="Every case study highlights architecture, key implementation decisions, and results to demonstrate end-to-end delivery capability."
       />
 
       <div className="mb-5 inline-flex items-center rounded-full border border-cyan-300/35 bg-cyan-300/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-cyan-100">
