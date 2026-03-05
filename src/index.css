@@ -40,9 +40,38 @@ body {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 76vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+
+.hero-home {
+  text-align: center;
+  color: #ffffff;
+}
+
+.home-content {
+  width: 100%;
+}
+
+.home-title {
+  margin: 0;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: #ffa500;
+  animation: fade-in-home 2s ease-in-out;
+}
+
+.home-subtitle {
+  color: #ffffff;
+}
+
+.home-subtitle strong {
+  color: #ffd27a;
+}
+
+.typed-cursor {
+  color: #ffd27a;
 }
 
 .hero-mix-eyebrow {
@@ -202,6 +231,17 @@ a:hover {
   }
   50% {
     transform: translateY(3px);
+  }
+}
+
+@keyframes fade-in-home {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
