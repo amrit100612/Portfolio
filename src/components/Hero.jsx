@@ -62,10 +62,9 @@ export default function Hero() {
 
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-200">HELLO FOLKS !</p>
-          <h1 className="mt-2 text-3xl font-bold text-white sm:text-5xl">{profile.name}</h1>
-          <p className="mt-2 text-lg text-slate-100">I am a Programmer from India.</p>
-          <p className="mt-4 max-w-3xl text-slate-200">{profile.headline}</p>
-          <p className="mt-2 max-w-3xl text-sm text-slate-200">{profile.subheading}</p>
+          <h1 className="mt-2 max-w-4xl text-2xl font-bold text-white sm:text-4xl">
+            My name is Amrit I am a Programmer from Haldia Institute of Technology, India.
+          </h1>
           <p className="mt-5 text-sm">
             <a href="#projects" className="font-semibold text-white decoration-white">MY WORKS</a>
             {' | '}

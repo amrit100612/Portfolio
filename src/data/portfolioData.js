@@ -144,7 +144,7 @@ export const works = [
     title: 'IRIS Predict - ML Classification App',
     category: 'Machine Learning',
     url: '#',
-    image: '/iris-project.png',
+    image: '/iris-project.webp',
   },
   {
     title: 'Weather Detecting Web Application',

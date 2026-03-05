@@ -58,3 +58,25 @@ a {
 a:hover {
   color: #0b0080;
 }
+
+.vikas-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.vikas-card:hover,
+.vikas-card:focus-visible {
+  box-shadow: 0 0 0 1px rgba(6, 69, 173, 0.45) inset;
+  animation: vikas-border-flash 0.45s ease-out;
+}
+
+@keyframes vikas-border-flash {
+  0% {
+    box-shadow: 0 0 0 1px rgba(6, 69, 173, 0.15) inset;
+  }
+  60% {
+    box-shadow: 0 0 0 1px rgba(6, 69, 173, 0.5) inset;
+  }
+  100% {
+    box-shadow: 0 0 0 1px rgba(6, 69, 173, 0.45) inset;
+  }
+}
