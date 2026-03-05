@@ -3,20 +3,23 @@ export const profile = {
   title: 'Hello Folks!',
   headline: 'My name is Amrit Kumar. I am a software engineering and machine learning enthusiast from India.',
   subheading: 'B.Tech CSE (Cyber Security), Haldia Institute of Technology',
-  photo: '/amrit-photo.png',
+  photo: '/amrit-photo.png.png',
   photoAlt: 'Portrait of Amrit Kumar',
   location: 'West Bengal, India',
   phone: '+91 9508043572',
   website: 'https://amritkumar.me',
   email: 'amritkum1209@gmail.com',
   github: 'https://github.com/amrit100612',
+  githubImage: '/github-link.jpg',
   linkedin: 'https://www.linkedin.com/in/amrit100612/',
+  linkedinImage: '/linkedin-link.webp',
   leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',
+  leetcodeImage: '/leetcode-link.png',
   resume: '/Amrit_CV_Main.pdf',
 }
 
 export const about = {
-  heading: 'Some words about me',
+  heading: 'SOME WORDS ABOUT ME',
   aboutText:
     'I am a third-year undergraduate student in the Department of Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
   aboutStory:
@@ -123,41 +126,43 @@ export const works = [
     title: 'My GitHub Profile',
     category: 'Programming',
     url: 'https://github.com/amrit100612',
+    image: '/github-link.jpg',
   },
   {
     title: 'My LeetCode Profile',
     category: 'Programming',
     url: 'https://leetcode.com/u/mNBmOlhBGQ/',
+    image: '/leetcode-link.png',
   },
   {
     title: 'My LinkedIn Profile',
     category: 'Programming',
     url: 'https://www.linkedin.com/in/amrit100612/',
+    image: '/linkedin-link.webp',
   },
   {
     title: 'IRIS Predict - ML Classification App',
     category: 'Machine Learning',
     url: '#',
+    image: '/iris-project.png',
   },
   {
     title: 'Weather Detecting Web Application',
     category: 'Web Design',
     url: '#',
+    image: '/weather-project.png',
   },
   {
     title: 'Loan Approval Prediction System',
     category: 'Machine Learning',
     url: '#',
+    image: '/loan-project.png',
   },
   {
     title: 'CypherX404 - Encryption/Decryption CLI',
     category: 'Programming',
     url: '#',
-  },
-  {
-    title: 'Technical Blogging (Coming Soon)',
-    category: 'My Blogs',
-    url: '#',
+    image: '/cipherx-project.png',
   },
 ]
 
@@ -196,7 +201,7 @@ export const blogIdeas = [
 ]
 
 export const contact = {
-  title: 'Contact Me',
+  title: 'CONTACT ME',
   message: 'Open to software engineering and machine learning opportunities with implementation-driven teams.',
   address:
     'Department of Computer Science and Engineering (Cyber Security), Haldia Institute of Technology, West Bengal, India',

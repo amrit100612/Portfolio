@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { profile } from '../data/portfolioData'
 
 const navLinks = [
-  { id: 'home', label: 'Home' },
-  { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Portfolio', highlight: true },
-  { id: 'contact', label: 'Contact' },
+  { id: 'home', label: 'HOME' },
+  { id: 'about', label: 'ABOUT' },
+  { id: 'projects', label: 'PORTFOLIO', highlight: true },
+  { id: 'contact', label: 'CONTACT' },
 ]
 
 export default function Navbar() {
@@ -14,13 +14,13 @@ export default function Navbar() {
   const handleLinkClick = () => setMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-40 border-b border-stone-900/15 bg-[#f3eee4]">
+    <header className="sticky top-0 z-40 border-b border-stone-900/15 bg-white">
       <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         <a href="#home" className="text-sm font-semibold uppercase tracking-[0.12em] text-stone-900 sm:text-base">
           {profile.name}
         </a>
 
-        <nav className="hidden items-center text-sm uppercase tracking-[0.1em] text-stone-700 md:flex">
+        <nav className="hidden items-center text-xs uppercase tracking-[0.14em] text-stone-700 md:flex">
           {navLinks.map((link, index) => (
             <span key={link.id} className="inline-flex items-center">
               <a
@@ -32,18 +32,11 @@ export default function Navbar() {
               {index < navLinks.length - 1 && <span className="mx-3 text-stone-500">|</span>}
             </span>
           ))}
-        </nav>
-
-        <div className="hidden md:block">
-          <a
-            href={profile.resume}
-            target="_blank"
-            rel="noreferrer"
-            className="border border-stone-900/20 px-3 py-1.5 text-xs font-medium uppercase tracking-[0.1em] text-stone-800 transition hover:bg-white sm:text-sm"
-          >
-            Resume
+          <span className="mx-3 text-stone-500">|</span>
+          <a href={profile.resume} target="_blank" rel="noreferrer" className="font-semibold text-stone-900">
+            RESUME
           </a>
-        </div>
+        </nav>
 
         <button
           type="button"
@@ -57,7 +50,7 @@ export default function Navbar() {
       </div>
 
       {menuOpen && (
-        <div className="border-t border-stone-900/10 bg-[#f3eee4] px-4 py-3 md:hidden sm:px-6">
+        <div className="border-t border-stone-900/10 bg-white px-4 py-3 md:hidden sm:px-6">
           <nav className="flex flex-col gap-2">
             {navLinks.map((link) => (
               <a
@@ -73,17 +66,16 @@ export default function Navbar() {
                 {link.label}
               </a>
             ))}
+            <a
+              href={profile.resume}
+              target="_blank"
+              rel="noreferrer"
+              onClick={handleLinkClick}
+              className="px-3 py-2 text-sm font-semibold uppercase tracking-[0.08em] text-stone-900"
+            >
+              RESUME
+            </a>
           </nav>
-
-          <a
-            href={profile.resume}
-            target="_blank"
-            rel="noreferrer"
-            onClick={handleLinkClick}
-            className="mt-3 inline-flex border border-stone-900/20 bg-white px-3 py-2 text-xs font-medium uppercase tracking-[0.08em] text-stone-900"
-          >
-            Resume
-          </a>
         </div>
       )}
     </header>

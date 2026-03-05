@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react'
 import { works } from '../data/portfolioData'
 import SectionHeader from './SectionHeader'
 
-const FILTERS = ['All', 'Programming', 'Machine Learning', 'Web Design', 'My Blogs']
+const FILTERS = ['All', 'Programming', 'Machine Learning', 'Web Design']
 
 export default function Projects() {
   const [activeFilter, setActiveFilter] = useState('All')
@@ -17,13 +17,13 @@ export default function Projects() {
   return (
     <section id="projects" className="classic-panel p-6 sm:p-8">
       <SectionHeader
-        eyebrow="My Works"
-        title="Portfolio"
+        eyebrow="MY WORKS"
+        title="MY WORKS"
         description="Filter by type and explore selected work, coding profiles, and project links."
       />
 
       <div className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-stone-600">
-        Filter by Type
+        Filter by Type:
       </div>
 
       <div className="mb-6 flex flex-wrap items-center text-sm text-stone-700">
@@ -43,7 +43,15 @@ export default function Projects() {
 
       <ul className="space-y-2">
         {filteredWorks.map((item) => (
-          <li key={`${item.title}-${item.category}`} className="border-b border-stone-900/10 pb-2">
+          <li key={`${item.title}-${item.category}`} className="flex items-center gap-3 border-b border-stone-900/10 pb-2">
+            {item.image && (
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-10 w-10 shrink-0 rounded-sm border border-stone-900/20 object-cover"
+                loading="lazy"
+              />
+            )}
             <span className="mr-2 text-stone-500">-</span>
             {item.url === '#' ? (
               <span className="text-sm text-stone-700">{item.title} ... To Be Updated Soon</span>
@@ -52,7 +60,7 @@ export default function Projects() {
                 href={item.url}
                 target="_blank"
                 rel="noreferrer"
-                className="text-sm font-semibold text-stone-900 underline decoration-stone-400 underline-offset-4 hover:text-stone-700"
+                className="text-sm font-semibold underline underline-offset-4"
               >
                 {item.title}
               </a>
