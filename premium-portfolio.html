@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Amrit Kumar | Cyber Security & ML Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
+  <style>
+    :root {
+      --bg-main: #0A0A0F;
+      --bg-secondary: #12121A;
+      --accent-primary: #C9A84C;
+      --accent-secondary: #E8D5A3;
+      --text-main: #F5F5F5;
+      --card-bg: #1A1A25;
+      --border: #2A2A3A;
+      --muted: #BFBFC9;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at 20% 10%, rgba(201, 168, 76, 0.08), transparent 30%), var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.65;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .container {
+      width: min(1150px, 92%);
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 6rem 0;
+      border-top: 1px solid rgba(232, 213, 163, 0.08);
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      color: var(--accent-secondary);
+      margin-bottom: 1.1rem;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 2rem;
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 999;
+      transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .navbar.scrolled {
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(8px);
+      border-bottom-color: rgba(232, 213, 163, 0.18);
+    }
+
+    .nav-wrap {
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      color: var(--accent-secondary);
+      text-decoration: none;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.45rem;
+      letter-spacing: 0.22em;
+      border: 1px solid rgba(201, 168, 76, 0.45);
+      padding: 0.25rem 0.7rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-size: 0.86rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-primary);
+    }
+
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(rgba(10, 10, 15, 0.62), rgba(10, 10, 15, 0.78)), url('/bg.png') center / cover no-repeat;
+      padding-top: 90px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--accent-primary);
+      font-size: 0.9rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-name {
+      font-size: clamp(2.2rem, 5vw, 4.4rem);
+      line-height: 1.08;
+      background: linear-gradient(92deg, var(--accent-secondary), var(--accent-primary), #fff2c7);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .typed-line {
+      color: var(--text-main);
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      margin-bottom: 1rem;
+    }
+
+    .typed-line strong {
+      color: var(--accent-secondary);
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      color: var(--muted);
+      max-width: 610px;
+      margin-bottom: 1.8rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.78rem 1.25rem;
+      border-radius: 2px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--accent-primary), #b89435);
+      color: #121212;
+      font-weight: 600;
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.24);
+    }
+
+    .btn-outline {
+      border-color: rgba(232, 213, 163, 0.7);
+      color: var(--accent-secondary);
+      background: transparent;
+    }
+
+    .socials {
+      display: flex;
+      gap: 0.9rem;
+    }
+
+    .socials a {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      color: var(--accent-secondary);
+      text-decoration: none;
+      transition: all 0.25s ease;
+      background: rgba(18, 18, 26, 0.78);
+    }
+
+    .socials a:hover {
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      box-shadow: 0 0 18px rgba(201, 168, 76, 0.2);
+    }
+
+    .profile-wrap {
+      display: grid;
+      place-items: center;
+      position: relative;
+    }
+
+    .profile-circle {
+      width: min(360px, 82vw);
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      padding: 8px;
+      background: radial-gradient(circle, rgba(232, 213, 163, 0.9) 0%, rgba(201, 168, 76, 0.45) 55%, rgba(201, 168, 76, 0.15) 100%);
+      animation: goldPulse 3.5s ease-in-out infinite;
+      box-shadow: 0 0 36px rgba(201, 168, 76, 0.25);
+    }
+
+    .profile-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .float-icon {
+      position: absolute;
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--accent-secondary);
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      background: rgba(18, 18, 26, 0.92);
+      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+      animation: float 4.2s ease-in-out infinite;
+    }
+
+    .float-1 { top: 10%; left: 4%; animation-delay: 0s; }
+    .float-2 { bottom: 18%; left: 2%; animation-delay: 1.2s; }
+    .float-3 { right: 6%; top: 20%; animation-delay: 2s; }
+
+    .about-grid {
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 330px 1fr;
+      align-items: start;
+    }
+
+    .about-photo {
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      padding: 8px;
+    }
+
+    .about-photo img {
+      width: 100%;
+      display: block;
+    }
+
+    .fact-grid {
+      margin-top: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .fact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 1px solid var(--accent-primary);
+      padding: 1rem;
+    }
+
+    .fact-card i {
+      color: var(--accent-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .fact-title {
+      color: var(--accent-secondary);
+      margin-bottom: 0.2rem;
+      font-weight: 600;
+    }
+
+    .skill-grid {
+      display: grid;
+      gap: 1.2rem;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.45rem;
+      font-size: 0.92rem;
+      color: var(--accent-secondary);
+      letter-spacing: 0.06em;
+    }
+
+    .skill-track {
+      width: 100%;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #9f7b26, var(--accent-primary), var(--accent-secondary));
+      border-radius: inherit;
+      box-shadow: 0 0 14px rgba(201, 168, 76, 0.25);
+      animation: fillAnim 1.6s ease forwards;
+      transform-origin: left;
+    }
+
+    .projects-grid,
+    .achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    .project-card,
+    .achieve-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 2px solid var(--accent-primary);
+      padding: 1.2rem;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .project-card:hover,
+    .achieve-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 34px rgba(201, 168, 76, 0.17);
+      border-top-color: var(--accent-secondary);
+    }
+
+    .project-title {
+      color: var(--accent-secondary);
+      font-size: 1.35rem;
+      margin-bottom: 0.45rem;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      margin-bottom: 0.9rem;
+      font-size: 0.95rem;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 0.85rem;
+    }
+
+    .tag {
+      border: 1px solid rgba(201, 168, 76, 0.65);
+      color: var(--accent-secondary);
+      padding: 0.22rem 0.55rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    details {
+      margin: 0.85rem 0;
+      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.02);
+      padding: 0.6rem 0.75rem;
+    }
+
+    summary {
+      cursor: pointer;
+      color: var(--accent-secondary);
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    details ul {
+      margin-top: 0.6rem;
+      padding-left: 1rem;
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 0.7rem;
+      margin-top: 0.95rem;
+      flex-wrap: wrap;
+    }
+
+    .icon-title {
+      color: var(--accent-secondary);
+      font-size: 1.15rem;
+      margin-bottom: 0.45rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-top: 1px solid var(--accent-primary);
+      padding: 1.2rem;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 0.75rem;
+      margin-top: 0.8rem;
+    }
+
+    .contact-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      display: inline-flex;
+      gap: 0.6rem;
+      align-items: center;
+      border-bottom: 1px dashed rgba(201, 168, 76, 0.28);
+      padding-bottom: 0.35rem;
+    }
+
+    .contact-links a i {
+      color: var(--accent-primary);
+      width: 17px;
+    }
+
+    .form-group {
+      margin-bottom: 0.8rem;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--text-main);
+      font: inherit;
+      padding: 0.72rem 0.8rem;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 2px rgba(201, 168, 76, 0.14);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .footer {
+      padding: 2.2rem 0;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(232, 213, 163, 0.08);
+      font-size: 0.9rem;
+    }
+
+    @keyframes goldPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(201, 168, 76, 0.2); }
+      50% { box-shadow: 0 0 42px rgba(201, 168, 76, 0.42); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    @keyframes fillAnim {
+      from { transform: scaleX(0); }
+      to { transform: scaleX(1); }
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .about-grid,
+      .contact-grid,
+      .projects-grid,
+      .achieve-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .profile-wrap {
+        order: -1;
+      }
+
+      .about-photo {
+        max-width: 360px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        display: none;
+      }
+
+      .section {
+        padding: 4.2rem 0;
+      }
+
+      #home {
+        text-align: left;
+      }
+
+      .hero-name {
+        font-size: clamp(1.8rem, 7vw, 3rem);
+      }
+
+      .fact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="navbar" id="navbar">
+    <div class="container nav-wrap">
+      <a href="#home" class="logo">AK</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="container hero-grid">
+      <div data-aos="fade-up" data-aos-duration="900">
+        <p class="eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">Amrit Kumar</h1>
+        <p class="typed-line">I am a <strong id="typed"></strong></p>
+        <p class="hero-desc">
+          A third-year undergraduate student in Computer Science and Engineering (Cyber Security) at
+          Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.
+        </p>
+
+        <div class="btn-row">
+          <a class="btn btn-gold" href="#projects">View Projects</a>
+          <a class="btn btn-outline" href="/Amrit_CV_Main.pdf" target="_blank" rel="noreferrer">Download Resume</a>
+        </div>
+
+        <div class="socials">
+          <a href="https://github.com/amrit100612" target="_blank" rel="noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/amrit100612/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="profile-wrap" data-aos="zoom-in" data-aos-duration="1000">
+        <div class="profile-circle">
+          <!-- Placeholder: C:\Users\amrit\Desktop\Portfolio\public\amrit-photo.png.png -->
+          <img src="/amrit-photo.png.png" alt="Amrit Kumar" />
+        </div>
+        <span class="float-icon float-1"><i class="fas fa-shield-halved"></i></span>
+        <span class="float-icon float-2"><i class="fas fa-lock"></i></span>
+        <span class="float-icon float-3"><i class="fas fa-code"></i></span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">About Me</h2>
+      <p class="section-sub" data-aos="fade-right" data-aos-delay="60">
+        Passionate about secure software engineering, intelligent systems, and practical problem solving.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-photo" data-aos="fade-up-right">
+          <img src="/amrit-photo.png.png" alt="Amrit Kumar Portrait" />
+        </div>
+
+        <div data-aos="fade-up-left">
+          <p>
+            I am a third-year undergraduate student in the Department of Computer Science and Engineering
+            (Cyber Security) at Haldia Institute of Technology, India.
+          </p>
+          <p style="margin-top: 1rem; color: var(--muted);">
+            I was fortunate enough to know early that I wanted to be an engineer. What began as curiosity
+            has evolved into a focused journey through software engineering, machine learning, and cybersecurity.
+          </p>
+
+          <div class="fact-grid">
+            <article class="fact-card" data-aos="fade-up" data-aos-delay="60">
+              <i class="fas fa-chess-knight"></i>
+              <p class="fact-title">Chess Player</p>
+              <p>Strategic Thinker</p>
+            </article>
+            <article class="fact-card" data-aos="fade-up" data-aos-delay="120">
+              <i class="fas fa-dumbbell"></i>
+              <p class="fact-title">Gym Enthusiast</p>
+              <p>Discipline & Focus</p>
+            </article>
+            <article class="fact-card" data-aos="fade-up" data-aos-delay="180">
+              <i class="fas fa-code-branch"></i>
+              <p class="fact-title">Open Source Contributor</p>
+              <p>Hacktoberfest Level 4</p>
+            </article>
+            <article class="fact-card" data-aos="fade-up" data-aos-delay="240">
+              <i class="fas fa-user-shield"></i>
+              <p class="fact-title">Cyber Security Enthusiast</p>
+              <p>Deloitte Program</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Skills</h2>
+      <p class="section-sub" data-aos="fade-right" data-aos-delay="60">
+        Core technologies and tools I use to build practical, scalable software solutions.
+      </p>
+
+      <div class="skill-grid">
+        <div data-aos="fade-up" data-aos-delay="60">
+          <div class="skill-label"><span>Languages</span><span>Java, Python, C, JavaScript</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 90%;"></div></div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="120">
+          <div class="skill-label"><span>Web</span><span>React.js, HTML5, CSS3</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 84%;"></div></div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="180">
+          <div class="skill-label"><span>Machine Learning</span><span>Scikit-learn, Pandas, NumPy, Matplotlib</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 80%;"></div></div>
+        </div>
+
+        <div data-aos="fade-up" data-aos-delay="240">
+          <div class="skill-label"><span>Tools</span><span>Git, GitHub, Linux, VS Code, Streamlit</span></div>
+          <div class="skill-track"><div class="skill-fill" style="width: 86%;"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Projects</h2>
+      <p class="section-sub" data-aos="fade-right" data-aos-delay="60">
+        Selected projects with practical architecture and implementation depth.
+      </p>
+
+      <div class="projects-grid">
+        <article class="project-card" data-aos="fade-up" data-aos-delay="60">
+          <h3 class="project-title">Weather Detecting Web App</h3>
+          <p class="project-desc">Real-time weather dashboard with geolocation and REST API integration.</p>
+          <div class="tag-row">
+            <span class="tag">JavaScript</span>
+            <span class="tag">REST API</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+          </div>
+          <details>
+            <summary>Architecture</summary>
+            <ul>
+              <li>Presentation Layer: responsive weather dashboard UI.</li>
+              <li>Service Layer: API integration and response parsing.</li>
+              <li>Location Layer: geolocation-based city detection.</li>
+              <li>State Layer: dynamic metric rendering.</li>
+            </ul>
+          </details>
+          <div class="project-actions">
+            <a class="btn btn-gold" href="https://github.com/amrit100612/Weather" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://github.com/amrit100612/Weather" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up" data-aos-delay="110">
+          <h3 class="project-title">CipherX - Encryption/Decryption Tool</h3>
+          <p class="project-desc">Modular Python CLI utility for secure encryption/decryption workflows.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Cryptography</span>
+            <span class="tag">CLI</span>
+          </div>
+          <details>
+            <summary>Architecture</summary>
+            <ul>
+              <li>Input Layer: command parser and option handling.</li>
+              <li>Validation Layer: secure input checks.</li>
+              <li>Crypto Layer: transformation engine.</li>
+              <li>Output Layer: deterministic terminal feedback.</li>
+            </ul>
+          </details>
+          <div class="project-actions">
+            <a class="btn btn-gold" href="https://github.com/amrit100612/CipherX_404" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://github.com/amrit100612/CipherX_404" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up" data-aos-delay="160">
+          <h3 class="project-title">IRIS Predict - ML Classification App</h3>
+          <p class="project-desc">Interactive Streamlit app for multi-model Iris classification.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <details>
+            <summary>Architecture</summary>
+            <ul>
+              <li>UI Layer: user input + output visualization.</li>
+              <li>Preprocessing Layer: data cleaning and scaling.</li>
+              <li>Inference Layer: trained model prediction pipeline.</li>
+              <li>Evaluation Layer: model comparison metrics.</li>
+            </ul>
+          </details>
+          <div class="project-actions">
+            <a class="btn btn-gold" href="https://github.com/amrit100612/IRIS_Predict" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://github.com/amrit100612/IRIS_Predict" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+
+        <article class="project-card" data-aos="fade-up" data-aos-delay="210">
+          <h3 class="project-title">Loan Approval Prediction System</h3>
+          <p class="project-desc">ML model-driven decision support system for loan approval prediction.</p>
+          <div class="tag-row">
+            <span class="tag">Python</span>
+            <span class="tag">Pandas</span>
+            <span class="tag">Scikit-learn</span>
+            <span class="tag">Streamlit</span>
+          </div>
+          <details>
+            <summary>Architecture</summary>
+            <ul>
+              <li>Input Layer: applicant profile capture form.</li>
+              <li>Processing Layer: feature engineering and cleaning.</li>
+              <li>Model Layer: classification for eligibility.</li>
+              <li>Output Layer: clear decision and confidence display.</li>
+            </ul>
+          </details>
+          <div class="project-actions">
+            <a class="btn btn-gold" href="https://github.com/amrit100612/Loan_Predictions" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="btn btn-outline" href="https://github.com/amrit100612/Loan_Predictions" target="_blank" rel="noreferrer">Live Demo</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Achievements</h2>
+      <div class="achieve-grid">
+        <article class="achieve-card" data-aos="fade-up" data-aos-delay="60">
+          <h3 class="icon-title"><i class="fas fa-trophy" style="color: var(--accent-primary);"></i>Deloitte Australia Cyber Security Program (2024)</h3>
+          <p>Completed practical cybersecurity simulation and risk analysis tasks.</p>
+        </article>
+
+        <article class="achieve-card" data-aos="fade-up" data-aos-delay="110">
+          <h3 class="icon-title"><i class="fas fa-award" style="color: var(--accent-primary);"></i>Hacktoberfest 2024 - Level 4 Badge</h3>
+          <p>Recognized for active open-source contributions during Hacktoberfest.</p>
+        </article>
+
+        <article class="achieve-card" data-aos="fade-up" data-aos-delay="160">
+          <h3 class="icon-title"><i class="fas fa-seedling" style="color: var(--accent-primary);"></i>GirlScript Summer of Code 2025 - GrowCraft</h3>
+          <p>Contributed to collaborative development and issue resolution workflows.</p>
+        </article>
+
+        <article class="achieve-card" data-aos="fade-up" data-aos-delay="210">
+          <h3 class="icon-title"><i class="fas fa-code" style="color: var(--accent-primary);"></i>LeetCode - Consistent DSA Problem Solver</h3>
+          <p>Maintained regular DSA problem-solving practice and consistency.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-right">Contact</h2>
+      <p class="section-sub" data-aos="fade-right" data-aos-delay="60">
+        Open to software engineering, cybersecurity, and ML opportunities.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card" data-aos="fade-up" data-aos-delay="80">
+          <h3 class="icon-title"><i class="fas fa-paper-plane" style="color: var(--accent-primary);"></i>Let's Connect</h3>
+          <div class="contact-links">
+            <a href="mailto:amritkum1209@gmail.com"><i class="fas fa-envelope"></i>amritkum1209@gmail.com</a>
+            <a href="https://github.com/amrit100612" target="_blank" rel="noreferrer"><i class="fab fa-github"></i>github.com/amrit100612</a>
+            <a href="https://www.linkedin.com/in/amrit100612/" target="_blank" rel="noreferrer"><i class="fab fa-linkedin"></i>linkedin.com/in/amrit100612</a>
+            <a href="https://amritkumar.me" target="_blank" rel="noreferrer"><i class="fas fa-globe"></i>amritkumar.me</a>
+          </div>
+        </div>
+
+        <form class="contact-form" data-aos="fade-up" data-aos-delay="140">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-gold">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>© 2026 Amrit Kumar. Crafted with focus, clarity, and premium design intent.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 850,
+      once: true,
+      easing: 'ease-out-cubic'
+    });
+
+    new Typed('#typed', {
+      strings: [
+        'Cyber Security Student',
+        'Java Programmer',
+        'ML Enthusiast',
+        'Problem Solver',
+        'Chess Player'
+      ],
+      typeSpeed: 60,
+      backSpeed: 40,
+      backDelay: 1200,
+      loop: true
+    });
+
+    const navbar = document.getElementById('navbar');
+    const setNavState = () => {
+      if (window.scrollY > 24) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    };
+
+    window.addEventListener('scroll', setNavState);
+    setNavState();
+  </script>
+</body>
+</html>

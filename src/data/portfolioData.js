@@ -213,3 +213,103 @@ export const contact = {
   address:
     'Department of Computer Science and Engineering (Cyber Security), Haldia Institute of Technology, West Bengal, India',
 }
+
+export const heroRoles = [
+  'Cyber Security Student',
+  'Java Programmer',
+  'ML Enthusiast',
+  'Problem Solver',
+  'Chess Player',
+]
+
+export const aboutFacts = [
+  { icon: 'fas fa-chess-knight', title: 'Chess Player', detail: 'Strategic Thinker' },
+  { icon: 'fas fa-dumbbell', title: 'Gym Enthusiast', detail: 'Discipline & Focus' },
+  { icon: 'fas fa-code-branch', title: 'Open Source Contributor', detail: 'Hacktoberfest Level 4' },
+  { icon: 'fas fa-user-shield', title: 'Cyber Security Enthusiast', detail: 'Deloitte Program' },
+]
+
+export const premiumSkills = [
+  { label: 'Languages', detail: 'Java, Python, C, JavaScript', level: 90 },
+  { label: 'Web', detail: 'React.js, HTML5, CSS3', level: 84 },
+  { label: 'Machine Learning', detail: 'Scikit-learn, Pandas, NumPy, Matplotlib', level: 80 },
+  { label: 'Tools', detail: 'Git, GitHub, Linux, VS Code, Streamlit', level: 86 },
+]
+
+export const projectCards = [
+  {
+    title: 'Weather Detecting Web App',
+    description: 'Real-time weather dashboard with geolocation and REST API integration.',
+    stack: ['JavaScript', 'REST API', 'HTML5', 'CSS3'],
+    github: 'https://github.com/amrit100612/Weather',
+    live: 'https://github.com/amrit100612/Weather',
+    architecture: [
+      'Presentation Layer: responsive weather dashboard UI.',
+      'Service Layer: API integration and response parsing.',
+      'Location Layer: geolocation-based city detection.',
+      'State Layer: dynamic metric rendering.',
+    ],
+  },
+  {
+    title: 'CipherX - Encryption/Decryption Tool',
+    description: 'Modular Python CLI utility for secure encryption/decryption workflows.',
+    stack: ['Python', 'Cryptography', 'CLI'],
+    github: 'https://github.com/amrit100612/CipherX_404',
+    live: 'https://github.com/amrit100612/CipherX_404',
+    architecture: [
+      'Input Layer: command parser and option handling.',
+      'Validation Layer: secure input checks.',
+      'Crypto Layer: transformation engine.',
+      'Output Layer: deterministic terminal feedback.',
+    ],
+  },
+  {
+    title: 'IRIS Predict - ML Classification App',
+    description: 'Interactive Streamlit app for multi-model Iris classification.',
+    stack: ['Python', 'Scikit-learn', 'Streamlit'],
+    github: 'https://github.com/amrit100612/IRIS_Predict',
+    live: 'https://github.com/amrit100612/IRIS_Predict',
+    architecture: [
+      'UI Layer: user input and output visualization.',
+      'Preprocessing Layer: data cleaning and scaling.',
+      'Inference Layer: trained model prediction pipeline.',
+      'Evaluation Layer: model comparison metrics.',
+    ],
+  },
+  {
+    title: 'Loan Approval Prediction System',
+    description: 'ML model-driven decision support system for loan approval prediction.',
+    stack: ['Python', 'Pandas', 'Scikit-learn', 'Streamlit'],
+    github: 'https://github.com/amrit100612/Loan_Predictions',
+    live: 'https://github.com/amrit100612/Loan_Predictions',
+    architecture: [
+      'Input Layer: applicant profile capture form.',
+      'Processing Layer: feature engineering and cleaning.',
+      'Model Layer: classification for eligibility.',
+      'Output Layer: clear decision and confidence display.',
+    ],
+  },
+]
+
+export const achievements = [
+  {
+    icon: 'fas fa-trophy',
+    title: 'Deloitte Australia Cyber Security Program (2024)',
+    description: 'Completed practical cybersecurity simulation and risk analysis tasks.',
+  },
+  {
+    icon: 'fas fa-award',
+    title: 'Hacktoberfest 2024 - Level 4 Badge',
+    description: 'Recognized for active open-source contributions during Hacktoberfest.',
+  },
+  {
+    icon: 'fas fa-seedling',
+    title: 'GirlScript Summer of Code 2025 - GrowCraft',
+    description: 'Contributed to collaborative development and issue resolution workflows.',
+  },
+  {
+    icon: 'fas fa-code',
+    title: 'LeetCode - Consistent DSA Problem Solver',
+    description: 'Maintained regular DSA problem-solving practice and consistency.',
+  },
+]

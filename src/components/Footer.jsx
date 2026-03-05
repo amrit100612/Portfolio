@@ -1,7 +1,9 @@
 export default function Footer() {
   return (
-    <footer className="py-10 text-center text-xs text-slate-400">
-      © 2026 Amrit Kumar. All rights reserved.
+    <footer className="footer">
+      <div className="container">
+        <p>© 2026 Amrit Kumar. Crafted with focus, clarity, and premium design intent.</p>
+      </div>
     </footer>
   )
 }

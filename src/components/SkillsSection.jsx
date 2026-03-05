@@ -1,17 +1,27 @@
-import { skills } from '../data/portfolioData'
-import SectionHeader from './SectionHeader'
+import { premiumSkills } from '../data/portfolioData'
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="glass rounded-2xl p-6 sm:p-8">
-      <SectionHeader eyebrow="Skills" title="Engineering toolkit" />
-      <div className="grid gap-3 sm:grid-cols-2">
-        {skills.map((item) => (
-          <article key={item.category} className="rounded-xl border border-white/10 bg-slate-900/60 p-4">
-            <h3 className="text-sm font-semibold text-cyan-200">{item.category}</h3>
-            <p className="mt-1 text-sm text-slate-300">{item.detail}</p>
-          </article>
-        ))}
+    <section id="skills" className="section">
+      <div className="container">
+        <h2 className="section-title" data-aos="fade-right">Skills</h2>
+        <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
+          Core technologies and tools I use to build practical, scalable software solutions.
+        </p>
+
+        <div className="skill-grid">
+          {premiumSkills.map((item, index) => (
+            <div key={item.label} data-aos="fade-up" data-aos-delay={60 + index * 60}>
+              <div className="skill-label">
+                <span>{item.label}</span>
+                <span>{item.detail}</span>
+              </div>
+              <div className="skill-track">
+                <div className="skill-fill" style={{ width: `${item.level}%` }} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   )

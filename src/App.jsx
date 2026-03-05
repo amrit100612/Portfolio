@@ -1,19 +1,36 @@
+import { useEffect } from 'react'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
+import SkillsSection from './components/SkillsSection'
 import Projects from './components/Projects'
+import AchievementsSection from './components/AchievementsSection'
 import ContactSection from './components/ContactSection'
+import Footer from './components/Footer'
 
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 850,
+      once: true,
+      easing: 'ease-out-cubic',
+    })
+  }, [])
+
   return (
-    <div className="min-h-screen bg-white text-stone-900 antialiased">
+    <div className="app-shell">
       <Navbar />
-      <main className="mx-auto flex w-full max-w-4xl flex-col gap-12 px-4 pb-16 pt-8 sm:px-6 lg:px-8">
+      <main>
         <Hero />
         <About />
+        <SkillsSection />
         <Projects />
+        <AchievementsSection />
         <ContactSection />
       </main>
+      <Footer />
     </div>
   )
 }

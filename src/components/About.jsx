@@ -1,46 +1,32 @@
-import { about, profile } from '../data/portfolioData'
-import SectionHeader from './SectionHeader'
+import { about, aboutFacts, profile } from '../data/portfolioData'
 
 export default function About() {
   return (
-    <section id="about" className="classic-panel reveal-up delay-1 p-6 sm:p-8">
-      <SectionHeader eyebrow="About" title={about.heading} />
+    <section id="about" className="section">
+      <div className="container">
+        <h2 className="section-title" data-aos="fade-right">About Me</h2>
+        <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
+          Passionate about secure software engineering, intelligent systems, and practical problem solving.
+        </p>
 
-      <div className="grid items-start gap-6 md:grid-cols-[220px,1fr]">
-        <div>
-          <img
-            src={profile.photo}
-            alt={profile.photoAlt}
-            className="w-full border border-stone-900/20 bg-white object-cover"
-            loading="lazy"
-          />
-        </div>
+        <div className="about-grid">
+          <div className="about-photo" data-aos="fade-up-right">
+            <img src={profile.photo} alt={profile.photoAlt} loading="lazy" />
+          </div>
 
-        <div className="space-y-6 text-[15px] leading-7 text-stone-700">
-          <div>
-            <h3 className="mb-2 text-lg font-semibold uppercase tracking-[0.08em] text-stone-900">About</h3>
+          <div data-aos="fade-up-left">
             <p>{about.aboutText}</p>
-            <p className="mt-3">{about.aboutStory}</p>
-          </div>
+            <p className="about-story">{about.aboutStory}</p>
 
-          <div>
-            <h3 className="mb-2 text-lg font-semibold uppercase tracking-[0.08em] text-stone-900">Interests</h3>
-            <p>{about.interestsText}</p>
-            <p className="mt-3">{about.interestsMusic}</p>
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-lg font-semibold uppercase tracking-[0.08em] text-stone-900">Skills</h3>
-            <p>{about.skillsText}</p>
-          </div>
-
-          <div>
-            <h3 className="mb-2 text-lg font-semibold uppercase tracking-[0.08em] text-stone-900">Tech Stack</h3>
-            <ul className="space-y-1">
-              {about.techStack.map((item) => (
-                <li key={item}>- {item}</li>
+            <div className="fact-grid">
+              {aboutFacts.map((fact, index) => (
+                <article className="fact-card" data-aos="fade-up" data-aos-delay={60 + index * 60} key={fact.title}>
+                  <i className={fact.icon} />
+                  <p className="fact-title">{fact.title}</p>
+                  <p>{fact.detail}</p>
+                </article>
               ))}
-            </ul>
+            </div>
           </div>
         </div>
       </div>
