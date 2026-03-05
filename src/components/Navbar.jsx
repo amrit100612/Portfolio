@@ -3,7 +3,7 @@ import { profile } from '../data/portfolioData'
 
 const navLinks = [
   { id: 'about', label: 'About' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'projects', label: 'Projects', highlight: true },
   { id: 'dsa', label: 'DSA' },
   { id: 'skills', label: 'Skills' },
   { id: 'journey', label: 'Journey' },
@@ -25,7 +25,15 @@ export default function Navbar() {
         </a>
         <nav className="hidden items-center gap-5 md:flex">
           {navLinks.map((link) => (
-            <a key={link.id} href={`#${link.id}`} className="text-sm text-slate-300 transition hover:text-cyan-300">
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              className={`text-sm transition ${
+                link.highlight
+                  ? 'rounded-full border border-cyan-300/35 bg-cyan-300/10 px-3 py-1 font-medium text-cyan-100 hover:bg-cyan-300/20'
+                  : 'text-slate-300 hover:text-cyan-300'
+              }`}
+            >
               {link.label}
             </a>
           ))}
@@ -61,7 +69,11 @@ export default function Navbar() {
                 key={link.id}
                 href={`#${link.id}`}
                 onClick={handleLinkClick}
-                className="rounded-lg px-3 py-2 text-sm text-slate-200 transition hover:bg-white/10 hover:text-cyan-200"
+                className={`rounded-lg px-3 py-2 text-sm transition ${
+                  link.highlight
+                    ? 'border border-cyan-300/35 bg-cyan-300/10 font-medium text-cyan-100 hover:bg-cyan-300/20'
+                    : 'text-slate-200 hover:bg-white/10 hover:text-cyan-200'
+                }`}
               >
                 {link.label}
               </a>

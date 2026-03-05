@@ -38,6 +38,7 @@ export const projects = [
   {
     title: 'IRIS Predict — ML Classification Web App',
     type: 'Machine Learning + Web App',
+    featured: true,
     problem:
       'Classroom ML examples often stop at notebooks and do not provide an interactive experience for users to test models in real time.',
     whyItMatters:
@@ -51,6 +52,13 @@ export const projects = [
       'Comparing models consistently required stable preprocessing and controlled evaluation steps.',
       'Balancing clarity of outputs with simplicity in the interface.',
     ],
+    architecture: [
+      'Presentation Layer: Streamlit UI for feature input and prediction output rendering.',
+      'Inference Layer: Trained model pipeline performs scaling and classification for live requests.',
+      'Data Layer: Iris dataset preprocessing and train/test split with reproducible evaluation flow.',
+      'Evaluation Layer: Accuracy and model comparison across KNN, SVM, and Decision Tree.',
+    ],
+    architectureFlow: ['Streamlit UI', 'Preprocessing', 'Model Inference', 'Prediction Output'],
     metrics: [
       'Achieved 96% classification accuracy on evaluation runs.',
       'Enabled real-time inference through an interactive web interface.',
@@ -62,6 +70,7 @@ export const projects = [
   {
     title: 'Weather Detecting Web Application',
     type: 'Frontend + API Integration',
+    featured: true,
     problem:
       'Users need fast and reliable city-based weather updates with clear visibility of essential environmental signals.',
     whyItMatters:
@@ -75,6 +84,13 @@ export const projects = [
       'Handling API latency and errors while keeping the interface responsive.',
       'Presenting multiple metrics (temperature, AQI, humidity, conditions) without clutter.',
     ],
+    architecture: [
+      'UI Layer: Responsive weather cards for city search and metric visualization.',
+      'Service Layer: Async fetch service integrates WeatherAPI endpoints with error handling.',
+      'Location Layer: Browser geolocation provides automatic city weather lookup.',
+      'State Layer: Client-side state updates temperature, AQI, humidity, and condition cards in real time.',
+    ],
+    architectureFlow: ['User Input/Geo', 'API Service', 'State Update', 'Weather Cards'],
     metrics: [
       'Implemented non-blocking API flow for smoother user interactions.',
       'Delivered geolocation-based auto-detection and richer weather insights including AQI and humidity.',
@@ -85,6 +101,7 @@ export const projects = [
   {
     title: 'CipherX — Encryption/Decryption CLI Tool',
     type: 'Python + Cryptography',
+    featured: true,
     problem:
       'Basic secure text transformation tools are often either opaque for learners or too rigid for experimentation.',
     whyItMatters:
@@ -98,6 +115,13 @@ export const projects = [
       'Designing command-line interactions that remain simple while handling invalid input safely.',
       'Structuring encryption/decryption logic in reusable modular units.',
     ],
+    architecture: [
+      'CLI Layer: Argument/input parser receives operation mode and user text securely.',
+      'Core Crypto Layer: Modular encryption and decryption functions execute transformation logic.',
+      'Validation Layer: Input checks and guardrails prevent invalid command execution.',
+      'Error Handling Layer: Controlled exceptions and safe messaging keep terminal workflow reliable.',
+    ],
+    architectureFlow: ['CLI Input', 'Validation', 'Crypto Engine', 'Secure Output'],
     metrics: [
       'Implemented robust input validation and error-safe workflow handling.',
       'Strengthened applied cybersecurity foundations through practical implementation.',
