@@ -17,6 +17,7 @@ export default function About() {
           <div data-aos="fade-up-left">
             <p>{about.aboutText}</p>
             <p className="about-story">{about.aboutStory}</p>
+            <p className="about-story">{about.aboutStory2}</p>
 
             <div className="fact-grid">
               {aboutFacts.map((fact, index) => (

@@ -21,9 +21,11 @@ export const profile = {
 export const about = {
   heading: 'SOME WORDS ABOUT ME',
   aboutText:
-    'I am a third-year undergraduate student in the Department of Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
+    'I am a third-year undergraduate student in Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
   aboutStory:
-    "I was fortunate enough to know from a young age that I wanted to be an engineer. The engineering way of thinking came naturally to me. What I did not know was what type of engineer I wanted to be. When push came to shove, I chose Software Engineering.",
+    'From writing my first line of code to building ML models and exploring cybersecurity, I have always been driven by one thing - solving real problems with technology. I believe that the best code is not just functional, it is secure, efficient, and meaningful.',
+  aboutStory2:
+    'When I am not coding, you will find me calculating moves on the chessboard, pushing limits at the gym, or contributing to open source projects. I bring the same discipline and strategic thinking into everything I do.',
   interestsText:
     "I like watching movies, playing video games (mostly First/Third Person Shooting Games), Competitive Programming and loads of other stuff. My hobby is playing chess and hitting the gym. When I am not writing code, I am either outsmarting opponents on the chessboard or lifting weights at the gym because a sharp mind needs a strong body.",
   interestsMusic:
@@ -209,7 +211,7 @@ export const blogIdeas = [
 
 export const contact = {
   title: 'CONTACT ME',
-  message: 'Open to software engineering and machine learning opportunities with implementation-driven teams.',
+  message: "Open to Cyber Security, Software Engineering and Machine Learning opportunities. Let's build something secure and meaningful together.",
   address:
     'Department of Computer Science and Engineering (Cyber Security), Haldia Institute of Technology, West Bengal, India',
 }
