@@ -32,7 +32,6 @@ export default function Projects() {
 
               <div className="project-actions">
                 <a className="btn btn-gold" href={project.github} target="_blank" rel="noreferrer">GitHub</a>
-                <a className="btn btn-outline" href={project.live} target="_blank" rel="noreferrer">Live Demo</a>
               </div>
             </article>
           ))}
