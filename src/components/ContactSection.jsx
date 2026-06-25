@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import { contact, profile } from '../data/portfolioData'
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const hasSentMessage =
+    typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === '1'
+
+  const handleSubmit = () => {
+    setIsSubmitting(true)
+  }
+
   return (
     <section id="contact" className="section">
       <div className="container">
@@ -8,6 +18,11 @@ export default function ContactSection() {
         <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
           {contact.message}
         </p>
+        {hasSentMessage && (
+          <p className="section-sub" data-aos="fade-right" data-aos-delay="80">
+            Thanks. Your message has been sent successfully.
+          </p>
+        )}
 
         <div className="contact-grid">
           <div className="contact-card" data-aos="fade-up" data-aos-delay="80">
@@ -36,17 +51,30 @@ export default function ContactSection() {
             </div>
           </div>
 
-          <form className="contact-form" data-aos="fade-up" data-aos-delay="140">
+          <form
+            className="contact-form"
+            data-aos="fade-up"
+            data-aos-delay="140"
+            action="https://formsubmit.co/amritkum1209@gmail.com"
+            method="POST"
+            onSubmit={handleSubmit}
+          >
+            <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={`${profile.website}/?sent=1#contact`} />
+            <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
             <div className="form-group">
-              <input type="text" placeholder="Your Name" required />
+              <input type="text" name="name" placeholder="Your Name" required />
             </div>
             <div className="form-group">
-              <input type="email" placeholder="Your Email" required />
+              <input type="email" name="email" placeholder="Your Email" required />
             </div>
             <div className="form-group">
-              <textarea placeholder="Your Message" required />
+              <textarea name="message" placeholder="Your Message" required />
             </div>
-            <button type="submit" className="btn btn-gold">Send Message</button>
+            <button type="submit" className="btn btn-gold" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
+            </button>
           </form>
         </div>
       </div>
