@@ -4,6 +4,8 @@ import { contact, profile } from '../data/portfolioData'
 export default function ContactSection() {
   const [isSubmitting, setIsSubmitting] = useState(false)
 
+  const siteUrl = profile.website || 'https://amritkumar.me'
+
   const hasSentMessage =
     typeof window !== 'undefined' && new URLSearchParams(window.location.search).get('sent') === '1'
 
@@ -44,7 +46,7 @@ export default function ContactSection() {
                 <i className="fab fa-linkedin" />
                 linkedin.com/in/amrit100612
               </a>
-              <a href={profile.website} target="_blank" rel="noreferrer">
+              <a href={siteUrl} target="_blank" rel="noreferrer">
                 <i className="fas fa-globe" />
                 amritkumar.me
               </a>
@@ -61,7 +63,7 @@ export default function ContactSection() {
           >
             <input type="hidden" name="_subject" value="New Portfolio Contact Message" />
             <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_next" value={`${profile.website}/?sent=1#contact`} />
+            <input type="hidden" name="_next" value={`${siteUrl}/?sent=1#contact`} />
             <input type="text" name="_honey" style={{ display: 'none' }} tabIndex="-1" autoComplete="off" />
             <div className="form-group">
               <input type="text" name="name" placeholder="Your Name" required />

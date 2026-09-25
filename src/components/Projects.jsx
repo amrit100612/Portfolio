@@ -6,7 +6,7 @@ export default function Projects() {
       <div className="container">
         <h2 className="section-title" data-aos="fade-right">Projects</h2>
         <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
-          Selected projects with practical architecture and implementation depth.
+          Selected work focused on secure engineering, practical architecture, and hands-on implementation.
         </p>
 
         <div className="projects-grid">

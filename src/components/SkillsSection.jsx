@@ -6,7 +6,7 @@ export default function SkillsSection() {
       <div className="container">
         <h2 className="section-title" data-aos="fade-right">Skills</h2>
         <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
-          Core technologies and tools I use to build practical, scalable software solutions.
+          Security-minded tools, languages, and fundamentals I use to build resilient software.
         </p>
 
         <div className="skill-grid">

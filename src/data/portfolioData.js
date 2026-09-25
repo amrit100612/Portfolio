@@ -1,8 +1,8 @@
 export const profile = {
   name: 'Amrit Kumar',
-  title: 'Hello Folks!',
-  headline: 'My name is Amrit Kumar. I am a software engineering and machine learning enthusiast from India.',
-  subheading: 'B.Tech CSE (Cyber Security), Haldia Institute of Technology',
+  title: 'Cybersecurity Analyst | ML & Software Engineering',
+  headline: 'I’m a cybersecurity-focused student building secure software, analyzing threats, and applying machine learning to practical defense problems.',
+  subheading: 'Fourth-year B.Tech CSE (Cyber Security) • Haldia Institute of Technology • CGPA 8.08/10',
   photo: '/amrit-photo.png.png',
   photoAlt: 'Portrait of Amrit Kumar',
   location: 'West Bengal, India',
@@ -13,30 +13,30 @@ export const profile = {
   githubImage: '/github-link.jpg',
   linkedin: 'https://www.linkedin.com/in/amrit100612/',
   linkedinImage: '/linkedin-link.webp',
-  leetcode: 'https://leetcode.com/u/mNBmOlhBGQ/',
+  leetcode: 'https://leetcode.com/u/Amrit1209/',
   leetcodeImage: '/leetcode-link.png',
-  resume: 'https://drive.google.com/uc?export=download&id=1wXMAaruPpVl6NYEjtAl21K0_aU-embKB',
+  resume: 'https://drive.google.com/uc?export=download&id=1jrCMgLgiCTVDSsS0eQBBm9ydl8QlV9dY',
 }
 
 export const about = {
-  heading: 'SOME WORDS ABOUT ME',
+  heading: 'ABOUT THE ENGINEER',
   aboutText:
-    'I am a third-year undergraduate student in Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
+    'I am a fourth-year undergraduate student in Computer Science and Engineering (Cyber Security) at Haldia Institute of Technology, India, originally from Sheikhpura, Bihar.',
   aboutStory:
-    'From writing my first line of code to building ML models and exploring cybersecurity, I have always been driven by one thing - solving real problems with technology. I believe that the best code is not just functional, it is secure, efficient, and meaningful.',
+    'My path is shaped by curiosity for applied cryptography, network security, vulnerability analysis, and the practical side of defense. I care about building software that is not only functional, but resilient, well-structured, and hard to misuse.',
   aboutStory2:
-    'When I am not coding, you will find me calculating moves on the chessboard, pushing limits at the gym, or contributing to open source projects. I bring the same discipline and strategic thinking into everything I do.',
+    'When I am not studying security concepts or coding, I am sharpening my strategy through chess, staying disciplined at the gym, and contributing to projects that turn theory into action.',
   interestsText:
-    "I like watching movies, playing video games (mostly First/Third Person Shooting Games), Competitive Programming and loads of other stuff. My hobby is playing chess and hitting the gym. When I am not writing code, I am either outsmarting opponents on the chessboard or lifting weights at the gym because a sharp mind needs a strong body.",
+    'I enjoy competitive programming, thoughtful problem solving, and exploring how secure design principles can improve everyday software. I also love chess and the discipline it brings to my thinking.',
   interestsMusic:
-    'I love music. I am an ardent listener of songs, ranging from Classical and Sufi to Hindi and English. Sometimes I also hit the outdoor field to chase real thrills, taste raw competition, and celebrate wins that no screen can replicate.',
+    'Music keeps me grounded, but my strongest energy comes from building, learning, and improving the systems around me.',
   skillsText:
-    'On my way, I have learnt a range of programming languages such as C, Python, and Java.',
+    'I continue to grow in penetration testing, incident response, secure development practices, and systems thinking through hands-on projects and technical study.',
   techStack: [
-    'Java, Python, C, JavaScript',
-    'HTML5, CSS3, REST APIs',
-    'scikit-learn, Pandas, NumPy, Streamlit',
-    'Git, GitHub, Linux, VS Code',
+    'Python, Java, C, Bash',
+    'Applied Cryptography, Network Security, OWASP Top 10',
+    'Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn',
+    'Linux, Wireshark, Nmap, TryHackMe, Streamlit',
   ],
 }
 
@@ -102,15 +102,15 @@ export const projects = [
     deployment: 'Packaged as a Streamlit app for interactive decision-support testing.',
   },
   {
-    title: 'CypherX404 — Encryption/Decryption CLI Tool',
+    title: 'CipherX — Encryption/Decryption CLI Tool',
     type: 'Python + Cybersecurity',
     featured: true,
     problem: 'CLI cryptography exercises are often fragmented and fragile for real learning workflows.',
     whyItMatters: 'A reliable encryption utility strengthens hands-on cybersecurity fundamentals and secure coding discipline.',
-    solution: 'Developed a modular Python CLI that performs encryption/decryption with safe input handling and clear terminal output.',
-    approach: 'Separated parser, validation, and crypto engine layers to improve maintainability, reliability, and command predictability.',
-    stack: ['Python', 'Cryptography', 'CLI'],
-    challenges: ['Designing clear command usage while preventing invalid input paths.', 'Keeping module boundaries clean between parsing, crypto logic, and error handling.'],
+    solution: 'Engineered a modular Python CLI using a Caesar + XOR hybrid cipher with bidirectional encode/decode handling.',
+    approach: 'Applied CIA Triad principles, documented the cryptographic design and threat model, and covered 10+ edge cases across 50+ tests.',
+    stack: ['Python', 'Cryptography', 'CLI', 'CIA Triad'],
+    challenges: ['Designing clear command usage while preventing invalid input paths.', 'Keeping cryptographic behavior predictable across edge cases.'],
     architecture: [
       'Input Layer: CLI parser captures operation mode, key parameters, and payload.',
       'Validation Layer: Input guards verify command correctness and required fields.',
@@ -119,7 +119,27 @@ export const projects = [
     ],
     architectureFlow: ['CLI Input', 'Validation', 'Crypto Engine', 'Secure Output'],
     metrics: ['Implemented robust validation to prevent invalid command execution paths.', 'Improved usability with deterministic command behavior and structured error messaging.'],
-    deployment: 'Delivered as a local Python CLI for secure text workflow experimentation.',
+    deployment: 'Delivered as a local Python CLI with a live Streamlit demo at cipherx404.streamlit.app.',
+  },
+  {
+    title: 'PCAP Threat Analyzer',
+    type: 'Network Security + Threat Detection',
+    featured: true,
+    problem: 'Raw packet captures are difficult to triage quickly when suspicious traffic is mixed with normal activity.',
+    whyItMatters: 'Structured traffic analysis helps surface attack indicators and turn packet data into an actionable investigation.',
+    solution: 'Built a Python-based network security tool that analyzes PCAP traffic and detects port scans, brute-force attacks, and suspicious DNS/HTTP activity.',
+    approach: 'Combined Scapy packet parsing, Pandas-based analysis, rule-based risk scoring, and automated CSV investigation reports.',
+    stack: ['Python', 'Scapy', 'Pandas', 'Streamlit'],
+    challenges: ['Turning packet-level signals into readable security findings.', 'Balancing detection rules with useful investigation output.'],
+    architecture: [
+      'Input Layer: PCAP upload and packet capture parsing with Scapy.',
+      'Analysis Layer: Pandas transforms traffic into investigation-ready records.',
+      'Detection Layer: Rules identify scans, brute force, and suspicious DNS/HTTP activity.',
+      'Reporting Layer: Risk scores and CSV exports summarize findings.',
+    ],
+    architectureFlow: ['PCAP Input', 'Packet Parsing', 'Threat Rules', 'Risk Report'],
+    metrics: ['Detects multiple common network attack patterns with rule-based scoring.', 'Exports structured investigation reports for follow-up analysis.'],
+    deployment: 'Deployed as a Streamlit app at pcap-threat-analyzer.streamlit.app.',
   },
 ]
 
@@ -134,7 +154,7 @@ export const works = [
   {
     title: 'My LeetCode Profile',
     category: 'Programming',
-    url: 'https://leetcode.com/u/mNBmOlhBGQ/',
+    url: 'https://leetcode.com/u/Amrit1209/',
     image: '/leetcode-link.png',
     architecture: ['Portfolio Card', 'External Link Router', 'LeetCode Profile'],
   },
@@ -162,45 +182,46 @@ export const works = [
   {
     title: 'Loan Approval Prediction System',
     category: 'Machine Learning',
-    url: 'https://github.com/amrit100612/Loan_Predictions',
+    url: 'https://github.com/amrit100612/Loan-Prediction',
     image: '/loan-project.png',
     architecture: ['Input Form', 'Feature Engineering', 'ML Model', 'Approval Output'],
   },
   {
     title: 'CypherX404 - Encryption/Decryption CLI',
     category: 'Programming',
-    url: 'https://github.com/amrit100612/CipherX_404',
+    url: 'https://github.com/amrit100612/CipherX',
     image: '/cipherx-project.png',
     architecture: ['CLI Input', 'Validation', 'Crypto Engine', 'Secure Output'],
   },
 ]
 
 export const dsa = {
-  profileUrl: 'https://leetcode.com/u/mNBmOlhBGQ/',
+  profileUrl: 'https://leetcode.com/u/Amrit1209/',
   highlights: [
-    'Consistent DSA practice with arrays, strings, and binary search focus.',
+    'Solved 150+ algorithmic problems with focus on arrays, strings, binary search, and hash maps.',
     'Implementation-first Java solutions with edge-case awareness.',
   ],
 }
 
 export const skills = [
-  { category: 'Languages', detail: 'Java, Python, C, JavaScript' },
-  { category: 'CS Fundamentals', detail: 'DSA, OOP, DBMS, Operating Systems' },
-  { category: 'Web', detail: 'HTML5, CSS3, REST APIs' },
-  { category: 'Machine Learning', detail: 'scikit-learn, Pandas, NumPy, Streamlit' },
-  { category: 'Tools', detail: 'Git, GitHub, Linux, VS Code' },
+  { category: 'Languages', detail: 'Python, Java, C, Bash' },
+  { category: 'Cybersecurity', detail: 'Cryptography, Network Security, OWASP Top 10, Vulnerability Analysis, Penetration Testing, Risk Assessment, Incident Response, Secure Coding' },
+  { category: 'CS Fundamentals', detail: 'DSA, OOP, DBMS, Operating Systems, TCP/IP Networking' },
+  { category: 'Machine Learning', detail: 'Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, Feature Engineering, Model Evaluation' },
+  { category: 'Tools', detail: 'Git, GitHub, Linux, VS Code, Streamlit, Wireshark, Nmap, TryHackMe' },
+  { category: 'Web & Data', detail: 'React.js, HTML5, CSS3, REST APIs, SQL, SQLite' },
 ]
 
 export const experienceJourney = [
+  { title: 'ISOEH — Advanced Python and Cloud Security', period: 'Jan 2026 - Feb 2026', points: ['Completed hands-on training in machine learning, data analysis, and model deployment using Python.', 'Designed and deployed a Loan Approval Prediction System with Streamlit.'] },
   { title: 'Class Representative — CSE (Cyber Security)', period: 'Aug 2023 - Present', points: ['Representing 60+ students and coordinating with faculty.'] },
-  { title: 'Public Relations Team Member — TaruGuardians', period: 'Jan 2024 - Present', points: ['Managed outreach campaigns and event promotions.'] },
 ]
 
 export const dailyLearningTracker = {
   streak: 'Consistent DSA + project execution mindset',
   blocks: [
-    { label: 'DSA in Java', detail: 'Regular LeetCode practice and revision loops.' },
-    { label: 'Core CS Revision', detail: 'Structured revision of OS, DBMS, OOP.' },
+    { label: 'DSA in Java', detail: 'Regular LeetCode practice and revision loops across 150+ problems.' },
+    { label: 'Security Practice', detail: 'Threat detection, network analysis, cryptography, and web exploitation labs.' },
   ],
 }
 
@@ -211,31 +232,31 @@ export const blogIdeas = [
 
 export const contact = {
   title: 'CONTACT ME',
-  message: "Open to Cyber Security, Software Engineering and Machine Learning opportunities. Let's build something secure and meaningful together.",
+  message: "Open to cybersecurity analyst, secure software engineering, and threat-informed development opportunities. Let’s build something resilient together.",
   address:
     'Department of Computer Science and Engineering (Cyber Security), Haldia Institute of Technology, West Bengal, India',
 }
 
 export const heroRoles = [
-  'Cyber Security Student',
-  'Java Programmer',
-  'ML Enthusiast',
+  'Cybersecurity Analyst',
+  'Secure Software Enthusiast',
+  'Threat Detection Builder',
+  'Python & Java Developer',
   'Problem Solver',
-  'Chess Player',
 ]
 
 export const aboutFacts = [
-  { icon: 'fas fa-chess-knight', title: 'Chess Player', detail: 'Strategic Thinker' },
-  { icon: 'fas fa-dumbbell', title: 'Gym Enthusiast', detail: 'Discipline & Focus' },
-  { icon: 'fas fa-code-branch', title: 'Open Source Contributor', detail: 'Hacktoberfest Level 4' },
-  { icon: 'fas fa-user-shield', title: 'Cyber Security Enthusiast', detail: 'Deloitte Program' },
+  { icon: 'fas fa-shield-halved', title: 'Security-Minded', detail: 'Defense-first mindset' },
+  { icon: 'fas fa-network-wired', title: 'Systems Curious', detail: 'Networking & internals' },
+  { icon: 'fas fa-chess-knight', title: 'Strategic Thinker', detail: 'Planning & discipline' },
+  { icon: 'fas fa-code-branch', title: 'Open Source Contributor', detail: 'Building in public' },
 ]
 
 export const premiumSkills = [
-  { label: 'Languages', detail: 'Java, Python, C, JavaScript', level: 90 },
-  { label: 'Web', detail: 'React.js, HTML5, CSS3', level: 84 },
-  { label: 'Machine Learning', detail: 'Scikit-learn, Pandas, NumPy, Matplotlib', level: 80 },
-  { label: 'Tools', detail: 'Git, GitHub, Linux, VS Code, Streamlit', level: 86 },
+  { label: 'Security Foundations', detail: 'Threat detection, cryptography, network security, secure coding', level: 88 },
+  { label: 'Programming', detail: 'Python, Java, C, Bash', level: 90 },
+  { label: 'Web & Apps', detail: 'React.js, HTML5, CSS3, REST APIs, Streamlit', level: 84 },
+  { label: 'Data & Tools', detail: 'Scikit-learn, Pandas, NumPy, Git, Linux, Wireshark, Nmap', level: 86 },
 ]
 
 export const projectCards = [
@@ -256,8 +277,8 @@ export const projectCards = [
     title: 'CipherX - Encryption/Decryption Tool',
     description: 'Modular Python CLI utility for secure encryption/decryption workflows.',
     stack: ['Python', 'Cryptography', 'CLI'],
-    github: 'https://github.com/amrit100612/CipherX_404',
-    live: 'https://github.com/amrit100612/CipherX_404',
+    github: 'https://github.com/amrit100612/CipherX',
+    live: 'https://cipherx404.streamlit.app',
     architecture: [
       'Input Layer: command parser and option handling.',
       'Validation Layer: secure input checks.',
@@ -282,13 +303,26 @@ export const projectCards = [
     title: 'Loan Approval Prediction System',
     description: 'ML model-driven decision support system for loan approval prediction.',
     stack: ['Python', 'Pandas', 'Scikit-learn', 'Streamlit'],
-    github: 'https://github.com/amrit100612/Loan_Predictions',
-    live: 'https://github.com/amrit100612/Loan_Predictions',
+    github: 'https://github.com/amrit100612/Loan-Prediction',
+    live: 'https://github.com/amrit100612/Loan-Prediction',
     architecture: [
       'Input Layer: applicant profile capture form.',
       'Processing Layer: feature engineering and cleaning.',
       'Model Layer: classification for eligibility.',
       'Output Layer: clear decision and confidence display.',
+    ],
+  },
+  {
+    title: 'PCAP Threat Analyzer',
+    description: 'Network security tool for PCAP analysis, threat detection, risk scoring, and CSV reporting.',
+    stack: ['Python', 'Scapy', 'Pandas', 'Streamlit'],
+    github: 'https://github.com/amrit100612/PCAP-Threat-Analyzer',
+    live: 'https://pcap-threat-analyzer.streamlit.app',
+    architecture: [
+      'Input Layer: PCAP upload and packet parsing.',
+      'Analysis Layer: Pandas-based traffic investigation.',
+      'Detection Layer: rules for scans, brute force, and suspicious activity.',
+      'Reporting Layer: risk scoring and CSV export.',
     ],
   },
 ]
@@ -297,21 +331,26 @@ export const achievements = [
   {
     icon: 'fas fa-trophy',
     title: 'Deloitte Australia Cyber Security Program (2024)',
-    description: 'Completed practical cybersecurity simulation and risk analysis tasks.',
+    description: 'Completed a Forage simulation covering threat detection, log analysis, and incident reporting.',
   },
   {
     icon: 'fas fa-award',
     title: 'Hacktoberfest 2024 - Level 4 Badge',
-    description: 'Recognized for active open-source contributions during Hacktoberfest.',
+    description: 'Placed in the top 15% globally through documentation, bug fixes, and feature contributions.',
   },
   {
     icon: 'fas fa-seedling',
     title: 'GirlScript Summer of Code 2025 - GrowCraft',
-    description: 'Contributed to collaborative development and issue resolution workflows.',
+    description: 'Active contributor with 3+ pull requests improving feature functionality and code readability.',
   },
   {
     icon: 'fas fa-code',
-    title: 'LeetCode - Consistent DSA Problem Solver',
-    description: 'Maintained regular DSA problem-solving practice and consistency.',
+    title: 'LeetCode - 150+ Algorithmic Problems',
+    description: 'Consistent practice across arrays, strings, binary search, and hash maps.',
+  },
+  {
+    icon: 'fas fa-shield-halved',
+    title: 'TryHackMe Security Labs',
+    description: 'Practiced Linux fundamentals, network security, cryptography, and web exploitation.',
   },
 ]

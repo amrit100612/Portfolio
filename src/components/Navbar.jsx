@@ -18,7 +18,7 @@ export default function Navbar() {
     <header className="navbar" id="navbar">
       <div className="container nav-wrap">
         <a href="#home" className="logo">
-          AK
+          AMRIT
         </a>
 
         <nav className="desktop-nav" aria-label="Main navigation">

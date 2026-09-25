@@ -6,7 +6,7 @@ export default function About() {
       <div className="container">
         <h2 className="section-title" data-aos="fade-right">About Me</h2>
         <p className="section-sub" data-aos="fade-right" data-aos-delay="60">
-          In a world full of vulnerabilities, I choose to be the patch.
+          I’m driven by the idea that strong systems start with thoughtful security.
         </p>
 
         <div className="about-grid">
