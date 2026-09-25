@@ -27,10 +27,9 @@ const commandResponses = {
   ],
   projects: [
     'Featured projects:',
-    '  • Weather Detecting Web App',
     '  • CipherX - Encryption/Decryption Tool',
-    '  • IRIS Predict - ML Classification App',
-    '  • Loan Approval Prediction System',
+    '  • PCAP Threat Analyzer',
+    '  • Loan Approval Prediction',
   ],
   contact: [
     'Email: amritkum1209@gmail.com',
