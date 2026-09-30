@@ -15,7 +15,7 @@ export const profile = {
   linkedinImage: '/linkedin-link.webp',
   leetcode: 'https://leetcode.com/u/Amrit1209/',
   leetcodeImage: '/leetcode-link.png',
-  resume: 'https://drive.google.com/uc?export=download&id=1jrCMgLgiCTVDSsS0eQBBm9ydl8QlV9dY',
+  resume: 'https://drive.google.com/file/d/1jYF13Uz7pBQblLEnF1s3LlWkeMvo-bo5/view?usp=sharing',
 }
 
 export const about = {
