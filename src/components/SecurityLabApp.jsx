@@ -1,151 +1,155 @@
-import { useEffect, useState } from 'react'
-import { profile, projects } from '../data/portfolioData'
+import { useEffect, useMemo, useRef, useState } from 'react'
+import { profile, projects, skills } from '../data/portfolioData'
 
-const routes = [
-  ['/', '01', 'Home'],
-  ['/about', '02', 'About'],
-  ['/projects', '03', 'Projects'],
-  ['/security-lab', '04', 'Security Lab'],
-  ['/skills', '05', 'Skills'],
-  ['/journey', '06', 'Journey'],
-  ['/contact', '07', 'Contact'],
+const themes = {
+  crimson: ['Zero-Day Crimson', '#08080A', '#FF2E4C'],
+  cobalt: ['Phantom Cobalt', '#050914', '#38BDF8'],
+  emerald: ['Venomous Emerald', '#060B09', '#10B981'],
+  ultraviolet: ['Synthwave Ultraviolet', '#090612', '#C084FC'],
+  gold: ['Tactical Gold', '#0A0A0A', '#EAB308'],
+}
+
+const modules = [
+  ['overview', 'overview'],
+  ['arsenal', 'arsenal'],
+  ['operations', 'operations'],
+  ['intel', 'intel'],
+  ['terminal', 'terminal'],
+  ['secure-comms', 'secure-comms'],
 ]
 
-const projectMeta = {
-  'PCAP Threat Analyzer': {
-    slug: 'pcap-threat-analyzer',
-    category: 'Cybersecurity',
-    features: ['PCAP traffic analysis', 'Port scan detection', 'Brute-force detection', 'Suspicious DNS / HTTP activity', 'Rule-based risk scoring', 'CSV investigation reports'],
-  },
-  'CipherX — Encryption/Decryption CLI Tool': {
-    slug: 'cipherx',
-    category: 'Cybersecurity',
-    features: ['Caesar + XOR hybrid cipher', 'Bidirectional encode / decode', 'Input validation', 'CIA Triad', 'Threat modelling'],
-  },
-  'Loan Approval Prediction using Machine Learning': {
-    slug: 'loan-prediction',
-    category: 'Machine Learning',
-    features: ['EDA and data cleaning', 'Feature engineering', 'Model evaluation', 'SMOTE', 'Streamlit deployment'],
-  },
-}
+const intel = [
+  ['2026', 'PCAP Threat Analyzer', 'HIGH', 'Detection engineering / network traffic triage'],
+  ['2025', 'GSSoC contribution', 'OPEN', 'Open-source feature and documentation work'],
+  ['2024', 'Deloitte cyber simulation', 'LAB', 'Threat detection, logs, and incident reporting'],
+  ['2024', 'Hacktoberfest Level 4', 'OPEN', 'Top 15% global contributor milestone'],
+]
 
 const projectLinks = {
-  'PCAP Threat Analyzer': {
-    github: 'https://github.com/amrit100612/PCAP-Threat-Analyzer',
-    live: 'https://pcap-threat-analyzer.streamlit.app/',
-  },
-  'CipherX — Encryption/Decryption CLI Tool': {
-    github: 'https://github.com/amrit100612/CipherX',
-    live: 'https://cipherx404.streamlit.app/',
-  },
-  'Loan Approval Prediction using Machine Learning': {
-    github: 'https://github.com/amrit100612/Loan-Prediction',
-    live: 'https://huggingface.co/spaces/amrit1209/Loan_Prediction',
-  },
+  'CipherX — Encryption/Decryption CLI Tool': ['https://github.com/amrit100612/CipherX', 'https://cipherx404.streamlit.app/'],
+  'PCAP Threat Analyzer': ['https://github.com/amrit100612/PCAP-Threat-Analyzer', 'https://pcap-threat-analyzer.streamlit.app/'],
+  'Loan Approval Prediction using Machine Learning': ['https://github.com/amrit100612/Loan-Prediction', 'https://huggingface.co/spaces/amrit1209/Loan_Prediction'],
 }
 
-const skillGroups = {
-  Cybersecurity: ['Applied Cryptography', 'Network Security', 'OWASP Top 10', 'Vulnerability Analysis', 'Penetration Testing', 'Risk Assessment', 'Incident Response', 'Secure Coding', 'CIA Triad', 'CTF'],
-  Programming: ['Python', 'Java', 'C', 'Bash', 'SQL'],
-  Tools: ['Linux', 'Wireshark', 'Nmap', 'TryHackMe', 'Git', 'GitHub', 'Streamlit', 'Splunk'],
-  Networking: ['TCP/IP', 'PCAP Analysis', 'Scapy', 'DNS / HTTP Analysis'],
-  'ML / Data': ['Scikit-learn', 'Pandas', 'NumPy', 'Matplotlib', 'Seaborn', 'Feature Engineering', 'Model Evaluation'],
-  Web: ['React.js', 'HTML5', 'CSS3', 'REST APIs'],
-  'CS Fundamentals': ['Data Structures & Algorithms', 'OOP', 'DBMS', 'Operating Systems'],
+const terminalCommands = {
+  help: 'help  whoami  skills  projects  scan  matrix  clear',
+  whoami: 'amrit.k / cybersecurity analyst / defensive builder',
+  skills: 'python · java · network security · threat detection · cryptography',
+  projects: 'CipherX · PCAP Threat Analyzer · Loan Approval Prediction',
+  scan: 'surface scan complete: 0 critical / 3 monitored / 100% curiosity',
+  matrix: 'red team / blue team / secure software / applied ML',
 }
 
-const journey = [
-  ['2023', 'B.Tech started', 'Haldia Institute of Technology, CSE (Cyber Security).'],
-  ['2024', 'Cybersecurity foundations', 'Deloitte Australia job simulation and Hacktoberfest Level 4.'],
-  ['2025', 'Open source and security labs', 'GSSoC contribution and TryHackMe practice across Linux, networking, cryptography, and web security.'],
-  ['2026', 'Applied security building', 'ISOEH training and PCAP Threat Analyzer development.'],
-  ['2027', 'Expected graduation', 'B.Tech CSE (Cyber Security).'],
-]
-
-function getPath() {
-  const hash = window.location.hash.replace(/^#/, '') || '/'
-  return hash.startsWith('/projects/') ? hash : hash.replace(/\/$/, '') || '/'
+function useThreatCanvas(canvasRef) {
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return undefined
+    const context = canvas.getContext('2d')
+    const nodes = Array.from({ length: 34 }, (_, index) => ({ x: Math.random(), y: Math.random(), vx: (Math.random() - .5) * .00035, vy: (Math.random() - .5) * .00035, phase: index }))
+    let frame
+    let pointer = { x: -.5, y: -.5 }
+    const resize = () => { canvas.width = window.innerWidth * devicePixelRatio; canvas.height = window.innerHeight * devicePixelRatio; context.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0) }
+    const move = (event) => { pointer = { x: event.clientX, y: event.clientY } }
+    const draw = () => {
+      const width = window.innerWidth
+      const height = window.innerHeight
+      context.clearRect(0, 0, width, height)
+      nodes.forEach((node) => {
+        node.x += node.vx
+        node.y += node.vy
+        if (node.x < 0 || node.x > 1) node.vx *= -1
+        if (node.y < 0 || node.y > 1) node.vy *= -1
+        const x = node.x * width
+        const y = node.y * height
+        const distance = Math.hypot(pointer.x - x, pointer.y - y)
+        const alpha = distance < 180 ? .75 : .22
+        context.fillStyle = `rgba(0,240,255,${alpha})`
+        context.fillRect(x, y, 2, 2)
+        nodes.forEach((other) => {
+          const ox = other.x * width
+          const oy = other.y * height
+          const gap = Math.hypot(x - ox, y - oy)
+          if (gap < 130) { context.strokeStyle = `rgba(112,0,255,${(1 - gap / 130) * .18})`; context.beginPath(); context.moveTo(x, y); context.lineTo(ox, oy); context.stroke() }
+        })
+      })
+      frame = requestAnimationFrame(draw)
+    }
+    resize(); window.addEventListener('resize', resize); window.addEventListener('pointermove', move); frame = requestAnimationFrame(draw)
+    return () => { cancelAnimationFrame(frame); window.removeEventListener('resize', resize); window.removeEventListener('pointermove', move) }
+  }, [canvasRef])
 }
 
-function Link({ href, children, className = '', onClick }) {
-  return <a className={className} href={`#${href}`} onClick={onClick}>{children}</a>
+function BootScreen({ onComplete }) {
+  const [progress, setProgress] = useState(0)
+  useEffect(() => {
+    const timer = setInterval(() => setProgress((value) => {
+      if (value >= 100) { clearInterval(timer); setTimeout(onComplete, 350); return 100 }
+      return value + 4
+    }), 45)
+    return () => clearInterval(timer)
+  }, [onComplete])
+  const dump = ['A4 7F 19 C2', '00 FF 2A 6D', '9B 10 38 BD', 'DE AD BE EF', '7C 84 FC 2D', '42 0C 11 AE', 'F0 0D 55 19', '13 37 88 C0', 'AB 91 0E 42', '6D 2A FF 08', '10 98 B3 7A', 'C4 20 7F 91', 'E2 04 1A 6B', '5C 3D 00 F1']
+  return <div className="aether-boot"><div className="boot-dump">{dump.map((value, index) => <span key={value}>0x{value} // handshake.{index + 1} verified</span>)}</div><div className="boot-core"><div className="boot-ring" style={{ '--progress': `${progress * 3.6}deg` }}><strong>{progress}%</strong></div><p>AMRIT-OS v4.2</p><span>INITIALIZING AMRIT-OS / DECRYPTING RSA KEYS</span><button onClick={onComplete}>Skip handshake ↗</button></div><div className="boot-shutter boot-shutter-left" /><div className="boot-shutter boot-shutter-right" /></div>
 }
 
-function SectionHeader({ index, eyebrow, title, children }) {
-  return <div className="lab-section-header"><div><p className="lab-kicker">{index} / {eyebrow}</p><h2>{title}</h2></div>{children && <p className="lab-section-note">{children}</p>}</div>
+function Terminal({ setModule }) {
+  const [input, setInput] = useState('')
+  const [history, setHistory] = useState(['AMRIT-OS terminal / secure zsh', 'type help to enumerate commands'])
+  const [historyIndex, setHistoryIndex] = useState(-1)
+  const commandNames = Object.keys(terminalCommands)
+  const submittedCommands = history.filter((line) => line.startsWith('$ ')).map((line) => line.slice(2))
+  const submit = (event) => {
+    event.preventDefault()
+    const command = input.trim().toLowerCase()
+    if (!command) return
+    if (command === 'clear') setHistory([])
+    else { setHistory((current) => [...current, `$ ${command}`, terminalCommands[command] || `command not found: ${command}`]); if (command === 'scan') setModule('intel') }
+    setInput('')
+    setHistoryIndex(-1)
+  }
+  const handleKeyDown = (event) => {
+    if (event.key === 'ArrowUp') { event.preventDefault(); const next = Math.max(0, historyIndex < 0 ? submittedCommands.length - 1 : historyIndex - 1); setHistoryIndex(next); setInput(submittedCommands[next] || '') }
+    if (event.key === 'ArrowDown') { event.preventDefault(); const next = Math.min(submittedCommands.length, historyIndex + 1); setHistoryIndex(next); setInput(submittedCommands[next] || '') }
+    if (event.key === 'Tab') { event.preventDefault(); const match = commandNames.find((name) => name.startsWith(input.toLowerCase())); if (match) setInput(match) }
+  }
+  return <div className="aether-terminal"><div className="terminal-top"><span><i /><i /><i /></span><b>root@amrit-os:~</b><small>zsh / aes-256</small></div><div className="terminal-output">{history.map((line, index) => <p key={`${line}-${index}`}>{line}</p>)}</div><form onSubmit={submit}><span>➜</span><input value={input} onChange={(event) => { setInput(event.target.value); setHistoryIndex(-1) }} onKeyDown={handleKeyDown} placeholder="type help..." aria-label="AMRIT-OS terminal" autoComplete="off" /></form></div>
 }
 
-function Metric({ label, value, tone = 'cyan' }) {
-  return <div className="lab-metric"><span>{label}</span><strong className={`tone-${tone}`}>{value}</strong></div>
+function AppShell() {
+  const [booted, setBooted] = useState(false)
+  const [module, setModule] = useState('overview')
+  const [theme, setTheme] = useState('crimson')
+  const [recon, setRecon] = useState(false)
+  const [drawer, setDrawer] = useState(null)
+  const [message, setMessage] = useState('')
+  const [toast, setToast] = useState('')
+  const [encrypting, setEncrypting] = useState(false)
+  const [utc, setUtc] = useState(() => new Date().toISOString().slice(11, 19))
+  const canvasRef = useRef(null)
+  useThreatCanvas(canvasRef)
+  const activeTheme = themes[theme]
+  const activeSkills = useMemo(() => skills.slice(0, 6), [])
+  useEffect(() => { const timer = setInterval(() => setUtc(new Date().toISOString().slice(11, 19)), 1000); return () => clearInterval(timer) }, [])
+  const spotlight = (event) => { const rect = event.currentTarget.getBoundingClientRect(); event.currentTarget.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); event.currentTarget.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`) }
+  const copyKey = async () => { await navigator.clipboard?.writeText('-----BEGIN PGP PUBLIC KEY-----\\nAMRIT.K / AETHER-OS\\n-----END PGP PUBLIC KEY-----'); setToast('PGP fingerprint copied'); setTimeout(() => setToast(''), 2200) }
+  if (!booted) return <BootScreen onComplete={() => setBooted(true)} />
+  return <div className={`aether-os ${recon ? 'is-recon' : ''}`} style={{ '--theme-bg': activeTheme[1], '--theme-accent': activeTheme[2] }}>
+    <canvas className="aether-canvas" ref={canvasRef} aria-hidden="true" />
+    <header className="aether-command-bar"><div className="aether-brand"><span>▲</span> AMRIT-OS <small>v4.2</small></div><div className="aether-telemetry"><span>UTC {utc}</span><b>CPU 42%</b><b>RAM 2.8GB</b><b className="telemetry-alert">THREAT LOW</b></div><div className="aether-controls"><select value={theme} onChange={(event) => setTheme(event.target.value)} aria-label="Theme palette">{Object.entries(themes).map(([key, value]) => <option value={key} key={key}>{value[0]}</option>)}</select><button className={recon ? 'is-active' : ''} onClick={() => setRecon((value) => !value)}>◉ RECON X-RAY</button></div></header>
+    <nav className="aether-dock">{modules.map(([id, label]) => <button className={module === id ? 'is-active' : ''} key={id} onClick={() => setModule(id)}><span>~/</span>{label}</button>)}</nav>
+    <main className="aether-workspace">
+      {module === 'overview' && <section className="aether-module aether-overview"><div className="module-intro"><p className="aether-kicker">01 / EXECUTIVE DOSSIER</p><h1>Security is not a feature.<br /><em>It&apos;s the operating system.</em></h1><p>Amrit Kumar is a cybersecurity professional building secure software, practical detection systems, and threat-aware experiences.</p><div className="module-actions"><button onClick={() => setModule('operations')}>Open operations ↗</button><a href={profile.resume} target="_blank" rel="noreferrer">Download dossier ↓</a></div></div><div className="overview-grid"><article className="aether-card clearance-card"><span>SECURITY CLEARANCE</span><strong>DEFENSIVE<br />BUILDER</strong><small>Network security / cryptography / secure software</small><i>AVAILABLE FOR IMPACT</i></article><article className="aether-card counter-card"><span>THREAT SURFACE MONITORED</span><strong>03</strong><small>Active build systems</small><div className="waveform" /></article><article className="aether-card"><span>CORE SIGNAL</span><strong>150+</strong><small>DSA problems solved</small></article><article className="aether-card"><span>STATUS</span><strong className="status-online">ONLINE</strong><small>Open to security roles and collaborations</small></article></div></section>}
+      {module === 'arsenal' && <section className="aether-module"><div className="module-heading"><p className="aether-kicker">02 / TECHNICAL ARSENAL</p><h2>Every tool has a threat model.</h2><p>Interactive capability matrix for the systems I use to investigate, build, and defend.</p></div><div className="arsenal-matrix">{activeSkills.map((item, index) => <article className="aether-card arsenal-node" onMouseMove={spotlight} key={item.category}><span>0{index + 1} / {item.category.toUpperCase()}</span><h3>{item.category}</h3><p>{item.detail}</p><div className="node-pulse" /></article>)}</div></section>}
+      {module === 'operations' && <section className="aether-module"><div className="module-heading"><p className="aether-kicker">03 / OPERATIONS</p><h2>Built for hostile inputs.</h2><p>Open a dossier to inspect the challenge, execution, architecture, and impact.</p></div><div className="operation-grid">{projects.map((project, index) => <button className="aether-card operation-card" onMouseMove={spotlight} key={project.title} onClick={() => setDrawer(project)}><span>OPERATION 0{index + 1} / {project.type}</span><h3>{project.title.replace(' — Encryption/Decryption CLI Tool', '')}</h3><p>{project.solution}</p><div>{project.stack.slice(0, 4).map((tag) => <b key={tag}>{tag}</b>)}</div><strong>OPEN DOSSIER ↗</strong></button>)}</div></section>}
+      {module === 'intel' && <section className="aether-module"><div className="module-heading"><p className="aether-kicker">04 / THREAT INTELLIGENCE</p><h2>Signals, not noise.</h2><p>Research, open source, and security learning logs from the field.</p></div><div className="intel-log">{intel.map(([year, title, severity, detail]) => <article className="aether-card" key={title}><span>{year} / {severity}</span><div><h3>{title}</h3><p>{detail}</p></div><b>LOGGED</b></article>)}</div></section>}
+      {module === 'terminal' && <section className="aether-module terminal-module"><div className="module-heading"><p className="aether-kicker">05 / COMMAND LINE</p><h2>Talk to the system.</h2><p>Try <code>help</code>, <code>whoami</code>, <code>skills</code>, <code>projects</code>, <code>scan</code>, or <code>matrix</code>.</p></div><Terminal setModule={setModule} /></section>}
+      {module === 'secure-comms' && <section className="aether-module comms-module"><div className="module-heading"><p className="aether-kicker">06 / SECURE COMMS</p><h2>Transmit securely.</h2><p>A private channel for project ideas, security work, and serious conversations.</p></div><div className="comms-grid"><div className="aether-card comms-form"><label>MESSAGE PAYLOAD<textarea value={message} onChange={(event) => setMessage(event.target.value)} placeholder="Write an encrypted signal..." /></label><button disabled={encrypting || !message.trim()} onClick={() => { setEncrypting(true); setTimeout(() => { setEncrypting(false); setMessage(''); setToast('AES-256 transmission queued'); setTimeout(() => setToast(''), 2200) }, 1000) }}>{encrypting ? 'Encrypting payload...' : 'Encrypt & transmit ↗'}</button></div><div className="aether-card comms-key"><span>PUBLIC KEY / FINGERPRINT</span><code>AE42 7F91 0C11<br />AMRIT KUMAR / AETHER-OS</code><button onClick={copyKey}>Copy PGP key</button><button onClick={async () => { await navigator.clipboard?.writeText(profile.email); setToast('Email address copied'); setTimeout(() => setToast(''), 2200) }}>Copy direct email</button><a href={`mailto:${profile.email}`}>Open email client ↗</a></div></div></section>}
+    </main>
+    {drawer && <><button className="drawer-backdrop" aria-label="Close dossier backdrop" onClick={() => setDrawer(null)} /><aside className="dossier-drawer" aria-label={`${drawer.title} dossier`}><button className="drawer-close" onClick={() => setDrawer(null)}>× CLOSE</button><p className="aether-kicker">KILL-CHAIN DOSSIER / {drawer.type}</p><h2>{drawer.title}</h2><p>{drawer.solution}</p><h3>EXECUTION LOG</h3><ol>{drawer.architecture.map((item) => <li key={item}>{item}</li>)}</ol><div className="drawer-links"><a href={projectLinks[drawer.title][0]} target="_blank" rel="noreferrer">GitHub ↗</a><a href={projectLinks[drawer.title][1]} target="_blank" rel="noreferrer">Live demo ↗</a></div></aside></>}
+    {toast && <div className="aether-toast">{toast}</div>}
+  </div>
 }
-
-function ProjectVisual({ project }) {
-  if (project.title === 'PCAP Threat Analyzer') return <div className="lab-visual pcap-visual"><div className="pcap-grid" /><div className="pcap-nodes"><i /><i /><i /><i /><i /></div><div className="risk-list"><span>PORT SCAN <b>HIGH</b></span><span>BRUTE FORCE <b className="risk-medium">MEDIUM</b></span><span>DNS ACTIVITY <b>HIGH</b></span><span>HTTP ACTIVITY <b className="risk-medium">MEDIUM</b></span></div><small>SAMPLE / DEMO VISUALIZATION</small></div>
-  if (project.title === 'CipherX — Encryption/Decryption CLI Tool') return <div className="lab-visual cipher-visual"><div><span>INPUT</span><strong>Hello World</strong></div><b>↓</b><div><span>CAESAR + XOR</span><strong>••••••••••</strong></div><small>ENC / DEC PIPELINE</small></div>
-  return <div className="lab-visual loan-visual"><span>MODEL ANALYSIS</span><div><b>614</b><small>ROWS</small></div><div><b>13</b><small>FEATURES</small></div><div><b>SMOTE</b><small>PREPROCESSING</small></div><small>STREAMLIT / MODEL WORKFLOW</small></div>
-}
-
-function ProjectCard({ project, index }) {
-  const meta = projectMeta[project.title]
-  return <article className={`lab-project-card ${index === 0 ? 'lab-project-featured' : ''}`}><ProjectVisual project={project} /><div className="lab-project-content"><p className="lab-kicker">0{index + 1} / {meta.category}</p><h3>{project.title.replace(' — Encryption/Decryption CLI Tool', '')}</h3>{project.title.includes('CipherX') && <p className="lab-project-subtitle">Encryption / Decryption CLI Tool</p>}<p>{project.solution}</p><div className="lab-tags">{project.stack.slice(0, 5).map((tag) => <span key={tag}>{tag}</span>)}</div><ul className="lab-feature-list">{meta.features.map((feature) => <li key={feature}>{feature}</li>)}</ul><div className="lab-project-actions"><Link href={`/projects/${meta.slug}`} className="lab-text-link">Explore details <span>↗</span></Link><a className="lab-github-link" href={projectLinks[project.title].github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a className="lab-live-link" href={projectLinks[project.title].live} target="_blank" rel="noreferrer">Live <span>↗</span></a></div></div></article>
-}
-
-function Home({ navigate }) {
-  return <>
-    <section className="lab-hero"><div className="lab-container lab-hero-grid"><div className="lab-hero-copy"><p className="lab-kicker"><i className="lab-live-dot" /> AMRIT.K / SECURITY ENGINEERING LAB</p><h1>Cybersecurity Analyst<br /><em>building secure &amp; intelligent systems.</em></h1><p className="lab-hero-subtitle">B.Tech CSE (Cyber Security) <span>•</span> 2027</p><p className="lab-hero-description">Network Security <span>•</span> Threat Detection <span>•</span> Applied Cryptography <span>•</span> Security-focused Development</p><div className="lab-actions"><button className="lab-button lab-button-primary" onClick={() => navigate('/projects')}>Explore My Work <span>↘</span></button><a className="lab-button" href={profile.github} target="_blank" rel="noreferrer">GitHub <span>↗</span></a><a className="lab-button" href={profile.resume} target="_blank" rel="noreferrer">Resume <span>↗</span></a></div></div><div className="lab-profile-stage"><div className="lab-scan-line" /><div className="threat-console"><div className="threat-console-head"><span>LIVE THREAT CONSOLE</span><b>ENCRYPTED</b></div><div className="threat-sigil">X</div><div className="threat-console-grid"><span>NODE</span><strong>AMRIT.K / 404</strong><span>THREAT LEVEL</span><strong className="threat-critical">CRITICAL THINKING</strong><span>PRIMARY MODE</span><strong>DEFENSIVE BUILD</strong></div><div className="threat-console-footer"><i /> SYSTEMS ONLINE <span>01:37:22</span></div></div><div className="lab-profile-status"><span>● NETWORK SECURITY</span><span>● THREAT DETECTION</span><span>● PYTHON</span><b>STATUS: ONLINE</b></div></div></div></section>
-    <section className="lab-overview"><div className="lab-container"><div className="lab-overview-head"><p className="lab-kicker">PORTFOLIO / DEMO OVERVIEW</p><span>NOT LIVE NETWORK DATA</span></div><div className="lab-metric-grid"><Metric label="Network" value="MONITORING" tone="green" /><Metric label="Threat engine" value="READY" /><Metric label="PCAP analyzer" value="ONLINE" tone="green" /><Metric label="Projects" value="03" /><Metric label="LeetCode" value="150+" /><Metric label="Open source PRs" value="03+" /></div></div></section>
-    <section className="lab-section lab-home-about"><div className="lab-container lab-split"><div><p className="lab-kicker">01 / WHO IS AMRIT?</p><h2>Practical security, grounded in software.</h2></div><div><p className="lab-lead">I&apos;m Amrit Kumar, a 4th-year B.Tech CSE (Cyber Security) student focused on network security, threat detection, applied cryptography, and security-focused development.</p><button className="lab-text-button" onClick={() => navigate('/about')}>Open profile <span>↗</span></button></div></div></section>
-    <section className="lab-section"><div className="lab-container"><SectionHeader index="02" eyebrow="Project lab" title="What I build." >Security tools and applications, documented as working case studies.</SectionHeader><div className="lab-project-grid">{projects.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div><button className="lab-text-button" onClick={() => navigate('/projects')}>Open project lab <span>↗</span></button></div></section>
-  </>
-}
-
-function About() {
-  const workAreas = [['NETWORK SECURITY', 'Traffic, protocols, packet analysis', ['Python', 'Scapy', 'Wireshark']], ['THREAT DETECTION', 'Signals, logs, risk scoring', ['Splunk', 'Pandas', 'Detection rules']], ['AI / ML SECURITY', 'Applied models and responsible analysis', ['Scikit-learn', 'Feature engineering']], ['APPLIED CRYPTOGRAPHY', 'Practical transformation and threat models', ['Python', 'Caesar + XOR', 'CIA Triad']], ['SECURITY TOOLS', 'Useful utilities for investigation', ['Linux', 'Nmap', 'Streamlit']], ['SOFTWARE DEVELOPMENT', 'Readable, testable product work', ['Java', 'React.js', 'Git']]]
-  const [active, setActive] = useState(0)
-  return <section className="lab-page"><div className="lab-container"><SectionHeader index="02" eyebrow="About" title="Who I am." >A security-focused developer building useful systems and learning in public.</SectionHeader><div className="lab-about-intro"><p className="lab-lead">Cybersecurity Analyst building secure &amp; intelligent systems.</p><p>I work across network security, threat detection, applied cryptography, machine learning, and software development. My approach is simple: build practical tools, learn through hands-on labs, and solve problems with care.</p></div><div className="lab-area-grid">{workAreas.map(([name, description, tags], index) => <button className={`lab-area-card ${active === index ? 'is-active' : ''}`} key={name} onClick={() => setActive(index)}><span>0{index + 1}</span><h3>{name}</h3>{active === index && <><p>{description}</p><div className="lab-tags">{tags.map((tag) => <span key={tag}>{tag}</span>)}</div></>}</button>)}</div><div className="lab-education-panel"><p className="lab-kicker">EDUCATION / 2023 — 2027</p><h3>B.Tech — Computer Science &amp; Engineering (Cyber Security)</h3><p>Haldia Institute of Technology <strong>CGPA: 8.08 / 10</strong></p><div className="lab-tags">{['Networking', 'Operating Systems', 'DBMS', 'OOP', 'Machine Learning', 'Cybersecurity'].map((tag) => <span key={tag}>{tag}</span>)}</div></div></div></section>
-}
-
-function ProjectsPage() {
-  const [filter, setFilter] = useState('All')
-  const filters = ['All', 'Cybersecurity', 'Machine Learning']
-  const visible = projects.filter((project) => filter === 'All' || projectMeta[project.title].category === filter)
-  return <section className="lab-page"><div className="lab-container"><SectionHeader index="03" eyebrow="Project lab" title="Built for real problems." >Explore the systems, signals, and decisions behind each build.</SectionHeader><div className="lab-filter-row">{filters.map((item) => <button className={filter === item ? 'is-selected' : ''} key={item} onClick={() => setFilter(item)}>{item}</button>)}</div><div className="lab-project-grid">{visible.map((project, index) => <ProjectCard key={project.title} project={project} index={index} />)}</div></div></section>
-}
-
-function ProjectDetail({ slug }) {
-  const project = projects.find((item) => projectMeta[item.title].slug === slug)
-  if (!project) return <NotFound />
-  const meta = projectMeta[project.title]
-  return <section className="lab-page"><div className="lab-container"><Link href="/projects" className="lab-back-link">← Back to project lab</Link><div className="lab-detail-hero"><p className="lab-kicker">PROJECT DETAIL / {meta.category}</p><h1>{project.title}</h1><p>{project.solution}</p><div className="lab-detail-actions"><a className="lab-button lab-button-primary" href={projectLinks[project.title].github} target="_blank" rel="noreferrer">View on GitHub ↗</a><a className="lab-button" href={projectLinks[project.title].live} target="_blank" rel="noreferrer">Open Live ↗</a></div></div><div className="lab-detail-grid"><article><p className="lab-kicker">OVERVIEW</p><h2>Problem &amp; solution</h2><p>{project.problem}</p><p>{project.approach}</p></article><article><p className="lab-kicker">ARCHITECTURE</p><h2>How it works</h2><ol className="lab-architecture">{project.architecture.map((item) => <li key={item}>{item}</li>)}</ol></article></div><div className="lab-detail-bottom"><div><p className="lab-kicker">KEY FEATURES</p><ul className="lab-feature-list">{meta.features.map((feature) => <li key={feature}>{feature}</li>)}</ul></div><div><p className="lab-kicker">WHAT I LEARNED</p><p>{project.metrics.join(' ')}</p></div></div></div></section>
-}
-
-function SecurityLab() {
-  return <section className="lab-page"><div className="lab-container"><SectionHeader index="04" eyebrow="Security lab" title="Practice over posturing." >A portfolio view of hands-on learning, not a live monitoring system.</SectionHeader><div className="lab-module-grid">{[['NETWORK', ['Linux', 'TCP/IP', 'Wireshark', 'Nmap']], ['DETECTION', ['Splunk', 'Detection engineering', 'Log analysis']], ['SECURITY', ['OWASP', 'Cryptography', 'Threat modelling', 'Incident response']], ['ML / DATA', ['Scikit-learn', 'Pandas', 'Feature engineering', 'Model evaluation']]].map(([title, items]) => <article className="lab-module" key={title}><p className="lab-kicker">MODULE / 0{items.length}</p><h3>{title}</h3>{items.map((item) => <span key={item}>● {item}</span>)}</article>)}</div><div className="lab-learning-map"><p className="lab-kicker">SECURITY LEARNING PATH</p>{['Linux', 'Network Security', 'Cryptography', 'Web Security', 'Detection Engineering'].map((item, index) => <span key={item}>{item}{index < 4 && <b>↓</b>}</span>)}</div><a className="lab-text-link" href="https://tryhackme.com/p/amritkum1209/" target="_blank" rel="noreferrer">Open TryHackMe profile ↗</a></div></section>
-}
-
-function Skills() {
-  const [active, setActive] = useState('Cybersecurity')
-  return <section className="lab-page"><div className="lab-container"><SectionHeader index="05" eyebrow="Skills" title="A working toolkit." >No inflated percentages. Just the technologies I use to build and reason.</SectionHeader><div className="lab-skills-layout"><div className="lab-skill-tabs">{Object.keys(skillGroups).map((group) => <button className={active === group ? 'is-selected' : ''} key={group} onClick={() => setActive(group)}>{group}</button>)}</div><div className="lab-skill-detail"><p className="lab-kicker">ACTIVE CATEGORY</p><h3>{active}</h3><div className="lab-skill-nodes">{skillGroups[active].map((skill, index) => <span style={{ '--delay': `${index * 50}ms` }} key={skill}>{skill}</span>)}</div></div></div></div></section>
-}
-
-function Journey() {
-  const [active, setActive] = useState(3)
-  return <section className="lab-page"><div className="lab-container"><SectionHeader index="06" eyebrow="Journey" title="Learning in public." >Training, projects, open source, and the habits behind the work.</SectionHeader><div className="lab-timeline">{journey.map(([year, title, detail], index) => <button className={`lab-timeline-item ${active === index ? 'is-active' : ''}`} key={`${year}-${title}`} onClick={() => setActive(index)}><span>{year}</span><div><h3>{title}</h3>{active === index && <p>{detail}</p>}</div></button>)}</div></div></section>
-}
-
-function Contact() {
-  return <section className="lab-page lab-contact-page"><div className="lab-container"><div className="lab-terminal-contact"><p>&gt; INITIALIZING CONNECTION...</p><p>&gt; USER: AMRIT KUMAR</p><p>&gt; STATUS: <strong>AVAILABLE</strong></p><p>&gt; CHANNELS: <strong>ONLINE</strong></p></div><SectionHeader index="07" eyebrow="Contact" title="Establish connection." >I&apos;m open to cybersecurity internships, projects, and opportunities where I can learn, contribute, and solve real-world security problems.</SectionHeader><div className="lab-contact-links"><a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn ↗</a><a href={profile.github} target="_blank" rel="noreferrer">GitHub ↗</a><a href={`mailto:${profile.email}`}>Email ↗</a><a href="https://tryhackme.com/p/amritkum1209/" target="_blank" rel="noreferrer">TryHackMe ↗</a></div></div></section>
-}
-
-function NotFound() { return <section className="lab-page"><div className="lab-container"><h1>Route not found.</h1><Link href="/" className="lab-text-link">Return home ↗</Link></div></section> }
 
 export default function SecurityLabApp() {
-  const [path, setPath] = useState(getPath)
-  const [menuOpen, setMenuOpen] = useState(false)
-  useEffect(() => { const onHashChange = () => { setPath(getPath()); setMenuOpen(false); window.scrollTo({ top: 0, behavior: 'smooth' }) }; window.addEventListener('hashchange', onHashChange); return () => window.removeEventListener('hashchange', onHashChange) }, [])
-  const navigate = (next) => { window.location.hash = next }
-  const detailSlug = path.startsWith('/projects/') ? path.split('/')[2] : null
-  const isActive = (href) => path === href || (href === '/projects' && path.startsWith('/projects/'))
-  const page = path === '/' ? <Home navigate={navigate} /> : path === '/about' ? <About /> : path === '/projects' ? <ProjectsPage /> : detailSlug ? <ProjectDetail slug={detailSlug} /> : path === '/security-lab' ? <SecurityLab /> : path === '/skills' ? <Skills /> : path === '/journey' ? <Journey /> : path === '/contact' ? <Contact /> : <NotFound />
-  return <div className="lab-app"><div className="lab-background" aria-hidden="true"><span /><span /><span /><span /><span /></div><header className="lab-nav"><div className="lab-container lab-nav-inner"><Link href="/" className="lab-brand" onClick={() => setMenuOpen(false)}>AMRIT.K</Link><nav className={menuOpen ? 'is-open' : ''}>{routes.map(([href, number, label]) => <Link key={href} href={href} className={isActive(href) ? 'is-active' : ''} onClick={() => setMenuOpen(false)}><small>{number}</small>{label}</Link>)}</nav><a className="lab-resume" href={profile.resume} target="_blank" rel="noreferrer">Resume ↗</a><button className={`lab-menu ${menuOpen ? 'is-open' : ''}`} onClick={() => setMenuOpen((open) => !open)} aria-label="Toggle navigation" aria-expanded={menuOpen}><i /><i /></button></div></header><main>{page}</main><footer className="lab-footer"><div className="lab-container"><Link href="/" className="lab-brand">AMRIT.K</Link><p>Cybersecurity • Threat Detection • Software Development</p><span>© 2026 Amrit Kumar</span></div></footer></div>
+  return <AppShell />
 }
