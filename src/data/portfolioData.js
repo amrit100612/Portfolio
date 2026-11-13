@@ -3,8 +3,6 @@ export const profile = {
   title: 'Cybersecurity Analyst | ML & Software Engineering',
   headline: 'I’m a cybersecurity-focused student building secure software, analyzing threats, and applying machine learning to practical defense problems.',
   subheading: 'Fourth-year B.Tech CSE (Cyber Security) • Haldia Institute of Technology • CGPA 8.08/10',
-  photo: '/amrit-photo.png.png',
-  photoAlt: 'Portrait of Amrit Kumar',
   location: 'West Bengal, India',
   phone: '+91 9508043572',
   website: 'https://amritkumar.me',

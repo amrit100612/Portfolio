@@ -1,4 +1,4 @@
-import { about, aboutFacts, profile } from '../data/portfolioData'
+import { about, aboutFacts } from '../data/portfolioData'
 
 export default function About() {
   return (
@@ -10,10 +10,6 @@ export default function About() {
         </p>
 
         <div className="about-grid">
-          <div className="about-photo" data-aos="fade-up-right">
-            <img src={profile.photo} alt={profile.photoAlt} loading="lazy" />
-          </div>
-
           <div data-aos="fade-up-left">
             <p>{about.aboutText}</p>
             <p className="about-story">{about.aboutStory}</p>
