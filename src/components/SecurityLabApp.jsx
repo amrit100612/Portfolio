@@ -40,6 +40,14 @@ const terminalCommands = {
   matrix: 'red team / blue team / secure software / applied ML',
 }
 
+const formatIstTime = () => new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Kolkata',
+  hour: '2-digit',
+  minute: '2-digit',
+  second: '2-digit',
+  hour12: false,
+}).format(new Date())
+
 function useThreatCanvas(canvasRef) {
   useEffect(() => {
     const canvas = canvasRef.current
@@ -89,7 +97,7 @@ function BootScreen({ onComplete }) {
     return () => clearInterval(timer)
   }, [onComplete])
   const dump = ['A4 7F 19 C2', '00 FF 2A 6D', '9B 10 38 BD', 'DE AD BE EF', '7C 84 FC 2D', '42 0C 11 AE', 'F0 0D 55 19', '13 37 88 C0', 'AB 91 0E 42', '6D 2A FF 08', '10 98 B3 7A', 'C4 20 7F 91', 'E2 04 1A 6B', '5C 3D 00 F1']
-  return <div className="aether-boot"><div className="boot-dump">{dump.map((value, index) => <span key={value}>0x{value} // handshake.{index + 1} verified</span>)}</div><div className="boot-core"><div className="boot-ring" style={{ '--progress': `${progress * 3.6}deg` }}><strong>{progress}%</strong></div><p>AMRIT-OS v4.2</p><span>INITIALIZING AMRIT-OS / DECRYPTING RSA KEYS</span><button onClick={onComplete}>Skip handshake ↗</button></div><div className="boot-shutter boot-shutter-left" /><div className="boot-shutter boot-shutter-right" /></div>
+  return <div className="aether-boot"><div className="boot-dump">{dump.map((value, index) => <span key={value}>0x{value} // handshake.{index + 1} verified</span>)}</div><div className="boot-core"><div className="boot-ring" style={{ '--progress': `${progress * 3.6}deg` }}><strong>{progress}%</strong></div><p>AMRIT-OS</p><span>INITIALIZING AMRIT-OS / DECRYPTING RSA KEYS</span><button onClick={onComplete}>Skip handshake ↗</button></div><div className="boot-shutter boot-shutter-left" /><div className="boot-shutter boot-shutter-right" /></div>
 }
 
 function Terminal({ setModule }) {
@@ -124,18 +132,18 @@ function AppShell() {
   const [message, setMessage] = useState('')
   const [toast, setToast] = useState('')
   const [encrypting, setEncrypting] = useState(false)
-  const [utc, setUtc] = useState(() => new Date().toISOString().slice(11, 19))
+  const [ist, setIst] = useState(() => formatIstTime())
   const canvasRef = useRef(null)
   useThreatCanvas(canvasRef)
   const activeTheme = themes[theme]
   const activeSkills = useMemo(() => skills.slice(0, 6), [])
-  useEffect(() => { const timer = setInterval(() => setUtc(new Date().toISOString().slice(11, 19)), 1000); return () => clearInterval(timer) }, [])
+  useEffect(() => { const timer = setInterval(() => setIst(formatIstTime()), 1000); return () => clearInterval(timer) }, [])
   const spotlight = (event) => { const rect = event.currentTarget.getBoundingClientRect(); event.currentTarget.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`); event.currentTarget.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`) }
   const copyKey = async () => { await navigator.clipboard?.writeText('-----BEGIN PGP PUBLIC KEY-----\\nAMRIT.K / AETHER-OS\\n-----END PGP PUBLIC KEY-----'); setToast('PGP fingerprint copied'); setTimeout(() => setToast(''), 2200) }
   if (!booted) return <BootScreen onComplete={() => setBooted(true)} />
   return <div className={`aether-os ${recon ? 'is-recon' : ''}`} style={{ '--theme-bg': activeTheme[1], '--theme-accent': activeTheme[2] }}>
     <canvas className="aether-canvas" ref={canvasRef} aria-hidden="true" />
-    <header className="aether-command-bar"><div className="aether-brand"><span>▲</span> AMRIT-OS <small>v4.2</small></div><div className="aether-telemetry"><span>UTC {utc}</span><b>CPU 42%</b><b>RAM 2.8GB</b><b className="telemetry-alert">THREAT LOW</b></div><div className="aether-controls"><select value={theme} onChange={(event) => setTheme(event.target.value)} aria-label="Theme palette">{Object.entries(themes).map(([key, value]) => <option value={key} key={key}>{value[0]}</option>)}</select><button className={recon ? 'is-active' : ''} onClick={() => setRecon((value) => !value)}>◉ RECON X-RAY</button></div></header>
+    <header className="aether-command-bar"><div className="aether-brand"><span>▲</span> AMRIT-OS</div><div className="aether-telemetry"><span>IST {ist}</span><b>CPU 42%</b><b>RAM 2.8GB</b><b className="telemetry-alert">THREAT LOW</b></div><div className="aether-controls"><select value={theme} onChange={(event) => setTheme(event.target.value)} aria-label="Theme palette">{Object.entries(themes).map(([key, value]) => <option value={key} key={key}>{value[0]}</option>)}</select><button className={recon ? 'is-active' : ''} onClick={() => setRecon((value) => !value)}>◉ RECON X-RAY</button></div></header>
     <nav className="aether-dock">{modules.map(([id, label]) => <button className={module === id ? 'is-active' : ''} key={id} onClick={() => setModule(id)}><span>~/</span>{label}</button>)}</nav>
     <main className="aether-workspace">
       {module === 'overview' && <section className="aether-module aether-overview"><div className="module-intro"><p className="aether-kicker">01 / EXECUTIVE DOSSIER</p><h1>Security is not a feature.<br /><em>It&apos;s the operating system.</em></h1><p>Amrit Kumar is a cybersecurity professional building secure software, practical detection systems, and threat-aware experiences.</p><div className="module-actions"><button onClick={() => setModule('operations')}>Open operations ↗</button><a href={profile.resume} target="_blank" rel="noreferrer">Download dossier ↓</a></div></div><div className="overview-grid"><article className="aether-card clearance-card"><span>SECURITY CLEARANCE</span><strong>DEFENSIVE<br />BUILDER</strong><small>Network security / cryptography / secure software</small><i>AVAILABLE FOR IMPACT</i></article><article className="aether-card counter-card"><span>THREAT SURFACE MONITORED</span><strong>03</strong><small>Active build systems</small><div className="waveform" /></article><article className="aether-card"><span>CORE SIGNAL</span><strong>150+</strong><small>DSA problems solved</small></article><article className="aether-card"><span>STATUS</span><strong className="status-online">ONLINE</strong><small>Open to security roles and collaborations</small></article></div></section>}
