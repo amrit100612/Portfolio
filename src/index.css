@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root { --bg: #070a0f; --surface: #0b1018; --card: #101722; --card-hover: #151f2d; --cyan: #00d9ff; --blue: #3b82f6; --purple: #6366f1; --green: #22c55e; --red: #ef4444; --white: #f8fafc; --muted: #94a3b8; --border: #1e293b; color: var(--white); background: var(--bg); font-family: 'Inter', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+:root { --bg: #171513; --surface: #211e1a; --card: #2b2721; --card-hover: #383127; --cyan: #b89a5a; --blue: #a9894f; --purple: #8c7444; --green: #b5a27c; --red: #c58b72; --white: #f3ead8; --muted: #c6b89f; --border: #544b3d; color: var(--white); background: var(--bg); font-family: 'Inter', sans-serif; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
 * { box-sizing: border-box; }
 html, body, #root { min-width: 320px; min-height: 100%; margin: 0; background: var(--bg); }
 body { color: var(--white); line-height: 1.6; overflow-x: hidden; }
@@ -52,6 +52,20 @@ a { color: inherit; } button, a { -webkit-tap-highlight-color: transparent; } bu
 .lab-contact-page { display: grid; align-items: center; }.lab-terminal-contact { max-width: 520px; margin-bottom: 4rem; padding: 1.3rem; border: 1px solid var(--border); background: #06090d; color: var(--muted); font: .72rem 'JetBrains Mono', monospace; }.lab-terminal-contact p { margin: .35rem 0; }.lab-terminal-contact strong { color: var(--green); font-weight: 500; }.lab-contact-links { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem; }.lab-contact-links a { color: var(--cyan); font: .72rem 'JetBrains Mono', monospace; text-decoration: none; text-transform: uppercase; }.lab-contact-links a:hover { color: #fff; }
 .lab-footer { padding: 2.3rem 0; border-top: 1px solid var(--border); background: #05080c; }.lab-footer p { margin: .7rem 0 0; color: var(--muted); font: .66rem 'JetBrains Mono', monospace; }.lab-footer span { display: block; margin-top: .7rem; color: #64748b; font: .62rem 'JetBrains Mono', monospace; }
 @keyframes page-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } } @keyframes scan { 0%, 100% { transform: translateY(-100px); opacity: 0; } 30%, 70% { opacity: .7; } 50% { transform: translateY(210px); } } @keyframes pulse { 0%, 100% { transform: scale(.8); opacity: .5; } 50% { transform: scale(1.35); opacity: 1; } } @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-12px); } } @keyframes drift { from { transform: rotate(42deg) translateY(-10%); } to { transform: rotate(42deg) translateY(10%); } } @keyframes node-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
+/* Soft black, warm beige, and muted gold overrides for legacy decorative values. */
+body::before { background-image: linear-gradient(rgba(184,154,90,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(184,154,90,.045) 1px, transparent 1px); }
+body::after { background: repeating-linear-gradient(0deg, transparent 0, transparent 3px, var(--white) 4px); }
+.lab-nav { border-bottom-color: rgba(84,75,61,.88); background: rgba(23,21,19,.88); }
+.lab-nav nav a small, .lab-overview-head span, .lab-visual > small { color: var(--muted); }
+.lab-button-primary:hover { color: var(--bg); background: #d0b779; }
+.lab-text-button:hover, .lab-text-link:hover, .lab-github-link:hover, .lab-contact-links a:hover { color: var(--white); }
+.lab-photo-card { box-shadow: 0 0 80px rgba(184,154,90,.11); }
+.lab-overview { background: rgba(33,30,26,.82); }
+.lab-visual { background: #211e1a; }
+.pcap-grid { background-image: linear-gradient(25deg, transparent 48%, rgba(184,154,90,.32) 49%, transparent 51%), linear-gradient(150deg, transparent 48%, rgba(140,116,68,.35) 49%, transparent 51%); }
+.risk-list { background: rgba(23,21,19,.86); }
+.risk-list .risk-medium { color: var(--cyan); }
+.cipher-visual div, .lab-metric { background: rgba(43,39,33,.78); } @keyframes node-in { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: none; } }
 @media (max-width: 980px) { .lab-nav nav { gap: 0; }.lab-nav nav a { padding-inline: .35rem; }.lab-hero-grid { gap: 2rem; }.lab-metric-grid { grid-template-columns: repeat(3, 1fr); }.lab-module-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 720px) { .lab-container { width: min(100% - 2rem, 1180px); }.lab-nav-inner { min-height: 66px; }.lab-nav nav { position: absolute; top: 66px; right: 1rem; left: 1rem; display: none; padding: .5rem; border: 1px solid var(--border); background: rgba(11,16,24,.98); box-shadow: 0 20px 40px rgba(0,0,0,.35); }.lab-nav nav.is-open { display: grid; }.lab-nav nav a { padding: .8rem; }.lab-resume { display: none; }.lab-menu { display: block; }.lab-menu.is-open i:first-child { transform: translateY(3px) rotate(45deg); }.lab-menu.is-open i:last-child { transform: translateY(-3px) rotate(-45deg); }.lab-hero { min-height: auto; padding: 5rem 0 4rem; }.lab-hero-grid, .lab-split, .lab-detail-grid { grid-template-columns: 1fr; gap: 3rem; }.lab-hero h1 { font-size: clamp(2.8rem, 14vw, 5rem); }.lab-profile-stage { min-height: 410px; }.lab-overview-head { display: block; }.lab-metric-grid { grid-template-columns: repeat(2, 1fr); }.lab-section, .lab-page { padding: 4.5rem 0; }.lab-section-header { display: block; }.lab-section-note { margin-top: 1rem; }.lab-project-grid { grid-template-columns: 1fr; }.lab-project-featured { grid-column: auto; display: block; }.lab-project-featured .lab-visual { min-height: 280px; border-right: 0; border-bottom: 1px solid var(--border); }.lab-area-grid { grid-template-columns: 1fr 1fr; }.lab-module-grid { grid-template-columns: 1fr 1fr; }.lab-skills-layout { grid-template-columns: 1fr; }.lab-skill-tabs { grid-template-columns: repeat(2, 1fr); }.lab-detail-bottom { grid-template-columns: 1fr; }.lab-learning-map { align-items: flex-start; flex-direction: column; }.lab-learning-map span { padding-left: 1rem; }.lab-learning-map b { display: none; } }
 @media (max-width: 460px) { .lab-actions, .lab-contact-links { display: grid; }.lab-button { width: 100%; }.lab-metric-grid, .lab-area-grid, .lab-module-grid { grid-template-columns: 1fr; }.lab-feature-list { grid-template-columns: 1fr; }.lab-project-content h3 { font-size: 1.35rem; }.lab-education-panel strong { display: block; margin: .45rem 0 0; }.lab-timeline::before { left: 55px; }.lab-timeline-item { grid-template-columns: 80px 1fr; }.lab-timeline-item > div { padding-left: 1rem; } }
@@ -59,4 +73,17 @@ a { color: inherit; } button, a { -webkit-tap-highlight-color: transparent; } bu
 
 .lab-project-actions, .lab-detail-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.4rem; }
 .lab-live-link { padding: .35rem .55rem; border: 1px solid rgba(34, 197, 94, .45); color: var(--green); font: 500 .7rem 'JetBrains Mono', monospace; text-decoration: none; text-transform: uppercase; }
+.lab-background::before, .lab-background::after { background: linear-gradient(transparent, rgba(184,154,90,.35), transparent); }
+.lab-nav nav a:hover, .lab-nav nav a.is-active { background: rgba(184,154,90,.08); }
+.lab-resume { border-color: rgba(184,154,90,.5); }
+.lab-button-primary { color: var(--bg); }
+.lab-profile-status { background: rgba(33,30,26,.96); }
+.lab-project-card:hover { border-color: rgba(184,154,90,.7); box-shadow: 0 20px 55px rgba(184,154,90,.08); }
+.lab-tags span:hover, .lab-skill-nodes span:hover { border-color: rgba(184,154,90,.5); }
+.lab-filter-row button:hover, .lab-filter-row button.is-selected, .lab-skill-tabs button:hover, .lab-skill-tabs button.is-selected { background: rgba(184,154,90,.07); }
+.risk-list { background: rgba(23,21,19,.86); }
+.lab-footer { background: #171513; }
+.lab-footer span { color: var(--muted); }
+.lab-live-link { border-color: rgba(181,162,124,.45); }
+@media (max-width: 720px) { .lab-nav nav { background: rgba(33,30,26,.98); box-shadow: 0 20px 40px rgba(23,21,19,.35); } }
 .lab-live-link:hover { border-color: var(--green); color: var(--green); }
